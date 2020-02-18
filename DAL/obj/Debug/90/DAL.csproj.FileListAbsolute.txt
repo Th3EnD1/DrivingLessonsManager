@@ -1,0 +1,97 @@
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\bin\Debug\DAL.dll
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\bin\Debug\DAL.pdb
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\bin\Debug\DAL.DAL.apk
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\bin\Debug\DAL.DAL-Signed.aab
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\bin\Debug\DAL.DAL-Signed.apk
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\build.props
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\adb.props
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\resourcepaths.cache
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\resourcecache.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\res.flag
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\flata\495BBA6BB3ACDC69.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\flata\0D1FD5A2A6ACC151.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\flata\DD6F7BFA47E97BFF.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\flata\495BBA6BB3ACDC69.flata
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\flata\0D1FD5A2A6ACC151.flata
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\flata\DD6F7BFA47E97BFF.flata
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\flata\compiled.flata
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\R.txt
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\R.cs.flag
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\__AndroidLibraryProjects__.zip
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\DAL.dll
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\DAL.pdb
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\android\bin\DAL.DAL.apk
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\android\bin\base.zip
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\android\bin\DAL.DAL.aab
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\android\bin\DAL.DAL.apks
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\res\values\strings.xml
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\uploadflags.txt
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\stamp\_BuildAdditionalResourcesCache.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\stamp\_CleanIntermediateIfNuGetsChange.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\stamp\_ConvertLibraryResourcesCases.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\stamp\_ConvertResourcesCases.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\DAL\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\bin\Debug\DAL.dll
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\bin\Debug\DAL.pdb
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\bin\Debug\DAL.DAL.apk
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\bin\Debug\DAL.DAL-Signed.aab
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\bin\Debug\DAL.DAL-Signed.apk
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\build.props
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\adb.props
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\DAL.csprojAssemblyReference.cache
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\resourcepaths.cache
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\resourcecache.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\res.flag
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\compiled.flata
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\R.txt
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\R.cs.flag
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\__AndroidLibraryProjects__.zip
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\DAL.dll
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\DAL.pdb
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\android\bin\DAL.DAL.apk
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\android\bin\base.zip
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\android\bin\DAL.DAL.aab
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\android\bin\DAL.DAL.apks
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\res\values\strings.xml
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\uploadflags.txt
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\stamp\_BuildAdditionalResourcesCache.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\stamp\_CleanIntermediateIfNuGetsChange.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\stamp\_ConvertLibraryResourcesCases.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\stamp\_ConvertResourcesCases.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\Xamarin.GooglePlayServices.Basement.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\Xamarin.GooglePlayServices.Tasks.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\Xamarin.GooglePlayServices.Base.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\Xamarin.Firebase.ProtoliteWellKnownTypes.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\Xamarin.Firebase.Database.Collection.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\Xamarin.Firebase.Common.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\Xamarin.Firebase.Firestore.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\proguard\dc663e480.txt
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\dc663e48.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\0757626b.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\proguard\2f4d086a0.txt
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\2f4d086a.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\fd6e4e57.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\195281ff.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\proguard\1f4fd9cc0.txt
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\1f4fd9cc.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\proguard\fbf1b9870.txt
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\XbdMerge\fbf1b987.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\E22DCFDD969BE1CA.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\01C5661F2DDAC338.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\E175EF21F6F8A41F.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\3DA8E35F9FF8F7B7.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\41675398F71491EB.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\05233C51E2148CD3.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\E22DCFDD969BE1CA.flata
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\01C5661F2DDAC338.flata
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\E175EF21F6F8A41F.flata
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\3DA8E35F9FF8F7B7.flata
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\41675398F71491EB.flata
+C:\Users\student\Desktop\Driving Lessons Manager\DAL\obj\Debug\90\flata\05233C51E2148CD3.flata

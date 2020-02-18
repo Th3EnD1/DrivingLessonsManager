@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Driving Lessons Manager"
+        android:textSize="50dp"
+        android:gravity="center"
+        android:textColor="@android:color/holo_blue_light"
+    />
+
+	<Button
+        android:id="@+id/btnList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="List of Lessons"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="50dp"
+	/>
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="Settings"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+	/>
+
+    <Button
+        android:id="@+id/btnCheckList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="Whats left?"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+	/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="Notes"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+	/>
+
+</LinearLayout>

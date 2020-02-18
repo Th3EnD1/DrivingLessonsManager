@@ -1,0 +1,98 @@
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\bin\Debug\HELPER.dll
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\bin\Debug\HELPER.pdb
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\bin\Debug\HELPER.HELPER.apk
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\bin\Debug\HELPER.HELPER-Signed.aab
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\bin\Debug\HELPER.HELPER-Signed.apk
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\build.props
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\adb.props
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\HELPER.csprojAssemblyReference.cache
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\resourcepaths.cache
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\resourcecache.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\res.flag
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\flata\FC3324E5690831E8.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\flata\30FF95BE570816A0.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\flata\CCF30383536FEC61.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\flata\FC3324E5690831E8.flata
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\flata\30FF95BE570816A0.flata
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\flata\CCF30383536FEC61.flata
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\flata\compiled.flata
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\R.txt
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\R.cs.flag
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\__AndroidLibraryProjects__.zip
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\HELPER.dll
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\HELPER.pdb
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\android\bin\HELPER.HELPER.apk
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\android\bin\base.zip
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\android\bin\HELPER.HELPER.aab
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\android\bin\HELPER.HELPER.apks
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\res\values\strings.xml
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\uploadflags.txt
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\stamp\_BuildAdditionalResourcesCache.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\stamp\_CleanIntermediateIfNuGetsChange.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\stamp\_ConvertLibraryResourcesCases.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\stamp\_ConvertResourcesCases.stamp
+C:\Users\Eden\Desktop\TASHTIT_ANDROID_PROJECT\HELPER\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\bin\Debug\HELPER.dll
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\bin\Debug\HELPER.pdb
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\bin\Debug\HELPER.HELPER.apk
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\bin\Debug\HELPER.HELPER-Signed.aab
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\bin\Debug\HELPER.HELPER-Signed.apk
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\build.props
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\adb.props
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\HELPER.csprojAssemblyReference.cache
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\resourcepaths.cache
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\resourcecache.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\res.flag
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\compiled.flata
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\R.txt
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\R.cs.flag
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\__AndroidLibraryProjects__.zip
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\HELPER.dll
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\HELPER.pdb
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\android\bin\HELPER.HELPER.apk
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\android\bin\base.zip
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\android\bin\HELPER.HELPER.aab
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\android\bin\HELPER.HELPER.apks
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\res\values\strings.xml
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\uploadflags.txt
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\stamp\_BuildAdditionalResourcesCache.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\stamp\_CleanIntermediateIfNuGetsChange.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\stamp\_ConvertLibraryResourcesCases.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\stamp\_ConvertResourcesCases.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\Xamarin.GooglePlayServices.Basement.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\Xamarin.GooglePlayServices.Tasks.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\Xamarin.GooglePlayServices.Base.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\Xamarin.Firebase.ProtoliteWellKnownTypes.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\Xamarin.Firebase.Database.Collection.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\Xamarin.Firebase.Common.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\Xamarin.Firebase.Firestore.dll.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\proguard\dc663e480.txt
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\dc663e48.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\0757626b.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\proguard\2f4d086a0.txt
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\2f4d086a.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\fd6e4e57.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\195281ff.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\proguard\1f4fd9cc0.txt
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\1f4fd9cc.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\proguard\fbf1b9870.txt
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\XbdMerge\fbf1b987.proguard.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\A7B40DCB05618C63.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\E3F062021061915B.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\8BC835AEE043CC0C.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\DF9DE742A243A5D4.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\A3525785CAAFC388.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\343EB6E85E8921CB.stamp
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\A7B40DCB05618C63.flata
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\E3F062021061915B.flata
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\8BC835AEE043CC0C.flata
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\DF9DE742A243A5D4.flata
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\A3525785CAAFC388.flata
+C:\Users\student\Desktop\Driving Lessons Manager\HELPER\obj\Debug\90\flata\343EB6E85E8921CB.flata

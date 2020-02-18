@@ -1,0 +1,1 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"><item android:id="@+id/mnuCities" android:title="Cities" /><item android:id="@+id/mnuAreaCodes" android:title="Area Codes" /><item android:id="@+id/mnuExit" android:title="Exit" /></menu>
