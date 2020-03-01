@@ -40,7 +40,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             txtHeader.Text   = "Area Codes list";
             etCity.Hint      = "New Area code";
-            etCity.InputType = Android.Text.InputTypes.ClassNumber;
+            //etCity.InputType = Android.Text.InputTypes.ClassNumber;
 
             cities = new AreaCodes();
             cities = cities.SelectAll();

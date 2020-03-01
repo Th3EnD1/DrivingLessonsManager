@@ -16,21 +16,23 @@ namespace MODEL
     [Table ("Lessons")]
     public class Lesson : BaseEntity
     {
-        private LessonType lessonType;
+        private int studentNo;
+        private int lessonTypeNo;
+        private int categoryNo;
         private DateTime date;
         private bool paid;
         private string details;
 
         public Lesson() { }
 
-        public Lesson(LessonType lessonType, DateTime date, bool paid = false)
+        public Lesson(int lessonTypeNo, DateTime date, bool paid = false)
         {
             this.date = date;
-            this.lessonType = lessonType;
+            this.lessonTypeNo = lessonTypeNo;
             this.paid = paid;
         }
 
-        public LessonType LessonType { get => lessonType; set => lessonType = value; }
+        public int LessonTypeNo { get => lessonTypeNo; set => lessonTypeNo = value; }
         public DateTime Date { get => date; set => date = value; }
         public bool Paid { get => paid; set => paid = value; }
         public string Details { get => details; set => details = value; }
@@ -39,20 +41,22 @@ namespace MODEL
         {
             return obj is Lesson lesson &&
                    base.Equals(obj) &&
-                   lessonType == lesson.lessonType &&
+                   studentNo == lesson.studentNo &&
+                   lessonTypeNo == lesson.lessonTypeNo &&
+                   categoryNo == lesson.categoryNo &&
                    date == lesson.date &&
                    paid == lesson.paid &&
                    details == lesson.details;
         }
     }
 
-    public enum LessonType
-    {
-        Regular,
-        OneAndHalf,
-        Double,
-        Triple,
-        InTest,
-        OutTest
-    }
+    //public enum LessonType
+    //{
+    //    Regular,
+    //    OneAndHalf,
+    //    Double,
+    //    Triple,
+    //    InTest,
+    //    OutTest
+    //}
 }

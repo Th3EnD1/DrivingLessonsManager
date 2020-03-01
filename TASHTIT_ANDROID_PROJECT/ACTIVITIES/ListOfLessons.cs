@@ -32,9 +32,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            //dB = new DAL.DbTable<Lesson>();
-            //lessons = dB.
-            //SetContentView(Resource.Layout.activity_test);
+            
         }
     }
 }
