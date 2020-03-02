@@ -25,17 +25,22 @@ namespace MODEL
 
         public Lesson() { }
 
-        public Lesson(int lessonTypeNo, DateTime date, bool paid = false)
+        public Lesson(int studentNo, int lessonTypeNo, int categoryNo, DateTime date, bool paid, string details)
         {
-            this.date = date;
+            this.studentNo = studentNo;
             this.lessonTypeNo = lessonTypeNo;
+            this.categoryNo = categoryNo;
+            this.date = date;
             this.paid = paid;
+            this.details = details;
         }
 
         public int LessonTypeNo { get => lessonTypeNo; set => lessonTypeNo = value; }
         public DateTime Date { get => date; set => date = value; }
         public bool Paid { get => paid; set => paid = value; }
         public string Details { get => details; set => details = value; }
+        public int StudentNo { get => studentNo; set => studentNo = value; }
+        public int CategoryNo { get => categoryNo; set => categoryNo = value; }
 
         public override bool Equals(object obj)
         {
