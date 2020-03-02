@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ACTIVITIES\AreaCodesActivity - .cs" />
+    <Compile Include="ACTIVITIES\CategoriesActivity.cs" />
     <Compile Include="ACTIVITIES\ListOfLessons.cs" />
     <Compile Include="ACTIVITIES\ListViewActivity.cs" />
     <Compile Include="ACTIVITIES\NewLesson.cs" />
