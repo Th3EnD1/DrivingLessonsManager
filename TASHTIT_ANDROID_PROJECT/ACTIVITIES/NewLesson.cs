@@ -114,25 +114,25 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             switch (spnType.SelectedItemId)
             {
                 case 0:
-                    lesson.LessonType = LessonType.Regular;
+                    lesson.LessonTypeNo = (int)LessonTypeEnum.Regular;
                     break;
                 case 1:
-                    lesson.LessonType = LessonType.OneAndHalf;
+                    lesson.LessonTypeNo = (int)LessonTypeEnum.OneAndHalf;
                     break;
                 case 2:
-                    lesson.LessonType = LessonType.Double;
+                    lesson.LessonTypeNo = (int)LessonTypeEnum.Double;
                     break;
                 case 3:
-                    lesson.LessonType = LessonType.Triple;
+                    lesson.LessonTypeNo = (int)LessonTypeEnum.Triple;
                     break;
                 case 4:
-                    lesson.LessonType = LessonType.InTest;
+                    lesson.LessonTypeNo = (int)LessonTypeEnum.InTest;
                     break;
                 case 5:
-                    lesson.LessonType = LessonType.OutTest;
+                    lesson.LessonTypeNo = (int)LessonTypeEnum.OutTest;
                     break;
                 default:
-                    lesson.LessonType = LessonType.Regular;
+                    lesson.LessonTypeNo = (int)LessonTypeEnum.Regular;
                     break;
             }
 
@@ -181,24 +181,24 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                     // השמת הערכים לעריכה בשדות הקלט
                     txtDate.Text = lesson.Date.ToString();
 
-                    switch (lesson.LessonType)
+                    switch (lesson.LessonTypeNo)
                     {
-                        case LessonType.Regular:
+                        case (int)LessonTypeEnum.Regular:
                             spnType.SetSelection(0);
                             break;
-                        case LessonType.OneAndHalf:
+                        case (int)LessonTypeEnum.OneAndHalf:
                             spnType.SetSelection(1);
                             break;
-                        case LessonType.Double:
+                        case (int)LessonTypeEnum.Double:
                             spnType.SetSelection(2);
                             break;
-                        case LessonType.Triple:
+                        case (int)LessonTypeEnum.Triple:
                             spnType.SetSelection(3);
                             break;
-                        case LessonType.InTest:
+                        case (int)LessonTypeEnum.InTest:
                             spnType.SetSelection(4);
                             break;
-                        case LessonType.OutTest:
+                        case (int)LessonTypeEnum.OutTest:
                             spnType.SetSelection(5);
                             break;
                         default:

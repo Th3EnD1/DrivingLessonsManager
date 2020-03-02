@@ -55,13 +55,13 @@ namespace MODEL
         }
     }
 
-    //public enum LessonType
-    //{
-    //    Regular,
-    //    OneAndHalf,
-    //    Double,
-    //    Triple,
-    //    InTest,
-    //    OutTest
-    //}
+    public enum LessonTypeEnum
+    {
+        Regular,
+        OneAndHalf,
+        Double,
+        Triple,
+        InTest,
+        OutTest
+    }
 }
