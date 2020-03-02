@@ -71,6 +71,7 @@
     <Compile Include="ACTIVITIES\ListViewActivity.cs" />
     <Compile Include="ACTIVITIES\NewLesson.cs" />
     <Compile Include="ACTIVITIES\Settings.cs" />
+    <Compile Include="ACTIVITIES\TypesActivity.cs" />
     <Compile Include="ADAPTERS\LessonsAdapter.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

@@ -14,16 +14,16 @@ using MODEL;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
-    [Activity(Label = "CategoriesActivity")]
-    public class CategoriesActivity : Activity
+    [Activity(Label = "TypesActivity")]
+    public class TypesActivity : Activity
     {
-        private ListView lvCategories;
-        private EditText etCategory;
+        private ListView lvTypes;
+        private EditText etType;
         private ImageButton btnOk;
         private ImageButton btnCancel;
         private TextView txtHeader;
 
-        private Categories categories;
+        private LessonTypes lessonTypes;
         private ArrayAdapter<string> adapter;
 
         int position = -1;
@@ -37,12 +37,12 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             SetViews();
 
-            txtHeader.Text = "Categories list";
-            etCategory.Hint = "New Category";
+            txtHeader.Text = "Types list";
+            etType.Hint = "New Type";
             //etCity.InputType = Android.Text.InputTypes.ClassNumber;
 
-            categories = new Categories();
-            categories = categories.SelectAll();
+            lessonTypes = new LessonTypes();
+            lessonTypes = lessonTypes.SelectAll();
 
             RefreshListView();
 
@@ -51,14 +51,14 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
         private void SetViews()
         {
-            lvCategories  = FindViewById<ListView>(Resource.Id.lvCategories);
-            etCategory    = FindViewById<EditText>(Resource.Id.etCategory);
-            btnOk     = FindViewById<ImageButton>(Resource.Id.btnOk);
+            lvTypes = FindViewById<ListView>(Resource.Id.lvCategories);
+            etType = FindViewById<EditText>(Resource.Id.etCategory);
+            btnOk = FindViewById<ImageButton>(Resource.Id.btnOk);
             btnCancel = FindViewById<ImageButton>(Resource.Id.btnCancel);
             txtHeader = FindViewById<TextView>(Resource.Id.txtHeader);
 
-            lvCategories.ItemClick += LvCities_ItemClick;
-            lvCategories.ItemLongClick += LvCities_ItemLongClick;
+            lvTypes.ItemClick += lvTypes_ItemClick;
+            lvTypes.ItemLongClick += lvTypes_ItemLongClick;
 
             btnOk.Click += BtnOk_Click;
             btnCancel.Click += BtnCancel_Click;
@@ -66,35 +66,35 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
         private void RefreshListView()
         {
-            adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, categories.Select(category => category.Name).OrderBy(name => name).ToList());
-            lvCategories.Adapter = adapter;
+            adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, lessonTypes.Select(lessonType => lessonType.Name).OrderBy(name => name).ToList());
+            lvTypes.Adapter = adapter;
         }
 
-        private void LvCities_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        private void lvTypes_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             position = e.Position;
-            etCategory.Text = categories[position].Name;
+            etType.Text = lessonTypes[position].Name;
         }
 
-        private void LvCities_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        private void lvTypes_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
             Android.Support.V7.App.AlertDialog.Builder alertDiag = new Android.Support.V7.App.AlertDialog.Builder(this);
 
             alertDiag.SetTitle("Confirm delete");
-            alertDiag.SetMessage("Once '" + categories[e.Position].Name + "' deleted the move cannot be undone");
+            alertDiag.SetMessage("Once '" + lessonTypes[e.Position].Name + "' deleted the move cannot be undone");
 
             alertDiag.SetCancelable(true);
 
             alertDiag.SetPositiveButton("Delete", (EventHandler<DialogClickEventArgs>)((senderAlert, args)
             => {
-                Category category = categories[e.Position];
+                LessonType lessonType = lessonTypes[e.Position];
 
-                if (category.Id != 0)
-                    category.EntityStatus = EntityStatus.DELETED;
+                if (lessonType.Id != 0)
+                    lessonType.EntityStatus = EntityStatus.DELETED;
                 else
-                    categories.Remove(category);
+                    lessonTypes.Remove(lessonType);
 
-                categories.Save();
+                lessonTypes.Save();
 
                 RefreshListView();
 
@@ -117,46 +117,46 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             Global.HideKeyboard(this);
 
-            if (etCategory.Text != "")
+            if (etType.Text != "")
             {
-                if (!etCategory.Text.StartsWith('0') || etCategory.Text.Length > 3)
+                if (!etType.Text.StartsWith('0') || etType.Text.Length > 3)
                 {
                     Global.ToastCenteredText(this, "Area code should follow \n 1. Start with '0' \n 2. Maximum 3 digits", ToastLength.Long);
                 }
                 else
                 {
-                    Category category = new Category(etCategory.Text);
+                    LessonType lessonType = new LessonType(etType.Text);
 
                     if (isNew)
                     {
-                        if (!categories.Exists(category))
+                        if (!lessonTypes.Exists(lessonType))
                         {
-                            category.EntityStatus = EntityStatus.ADDED;
-                            categories.Add(category);
+                            lessonType.EntityStatus = EntityStatus.ADDED;
+                            lessonTypes.Add(lessonType);
                             dataSetChanged = true;
                         }
                     }
                     else
                     {
-                        category.Id = categories[position].Id;
-                        category.EntityStatus = categories[position].EntityStatus;
+                        lessonType.Id = lessonTypes[position].Id;
+                        lessonType.EntityStatus = lessonTypes[position].EntityStatus;
 
-                        if (category.Id != 0)
-                            category.EntityStatus = EntityStatus.MODIFIED;
+                        if (lessonType.Id != 0)
+                            lessonType.EntityStatus = EntityStatus.MODIFIED;
 
-                        if (!categories.Exists(category, true))
+                        if (!lessonTypes.Exists(lessonType, true))
                         {
-                            categories[position] = category;
+                            lessonTypes[position] = lessonType;
                             dataSetChanged = true;
                         }
                     }
 
                     if (dataSetChanged)
                     {
-                        etCategory.Text = "";
+                        etType.Text = "";
                         position = -1;
 
-                        categories.Sort();
+                        lessonTypes.Sort();
 
                         RefreshListView();
                     }
@@ -165,7 +165,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                         Android.Support.V7.App.AlertDialog.Builder alertDiag = new Android.Support.V7.App.AlertDialog.Builder(this);
 
                         alertDiag.SetTitle("Exists");
-                        alertDiag.SetMessage(category.Name + " already exists");
+                        alertDiag.SetMessage(lessonType.Name + " already exists");
 
                         alertDiag.SetCancelable(true);
 
@@ -184,14 +184,14 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            etCategory.Text = "";
+            etType.Text = "";
             position = -1;
         }
 
         protected override void OnStop()
         {
             base.OnStop();
-            categories.Save();
+            lessonTypes.Save();
         }
     }
 }
