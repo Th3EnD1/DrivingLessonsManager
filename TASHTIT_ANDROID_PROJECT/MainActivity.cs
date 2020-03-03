@@ -26,6 +26,13 @@ namespace TASHTIT_ANDROID_PROJECT
 
             btnList.Click += BtnList_Click;
             btnSettings.Click += BtnSettings_Click;
+            btnCheckList.Click += BtnCheckList_Click;
+        }
+
+        private void BtnCheckList_Click(object sender, System.EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ACTIVITIES.WhatsNewActivity));
+            StartActivity(intent);
         }
 
         private void BtnSettings_Click(object sender, System.EventArgs e)
@@ -57,15 +64,21 @@ namespace TASHTIT_ANDROID_PROJECT
         {
             switch (item.ItemId)
             {
-                case Resource.Id.mnuCities:
+                case Resource.Id.mnuList:
                     {
-                        StartActivity(new Intent(this, typeof(ACTIVITIES.ListViewActivity)));
+                        StartActivity(new Intent(this, typeof(ACTIVITIES.ListOfLessons)));
                         break;
                     }
 
-                case Resource.Id.mnuAreaCodes:
+                case Resource.Id.mnuSettings:
                     {
-                        StartActivity(new Intent(this, typeof(ACTIVITIES.AreaCodesActivity)));
+                        StartActivity(new Intent(this, typeof(ACTIVITIES.Settings)));
+                        break;
+                    }
+
+                case Resource.Id.mnuWhatsLeft:
+                    {
+                        StartActivity(new Intent(this, typeof(ACTIVITIES.WhatsNewActivity)));
                         break;
                     }
 
