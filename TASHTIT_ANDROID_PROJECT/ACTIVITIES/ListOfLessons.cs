@@ -23,9 +23,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         //private ImageButton btnOk;
         //private ImageButton btnCancel;
         private TextView txtHeader;
+        private Button btnAddNewLesson;
 
         private Lessons lessons;
-        private ArrayAdapter<string> adapter;
+        private LessonsAdapter adapter;
 
         int position = -1;
 
@@ -57,23 +58,36 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             //btnOk     = FindViewById<ImageButton>(Resource.Id.btnOk);
             //btnCancel = FindViewById<ImageButton>(Resource.Id.btnCancel);
             txtHeader = FindViewById<TextView>(Resource.Id.txtHeader);
+            btnAddNewLesson = FindViewById<Button>(Resource.Id.btnAddNewLesson);
 
             lvLessons.ItemClick += LvLessons_ItemClick;
             lvLessons.ItemLongClick += LvLessons_ItemLongClick;
+
+            btnAddNewLesson.Click += BtnAddNewLesson_Click;
 
             //btnOk.Click += BtnOk_Click;
             //btnCancel.Click += BtnCancel_Click;
         }
 
+        private void BtnAddNewLesson_Click(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(NewLesson));
+            StartActivityForResult(intent, 0);
+        }
+
         private void RefreshListView()
         {
-            adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, lessons.Select(lesson => lesson.Id.ToString()).OrderBy(name => name).ToList());
+            //adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, lessons.Select(lesson => lesson.Id.ToString()).OrderBy(name => name).ToList());
+            adapter = new LessonsAdapter(this, Resource.Layout.OneItem, lessons);
             lvLessons.Adapter = adapter;
         }
 
         private void LvLessons_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             position = e.Position;
+            Intent intent = new Intent(this, typeof(NewLesson));
+            intent.PutExtra("LESSON", Serializer.ObjectToByteArray(lessons[e.Position]));
+            StartActivityForResult(intent, 0);
             //etLesson.Text = lessons[position].Id.ToString();
         }
 

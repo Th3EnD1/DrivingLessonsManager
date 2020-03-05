@@ -14,6 +14,7 @@ using Android.Widget;
 namespace MODEL
 {
     [Table ("Lessons")]
+    [Serializable]
     public class Lesson : BaseEntity
     {
         private int studentNo;
