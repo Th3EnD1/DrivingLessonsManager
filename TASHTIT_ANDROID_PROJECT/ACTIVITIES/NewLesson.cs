@@ -22,6 +22,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private TextView txtDate, txtTime, txtHeader;
         private DatePickerDialog datePicker;
         private Lesson lesson;
+        private LessonTypes lessonTypes;
         private Spinner spnType;
         private bool isNew;
         private int hour;
@@ -111,30 +112,32 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             lesson.Date = new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[1]), int.Parse(dateParts[0]));
 
-            switch (spnType.SelectedItemId)
-            {
-                case 0:
-                    lesson.LessonTypeNo = (int)LessonTypeEnum.Regular;
-                    break;
-                case 1:
-                    lesson.LessonTypeNo = (int)LessonTypeEnum.OneAndHalf;
-                    break;
-                case 2:
-                    lesson.LessonTypeNo = (int)LessonTypeEnum.Double;
-                    break;
-                case 3:
-                    lesson.LessonTypeNo = (int)LessonTypeEnum.Triple;
-                    break;
-                case 4:
-                    lesson.LessonTypeNo = (int)LessonTypeEnum.InTest;
-                    break;
-                case 5:
-                    lesson.LessonTypeNo = (int)LessonTypeEnum.OutTest;
-                    break;
-                default:
-                    lesson.LessonTypeNo = (int)LessonTypeEnum.Regular;
-                    break;
-            }
+            lesson.LessonTypeNo = (int)spnType.SelectedItemId;
+
+            //switch (spnType.SelectedItemId)
+            //{
+            //    case 0:
+            //        lesson.LessonTypeNo = (int)LessonTypeEnum.Regular;
+            //        break;
+            //    case 1:
+            //        lesson.LessonTypeNo = (int)LessonTypeEnum.OneAndHalf;
+            //        break;
+            //    case 2:
+            //        lesson.LessonTypeNo = (int)LessonTypeEnum.Double;
+            //        break;
+            //    case 3:
+            //        lesson.LessonTypeNo = (int)LessonTypeEnum.Triple;
+            //        break;
+            //    case 4:
+            //        lesson.LessonTypeNo = (int)LessonTypeEnum.InTest;
+            //        break;
+            //    case 5:
+            //        lesson.LessonTypeNo = (int)LessonTypeEnum.OutTest;
+            //        break;
+            //    default:
+            //        lesson.LessonTypeNo = (int)LessonTypeEnum.Regular;
+            //        break;
+            //}
 
 
             Intent intent = new Intent();
@@ -169,6 +172,9 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             // Create your application here
             SetContentView(Resource.Layout.NewLesson);
             SetViews();
+
+            lessonTypes = new LessonTypes();
+
             if (Intent.Extras != null)
             {
                 // Taskבדיקה אם הגיע 
@@ -181,43 +187,49 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                     // השמת הערכים לעריכה בשדות הקלט
                     txtDate.Text = lesson.Date.ToString();
 
-                    switch (lesson.LessonTypeNo)
-                    {
-                        case (int)LessonTypeEnum.Regular:
-                            spnType.SetSelection(0);
-                            break;
-                        case (int)LessonTypeEnum.OneAndHalf:
-                            spnType.SetSelection(1);
-                            break;
-                        case (int)LessonTypeEnum.Double:
-                            spnType.SetSelection(2);
-                            break;
-                        case (int)LessonTypeEnum.Triple:
-                            spnType.SetSelection(3);
-                            break;
-                        case (int)LessonTypeEnum.InTest:
-                            spnType.SetSelection(4);
-                            break;
-                        case (int)LessonTypeEnum.OutTest:
-                            spnType.SetSelection(5);
-                            break;
-                        default:
-                            spnType.SetSelection(0);
-                            break;
-                    }
+                    spnType.SetSelection(lesson.LessonTypeNo);
 
-                    //         ע"מ להציג תאריך בפורמט נכון
-                    // Javaיש להעביר את התאריך לתאריך של 
-                    Java.Util.Calendar calendar = Java.Util.Calendar.Instance;
+                    //switch (lesson.LessonTypeNo)
+                    //{
+                    //    case (int)LessonTypeEnum.Regular:
+                    //        spnType.SetSelection(0);
+                    //        break;
+                    //    case (int)LessonTypeEnum.OneAndHalf:
+                    //        spnType.SetSelection(1);
+                    //        break;
+                    //    case (int)LessonTypeEnum.Double:
+                    //        spnType.SetSelection(2);
+                    //        break;
+                    //    case (int)LessonTypeEnum.Triple:
+                    //        spnType.SetSelection(3);
+                    //        break;
+                    //    case (int)LessonTypeEnum.InTest:
+                    //        spnType.SetSelection(4);
+                    //        break;
+                    //    case (int)LessonTypeEnum.OutTest:
+                    //        spnType.SetSelection(5);
+                    //        break;
+                    //    default:
+                    //        spnType.SetSelection(0);
+                    //        break;
+                    //}
 
 
-                    // קביעת התאריך
-                    calendar.Set(lesson.Date.Year, lesson.Date.Month - 1, lesson.Date.Day);
+                    ////         ע"מ להציג תאריך בפורמט נכון
+                    //// Javaיש להעביר את התאריך לתאריך של 
+                    //Java.Util.Calendar calendar = Java.Util.Calendar.Instance;
 
-                    // קביעת הפורמט
-                    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
-                    txtDate.Text = df.Format(calendar.Time);
+                    //// קביעת התאריך
+                    //calendar.Set(lesson.Date.Year, lesson.Date.Month - 1, lesson.Date.Day);
+
+                    //// קביעת הפורמט
+                    //SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+
+                    //txtDate.Text = df.Format(calendar.Time);
+
+                    txtDate.Text = lesson.Date.ToShortDateString();  ///  יכול להיות שיציג חודשים וימים במהופך
+                                                                     /// במיקרה כזה יש להרכיב מחרוזת תאריך בטאופן ידני
 
                     isNew = false;
                 }
