@@ -31,7 +31,7 @@ namespace TASHTIT_ANDROID_PROJECT
 
         private void BtnCheckList_Click(object sender, System.EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(ACTIVITIES.WhatsNewActivity));
+            Intent intent = new Intent(this, typeof(WhatsNewActivity));
             StartActivity(intent);
         }
 
@@ -52,6 +52,7 @@ namespace TASHTIT_ANDROID_PROJECT
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
+            SetViews();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -66,7 +67,7 @@ namespace TASHTIT_ANDROID_PROJECT
             {
                 case Resource.Id.mnuList:
                     {
-                        StartActivity(new Intent(this, typeof(ACTIVITIES.ListOfLessons)));
+                        StartActivity(new Intent(this, typeof(ListOfLessons)));
                         break;
                     }
 
@@ -78,7 +79,7 @@ namespace TASHTIT_ANDROID_PROJECT
 
                 case Resource.Id.mnuWhatsLeft:
                     {
-                        StartActivity(new Intent(this, typeof(ACTIVITIES.WhatsNewActivity)));
+                        StartActivity(new Intent(this, typeof(WhatsNewActivity)));
                         break;
                     }
 

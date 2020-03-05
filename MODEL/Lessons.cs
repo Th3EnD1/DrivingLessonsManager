@@ -38,7 +38,17 @@ namespace MODEL
  
     public Lessons SelectAll()
     {
-        List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons / *ORDER BY Name */");
+            List<Lesson> list;
+
+            try
+            {
+                list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons");
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
 
         Lessons lessons = new Lessons();
 
