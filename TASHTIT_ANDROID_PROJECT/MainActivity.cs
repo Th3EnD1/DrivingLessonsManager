@@ -67,7 +67,7 @@ namespace TASHTIT_ANDROID_PROJECT
             {
                 case Resource.Id.mnuList:
                     {
-                        StartActivity(new Intent(this, typeof(ListOfLessons)));
+                        StartActivity(new Intent(this, typeof(ListViewOfLessons)));
                         break;
                     }
 
