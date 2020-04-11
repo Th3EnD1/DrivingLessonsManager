@@ -18,7 +18,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
     [Activity(Label = "NewLesson")]
     public class NewLesson : Activity
     {
-        private Button btnSave, btnDate, btnTime;
+        private Button btnSave, btnCancel, btnDate, btnTime;
         private TextView txtDate, txtTime, txtHeader;
         private DatePickerDialog datePicker;
         private Lesson lesson;
@@ -29,10 +29,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private int minute;
         const int TIME_DIALOG_ID = 0;
 
-        [Obsolete]
         public void SetViews()
         {
             btnSave = FindViewById<Button>(Resource.Id.btnSave);
+            btnCancel = FindViewById<Button>(Resource.Id.btnCancel);
             btnDate = FindViewById<Button>(Resource.Id.btnDate);
             btnTime = FindViewById<Button>(Resource.Id.btnTime);
             txtDate = FindViewById<TextView>(Resource.Id.txtDate);
@@ -47,6 +47,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             btnDate.Click += BtnDate_Click;
             btnSave.Click += BtnSave_Click;
+            btnCancel.Click += BtnCancel_Click;
             btnTime.Click += (o, e) => ShowDialog(TIME_DIALOG_ID);
 
             spnType.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
@@ -55,6 +56,11 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spnType.Adapter = adapter;
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            Finish();
         }
 
         private void UpdateDisplay()
@@ -74,7 +80,6 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
         // Create a Method OnCreateDialog   
 
-        [Obsolete]
         protected override Dialog OnCreateDialog(int id)
         {
             if (id == TIME_DIALOG_ID)
@@ -152,6 +157,14 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             Finish();
         }
 
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        {
+            if (resultCode == Result.Ok)
+            {
+                base.OnActivityResult(requestCode, resultCode, data);
+            }
+        }
+
         private void BtnDate_Click(object sender, EventArgs e)
         {
             PerformDatePicker();
@@ -164,7 +177,6 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
 
-        [Obsolete]
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

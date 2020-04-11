@@ -69,7 +69,6 @@
     <Compile Include="ACTIVITIES\CategoriesActivity.cs" />
     <Compile Include="ACTIVITIES\ListOfLessons.cs" />
     <Compile Include="ACTIVITIES\ListViewActivity.cs" />
-    <Compile Include="ACTIVITIES\ListViewOfLessons.cs" />
     <Compile Include="ACTIVITIES\NewLesson.cs" />
     <Compile Include="ACTIVITIES\Settings.cs" />
     <Compile Include="ACTIVITIES\TypesActivity.cs" />
