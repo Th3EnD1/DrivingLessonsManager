@@ -35,6 +35,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             base.OnCreate(savedInstanceState);
 
             // Create your application here
+            lessons = new Lessons();
             lessons = lessons.SelectAll();
             SetContentView(Resource.Layout.ListOfLessons);
 
