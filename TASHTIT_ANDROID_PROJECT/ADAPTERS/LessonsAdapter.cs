@@ -64,7 +64,7 @@ namespace TASHTIT_ANDROID_PROJECT.ADAPTERS
             if (lesson != null)
             {
                 viewHolder.txtDate.Text = lesson.Date.ToShortDateString();
-                viewHolder.txtHour.Text = lesson.Time.ToShortTimeString();
+                viewHolder.txtHour.Text = lesson.Date.ToShortTimeString();
                 viewHolder.txtType.Text = lesson.LessonTypeNo.ToString();
                 viewHolder.checkBoxPaid.Checked = lesson.Paid;
             }

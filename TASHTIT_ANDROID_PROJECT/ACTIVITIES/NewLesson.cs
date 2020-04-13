@@ -117,6 +117,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             lesson.Date = new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[1]), int.Parse(dateParts[0]));
 
+            lesson.Time = lesson.Date.ToShortTimeString();
+
             lesson.Paid = false;
 
             lesson.LessonTypeNo = (int)spnType.SelectedItemId;
@@ -173,51 +175,12 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                     lesson = Serializer.ByteArrayToObject(Intent.GetByteArrayExtra("LESSON")) as Lesson;
 
                     // השמת הערכים לעריכה בשדות הקלט
-                    txtDate.Text = lesson.Date.ToString();
 
                     spnType.SetSelection(lesson.LessonTypeNo);
 
-                    //switch (lesson.LessonTypeNo)
-                    //{
-                    //    case (int)LessonTypeEnum.Regular:
-                    //        spnType.SetSelection(0);
-                    //        break;
-                    //    case (int)LessonTypeEnum.OneAndHalf:
-                    //        spnType.SetSelection(1);
-                    //        break;
-                    //    case (int)LessonTypeEnum.Double:
-                    //        spnType.SetSelection(2);
-                    //        break;
-                    //    case (int)LessonTypeEnum.Triple:
-                    //        spnType.SetSelection(3);
-                    //        break;
-                    //    case (int)LessonTypeEnum.InTest:
-                    //        spnType.SetSelection(4);
-                    //        break;
-                    //    case (int)LessonTypeEnum.OutTest:
-                    //        spnType.SetSelection(5);
-                    //        break;
-                    //    default:
-                    //        spnType.SetSelection(0);
-                    //        break;
-                    //}
-
-
-                    ////         ע"מ להציג תאריך בפורמט נכון
-                    //// Javaיש להעביר את התאריך לתאריך של 
-                    //Java.Util.Calendar calendar = Java.Util.Calendar.Instance;
-
-
-                    //// קביעת התאריך
-                    //calendar.Set(lesson.Date.Year, lesson.Date.Month - 1, lesson.Date.Day);
-
-                    //// קביעת הפורמט
-                    //SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-
-                    //txtDate.Text = df.Format(calendar.Time);
-
                     txtDate.Text = lesson.Date.ToShortDateString();  ///  יכול להיות שיציג חודשים וימים במהופך
                                                                      /// במיקרה כזה יש להרכיב מחרוזת תאריך בטאופן ידני
+                    txtTime.Text = lesson.Date.ToShortTimeString();
 
                     isNew = false;
                 }

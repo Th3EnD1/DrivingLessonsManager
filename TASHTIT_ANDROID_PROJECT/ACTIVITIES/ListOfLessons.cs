@@ -60,9 +60,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
         private void RefreshListView()
         {
-            //adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, lessons.Select(lesson => lesson.Id.ToString()).OrderBy(name => name).ToList());
             adapter = new LessonsAdapter(this, Resource.Layout.OneItem, lessons);
-            //adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, lessons.Select(lesson => lesson.Id.ToString()).ToList());
             lvLessons.Adapter = adapter;
         }
 
