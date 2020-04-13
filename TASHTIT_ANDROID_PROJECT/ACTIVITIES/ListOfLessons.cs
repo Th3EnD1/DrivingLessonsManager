@@ -19,15 +19,9 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
     public class ListOfLessons : Activity
     {
         private ListView lvLessons;
-        //private EditText etLesson;
-        //private ImageButton btnOk;
-        //private ImageButton btnCancel;
-        //private TextView txtHeader;
         private Button btnAddNewLesson;
-
         private Lessons lessons;
         private LessonsAdapter adapter;
-
         int position;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -40,15 +34,6 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             SetContentView(Resource.Layout.ListOfLessons);
 
             SetViews();
-
-            //txtHeader.Text = "Lessons list";
-            //etLesson.Hint = "New Lesson";
-            //etCity.InputType = Android.Text.InputTypes.ClassNumber;
-
-            //lessons = new Lessons();
-            //lessons = lessons.SelectAll();
-
-            adapter = new LessonsAdapter(this, Resource.Layout.OneItem, lessons);
             lvLessons.Adapter = adapter;
 
             RefreshListView();
@@ -60,32 +45,32 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private void SetViews()
         {
             lvLessons  = FindViewById<ListView>(Resource.Id.lvLessons);
-            //etLesson    = FindViewById<EditText>(Resource.Id.etLesson);
-            //btnOk     = FindViewById<ImageButton>(Resource.Id.btnOk);
-            //btnCancel = FindViewById<ImageButton>(Resource.Id.btnCancel);
-            //txtHeader = FindViewById<TextView>(Resource.Id.txtHeader);
             btnAddNewLesson = FindViewById<Button>(Resource.Id.btnAddNewLesson);
-
             lvLessons.ItemClick += LvLessons_ItemClick;
             lvLessons.ItemLongClick += LvLessons_ItemLongClick;
-
             btnAddNewLesson.Click += BtnAddNewLesson_Click;
-
-            //btnOk.Click += BtnOk_Click;
-            //btnCancel.Click += BtnCancel_Click;
         }
 
         private void BtnAddNewLesson_Click(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(NewLesson));
             StartActivityForResult(intent, 0);
+            RefreshListView();
         }
 
         private void RefreshListView()
         {
             //adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, lessons.Select(lesson => lesson.Id.ToString()).OrderBy(name => name).ToList());
             adapter = new LessonsAdapter(this, Resource.Layout.OneItem, lessons);
+            //adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, lessons.Select(lesson => lesson.Id.ToString()).ToList());
             lvLessons.Adapter = adapter;
+        }
+
+        protected override void OnActivityResult(int RequestCode, [GeneratedEnum] Result resultCode, Intent data) 
+        {
+            Lesson lesson = Serializer.ByteArrayToObject(data.GetByteArrayExtra("LESSON")) as Lesson;
+            lessons.Add(lesson);
+            RefreshListView();
         }
 
         private void LvLessons_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -130,86 +115,5 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             Dialog diag = alertDiag.Create();
             diag.Show();
         }
-
-        //private void BtnOk_Click(object sender, EventArgs e)
-        //{
-        //    bool isNew = position == -1;
-        //    bool dataSetChanged = false;
-
-        //    Global.HideKeyboard(this);
-
-        //    //if (etLesson.Text != "")
-        //    //{
-        //    //    if (!etLesson.Text.StartsWith('0') || etLesson.Text.Length > 3)
-        //    //    {
-        //    //        Global.ToastCenteredText(this, "Area code should follow \n 1. Start with '0' \n 2. Maximum 3 digits", ToastLength.Long);
-        //    //    }
-        //        //else
-        //        Lesson lesson = new Lesson();
-        
-        //        if (isNew)
-        //        {
-        //            if (!lessons.Exists(lesson))
-        //            {
-        //                lesson.EntityStatus = EntityStatus.ADDED;
-        //                lessons.Add(lesson);
-        //                dataSetChanged = true;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            lesson.Id = lessons[position].Id;
-        //            lesson.EntityStatus = lessons[position].EntityStatus;
-
-        //            if (lesson.Id != 0)
-        //                lesson.EntityStatus = EntityStatus.MODIFIED;
-
-        //            if (!lessons.Exists(lesson, true))
-        //            {
-        //                lessons[position] = lesson;
-        //                dataSetChanged = true;
-        //            }
-        //        }
-
-        //        if (dataSetChanged)
-        //        {
-        //          //etLesson.Text = "";
-        //            position = -1;
-
-        //            lessons.Sort();
-
-        //            RefreshListView();
-        //        }
-        //        else
-        //        {
-        //            Android.Support.V7.App.AlertDialog.Builder alertDiag = new Android.Support.V7.App.AlertDialog.Builder(this);
-
-        //            alertDiag.SetTitle("Exists");
-        //            alertDiag.SetMessage(lesson.Id + " already exists");
-
-        //            alertDiag.SetCancelable(true);
-
-        //            alertDiag.SetPositiveButton("OK", (senderAlert, args)
-        //            =>
-        //            {
-        //                alertDiag.Dispose();
-        //            });
-
-        //            Dialog diag = alertDiag.Create();
-        //            diag.Show();
-        //        }
-        //}
-
-        //private void BtnCancel_Click(object sender, EventArgs e)
-        //{
-        //    //etLesson.Text = "";
-        //    position = -1;
-        //}
-
-        //protected override void OnStop()
-        //{
-        //    base.OnStop();
-        //    lessons.Save();
-        //}
     }
 }

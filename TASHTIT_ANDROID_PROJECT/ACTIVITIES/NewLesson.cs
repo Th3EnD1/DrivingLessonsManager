@@ -83,7 +83,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         protected override Dialog OnCreateDialog(int id)
         {
             if (id == TIME_DIALOG_ID)
-                return new TimePickerDialog(this, TimePickerCallback, hour, minute, false);
+                return new TimePickerDialog(this, TimePickerCallback, hour, minute, true);
 
             return null;
         }
@@ -117,33 +117,9 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             lesson.Date = new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[1]), int.Parse(dateParts[0]));
 
+            lesson.Paid = false;
+
             lesson.LessonTypeNo = (int)spnType.SelectedItemId;
-
-            //switch (spnType.SelectedItemId)
-            //{
-            //    case 0:
-            //        lesson.LessonTypeNo = (int)LessonTypeEnum.Regular;
-            //        break;
-            //    case 1:
-            //        lesson.LessonTypeNo = (int)LessonTypeEnum.OneAndHalf;
-            //        break;
-            //    case 2:
-            //        lesson.LessonTypeNo = (int)LessonTypeEnum.Double;
-            //        break;
-            //    case 3:
-            //        lesson.LessonTypeNo = (int)LessonTypeEnum.Triple;
-            //        break;
-            //    case 4:
-            //        lesson.LessonTypeNo = (int)LessonTypeEnum.InTest;
-            //        break;
-            //    case 5:
-            //        lesson.LessonTypeNo = (int)LessonTypeEnum.OutTest;
-            //        break;
-            //    default:
-            //        lesson.LessonTypeNo = (int)LessonTypeEnum.Regular;
-            //        break;
-            //}
-
 
             Intent intent = new Intent();
 

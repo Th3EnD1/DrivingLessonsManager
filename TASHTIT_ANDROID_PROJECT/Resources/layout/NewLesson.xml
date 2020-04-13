@@ -16,12 +16,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="center"
             android:layout_weight="1"
             android:text="Regular"
@@ -31,7 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spnType"
-            
+            android:layout_gravity="center"
+            android:gravity="center"
             android:layout_weight="1"
         />
 
@@ -39,7 +41,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
         android:orientation="horizontal">
 
         <TextView
@@ -47,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
+            android:layout_gravity="center"
             android:layout_marginRight="30dp"
             android:text="01/01/2020"
             android:id="@+id/txtDate"
@@ -57,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
+            android:layout_gravity="center"
             android:text="12:00"
             android:id="@+id/txtTime"
         />
@@ -67,6 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:text="Choose date"
         android:id="@+id/btnDate"
     />
@@ -75,6 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:text="Choose time"
         android:id="@+id/btnTime"
     />
@@ -82,7 +88,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="80dp">
 
     <Button
         android:layout_width="wrap_content"

@@ -21,20 +21,22 @@ namespace MODEL
         private int lessonTypeNo;
         private int categoryNo;
         private DateTime date;
+        private DateTime time;
         private bool paid;
         private string details;
 
-        public Lesson() { }
-
-        public Lesson(int studentNo, int lessonTypeNo, int categoryNo, DateTime date, bool paid, string details)
+        public Lesson(int studentNo, int lessonTypeNo, int categoryNo, DateTime date, DateTime time, bool paid, string details)
         {
             this.studentNo = studentNo;
             this.lessonTypeNo = lessonTypeNo;
             this.categoryNo = categoryNo;
             this.date = date;
+            this.time = time;
             this.paid = paid;
             this.details = details;
         }
+
+        public Lesson() { }
 
         public int LessonTypeNo { get => lessonTypeNo; set => lessonTypeNo = value; }
         public DateTime Date { get => date; set => date = value; }
@@ -42,6 +44,7 @@ namespace MODEL
         public string Details { get => details; set => details = value; }
         public int StudentNo { get => studentNo; set => studentNo = value; }
         public int CategoryNo { get => categoryNo; set => categoryNo = value; }
+        public DateTime Time { get => time; set => time = value; }
 
         public override bool Equals(object obj)
         {
@@ -51,6 +54,7 @@ namespace MODEL
                    lessonTypeNo == lesson.lessonTypeNo &&
                    categoryNo == lesson.categoryNo &&
                    date == lesson.date &&
+                   time == lesson.time &&
                    paid == lesson.paid &&
                    details == lesson.details;
         }

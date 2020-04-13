@@ -47,6 +47,7 @@ namespace TASHTIT_ANDROID_PROJECT.ADAPTERS
                 viewHolder.txtHour = convertView.FindViewById<TextView>(Resource.Id.txtTime);
                 viewHolder.checkBoxPaid = convertView.FindViewById<CheckBox>(Resource.Id.checkBoxPaid);
                 viewHolder.txtType = convertView.FindViewById<TextView>(Resource.Id.txtType);
+                
 
                 // viewHolderשמירת האובייקט 
                 // TAG במאפיין
@@ -60,11 +61,13 @@ namespace TASHTIT_ANDROID_PROJECT.ADAPTERS
 
             lesson = GetItem(position);
 
-            //if (lesson != null)
-            //{
-            //    viewHolder.txtFamily.Text = person.Family;
-            //    viewHolder.txtName.Text = person.Name;
-            //}
+            if (lesson != null)
+            {
+                viewHolder.txtDate.Text = lesson.Date.ToShortDateString();
+                viewHolder.txtHour.Text = lesson.Time.ToShortTimeString();
+                viewHolder.txtType.Text = lesson.LessonTypeNo.ToString();
+                viewHolder.checkBoxPaid.Checked = lesson.Paid;
+            }
 
             return convertView;
         }
