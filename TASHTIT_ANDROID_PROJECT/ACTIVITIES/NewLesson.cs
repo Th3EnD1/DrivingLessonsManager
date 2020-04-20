@@ -12,11 +12,14 @@ using Android.Views;
 using Android.Widget;
 using HELPER;
 using Android.Icu.Text;
+using static Android.App.DatePickerDialog;
+using static Android.App.TimePickerDialog;
+using Java.Util;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
     [Activity(Label = "NewLesson")]
-    public class NewLesson : Activity
+    public class NewLesson : Activity,IOnDateSetListener,IOnTimeSetListener
     {
         private Button btnSave, btnCancel, btnDate, btnTime;
         private TextView txtDate, txtTime, txtHeader;
@@ -25,9 +28,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private LessonTypes lessonTypes;
         private Spinner spnType;
         private bool isNew;
-        private int hour;
-        private int minute;
-        const int TIME_DIALOG_ID = 0;
+        private const int DATE_DIALOG = 0;
+        private const int TIME_DIALOG = 1;
+        private int day, month, year, hour, minuts;
+        private DateTime date, time;
 
         public void SetViews()
         {
@@ -40,15 +44,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             txtHeader = FindViewById<TextView>(Resource.Id.txtHeader);
             spnType = FindViewById<Spinner>(Resource.Id.spnType);
 
-            hour = DateTime.Now.Hour;
-            minute = DateTime.Now.Minute;
-
-            UpdateDisplay();
-
+            btnTime.Click += BtnTime_Click;
             btnDate.Click += BtnDate_Click;
             btnSave.Click += BtnSave_Click;
             btnCancel.Click += BtnCancel_Click;
-            btnTime.Click += (o, e) => ShowDialog(TIME_DIALOG_ID);
 
             spnType.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = ArrayAdapter.CreateFromResource(
@@ -58,68 +57,54 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             spnType.Adapter = adapter;
         }
 
+        private void BtnTime_Click(object sender, EventArgs e)
+        {
+            ShowDialog(TIME_DIALOG);
+        }
+
+        private void BtnDate_Click(object sender, EventArgs e)
+        {
+            ShowDialog(DATE_DIALOG);
+        }
+
+        protected override Dialog OnCreateDialog(int id)
+        {
+            DateTime today = DateTime.Today;
+            switch (id)
+            {
+                case DATE_DIALOG:
+                    {
+                        return new DatePickerDialog(this, this, today.Year, today.Month, today.Day);
+                    }
+                default:
+                    break;
+            }
+            switch (id)
+            {
+                case TIME_DIALOG:
+                    {
+                        return new TimePickerDialog(this, this, hour, minuts, true);
+                    }
+                default:
+                    break;
+            }
+            return null;
+        }
+
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             Finish();
         }
 
-        private void UpdateDisplay()
-        {
-            string time = string.Format("{0}:{1}", hour, minute.ToString().PadLeft(2, '0'));
-            txtTime.Text = time;
-        }
-
-        // Create a Method TimePickerCallback   
-
-        private void TimePickerCallback(object sender, TimePickerDialog.TimeSetEventArgs e)
-        {
-            hour = e.HourOfDay;
-            minute = e.Minute;
-            UpdateDisplay();
-        }
-
-        // Create a Method OnCreateDialog   
-
-        protected override Dialog OnCreateDialog(int id)
-        {
-            if (id == TIME_DIALOG_ID)
-                return new TimePickerDialog(this, TimePickerCallback, hour, minute, true);
-
-            return null;
-        }
-
-        private void PerformDatePicker()
-        {
-            DateTime today = DateTime.Today;
-
-            datePicker = new DatePickerDialog(this, //Context 
-            OnDateClick, // ***
-            today.Year,  // שנה
-            today.Month - 1, //חודש
-            today.Day);  // שנה
-            datePicker.Show();
-        }
-
-        private void OnDateClick(object sender, DatePickerDialog.DateSetEventArgs e)
-        {
-            txtDate.Text =
-            e.Date.Day + "/" +
-            e.Date.Month + "/" +
-            e.Date.Year;
-        }
-
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            // פירוק התאריך ל-3 מחרוזות 
-            string[] dateParts = txtDate.Text.Split(new char[] { '/', '.', '-', ' ' });
-
             Lesson lesson = new Lesson();
 
-            lesson.Date = new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[1]), int.Parse(dateParts[0]));
-
-            lesson.Time = lesson.Date.ToShortTimeString();
-
             lesson.Paid = false;
+
+            lesson.Date = date;
+
+            lesson.Time = time;
 
             lesson.LessonTypeNo = (int)spnType.SelectedItemId;
 
@@ -143,11 +128,6 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             }
         }
 
-        private void BtnDate_Click(object sender, EventArgs e)
-        {
-            PerformDatePicker();
-        }
-
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
@@ -167,10 +147,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             if (Intent.Extras != null)
             {
-                // Taskבדיקה אם הגיע 
+                // Lessonבדיקה אם הגיע 
                 if (Intent.Extras.ContainsKey("LESSON"))
                 {
-                    // Taskחילוץ ה-
+                    // Lessonחילוץ ה-
                     // "דה-סריאליזציה"
                     lesson = Serializer.ByteArrayToObject(Intent.GetByteArrayExtra("LESSON")) as Lesson;
 
@@ -180,7 +160,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
                     txtDate.Text = lesson.Date.ToShortDateString();  ///  יכול להיות שיציג חודשים וימים במהופך
                                                                      /// במיקרה כזה יש להרכיב מחרוזת תאריך בטאופן ידני
-                    txtTime.Text = lesson.Date.ToShortTimeString();
+                    txtTime.Text = lesson.Time.ToShortTimeString();
 
                     isNew = false;
                 }
@@ -203,6 +183,25 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             {
                 txtHeader.Text = "New A New Lesson";
             }
+        }
+
+        public void OnDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+        {
+            this.year = year;
+            this.month = monthOfYear;
+            this.day = dayOfMonth;
+            date = new DateTime(year, month, day);
+            Toast.MakeText(this, "You have selected: " + day + "/" + (month + 1) + "/" + year, ToastLength.Short).Show();
+        }
+
+        public void OnTimeSet(TimePicker view, int hourOfDay, int minuteOfHour)
+        {
+            hour = hourOfDay;
+            minuts = minuteOfHour;
+
+            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:aa");
+            time = new DateTime(date.Year, date.Month, date.Day, hour, minuts, 0);
+            Toast.MakeText(this, "You have selected: " + time.ToShortTimeString(), ToastLength.Short).Show();
         }
     }
 }

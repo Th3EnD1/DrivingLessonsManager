@@ -44,7 +44,7 @@ namespace TASHTIT_ANDROID_PROJECT.ADAPTERS
                 viewHolder = new ViewHolder();
 
                 viewHolder.txtDate = convertView.FindViewById<TextView>(Resource.Id.txtDate);
-                viewHolder.txtHour = convertView.FindViewById<TextView>(Resource.Id.txtTime);
+                viewHolder.txtTime = convertView.FindViewById<TextView>(Resource.Id.txtTime);
                 viewHolder.checkBoxPaid = convertView.FindViewById<CheckBox>(Resource.Id.checkBoxPaid);
                 viewHolder.txtType = convertView.FindViewById<TextView>(Resource.Id.txtType);
                 
@@ -64,7 +64,7 @@ namespace TASHTIT_ANDROID_PROJECT.ADAPTERS
             if (lesson != null)
             {
                 viewHolder.txtDate.Text = lesson.Date.ToShortDateString();
-                viewHolder.txtHour.Text = lesson.Date.ToShortTimeString();
+                viewHolder.txtTime.Text = lesson.Time.ToShortTimeString();
                 viewHolder.txtType.Text = lesson.LessonTypeNo.ToString();
                 viewHolder.checkBoxPaid.Checked = lesson.Paid;
             }
@@ -76,7 +76,7 @@ namespace TASHTIT_ANDROID_PROJECT.ADAPTERS
         public class ViewHolder : Java.Lang.Object
         {
             public TextView txtDate;
-            public TextView txtHour;
+            public TextView txtTime;
             public TextView txtType;
             public CheckBox checkBoxPaid;
         }
