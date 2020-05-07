@@ -7,47 +7,39 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using MODEL;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
-    [Activity(Label = "TeacherActivity")]
-    public class TeacherActivity : AppCompatActivity
+    [Activity(Label = "Student_Activity")]
+    public class Student_Activity : Activity
     {
         private EditText etName;
+        private EditText etTz;
         private EditText etPhone;
         private EditText etEmail;
         private EditText etPassword;
-        private EditText etStart;
-        private EditText etEnd;
         private Button btnSave;
         private Button btnCancel;
-        private Teacher teacher;
-        private Teachers teachers;
-
+        private Student student;
+        private Students students;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.teacher_layout);
-            SetViews();
-
-            teachers = new Teachers();
-            teachers = teachers.SelectAll();
+            SetContentView(Resource.Layout.student_layout);
         }
 
-        private void SetViews()
+        public void SetViews()
         {
             etName = FindViewById<EditText>(Resource.Id.etName);
+            etTz = FindViewById<EditText>(Resource.Id.etTz);
             etPhone = FindViewById<EditText>(Resource.Id.etPhone);
             etEmail = FindViewById<EditText>(Resource.Id.etEmail);
             etPassword = FindViewById<EditText>(Resource.Id.etPassword);
-            etStart = FindViewById<EditText>(Resource.Id.etStart);
-            etEnd = FindViewById<EditText>(Resource.Id.etEnd);
             btnCancel = FindViewById<Button>(Resource.Id.btnCancel);
             btnSave = FindViewById<Button>(Resource.Id.btnSave);
 
@@ -62,23 +54,22 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            Teacher teacher = new Teacher();
-            teacher.Name = etName.Text;
-            teacher.Phone = etPhone.Text;
-            teacher.Email = etEmail.Text;
-            teacher.Psw = etPassword.Text;
-            teacher.StartHour = Convert.ToDateTime(etStart.Text);
-            teacher.EndHour = Convert.ToDateTime(etEnd.Text);
+            Student student = new Student();
+            student.Name = etName.Text;
+            student.Tz = etTz.Text;
+            student.Phone = etPhone.Text;
+            student.Email = etEmail.Text;
+            student.Psw = etPassword.Text;
 
 
-            if (!teachers.Exists(teacher))
+            if (!students.Exists(student))
             {
-                teachers.Add(teacher);
-                teachers.Insert(teacher);
+                students.Add(student);
+                students.Insert(student);
             }
             else
             {
-                Toast.MakeText(this, "The email is already in use by another teacher!", ToastLength.Short).Show();
+                Toast.MakeText(this, "The ID number is already in use by another student!", ToastLength.Short).Show();
             }
         }
     }

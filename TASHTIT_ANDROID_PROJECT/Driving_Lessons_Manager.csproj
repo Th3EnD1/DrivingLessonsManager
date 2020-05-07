@@ -71,6 +71,7 @@
     <Compile Include="ACTIVITIES\ListViewActivity.cs" />
     <Compile Include="ACTIVITIES\NewLesson.cs" />
     <Compile Include="ACTIVITIES\Settings.cs" />
+    <Compile Include="ACTIVITIES\Student_Activity.cs" />
     <Compile Include="ACTIVITIES\TeacherActivity.cs" />
     <Compile Include="ACTIVITIES\TypesActivity.cs" />
     <Compile Include="ACTIVITIES\WhatsNewActivity.cs" />
@@ -191,6 +192,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\teacher_layout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\student_layout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
