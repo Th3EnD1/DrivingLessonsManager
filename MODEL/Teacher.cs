@@ -9,16 +9,62 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite;
 
 namespace MODEL
 {
+    [Table("Teachers")]
     public class Teacher : BaseEntity
     {
-        protected string name;
-        protected string email;
-        protected string psw;
+        private string name;
+        private string email;
+        private string psw;
+        private string phone;
 
         private DateTime startHour;
         private DateTime endHour;
+
+        public string Name { get => name; set => name = value; }
+        public string Email { get => email; set => email = value; }
+        public string Psw { get => psw; set => psw = value; }
+        public DateTime StartHour { get => startHour; set => startHour = value; }
+        public DateTime EndHour { get => endHour; set => endHour = value; }
+        public string Phone { get => phone; set => phone = value; }
+
+        public Teacher()
+        {
+        }
+
+        public Teacher(string name, string email, string psw, DateTime startHour, DateTime endHour, string phone)
+        {
+            this.name = name;
+            this.email = email;
+            this.psw = psw;
+            this.startHour = startHour;
+            this.endHour = endHour;
+            this.phone = phone;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Teacher teacher &&
+                   base.Equals(obj) &&
+                   name == teacher.name &&
+                   email == teacher.email &&
+                   psw == teacher.psw &&
+                   startHour == teacher.startHour &&
+                   endHour == teacher.endHour &&
+                   phone == teacher.phone;
+        }
+
+        public static bool operator ==(Teacher left, Teacher right)
+        {
+            return EqualityComparer<Teacher>.Default.Equals(left, right);
+        }
+
+        public static bool operator !=(Teacher left, Teacher right)
+        {
+            return !(left == right);
+        }
     }
 }

@@ -12,9 +12,8 @@ using Android.Widget;
 
 namespace MODEL
 {
-    public class Student : Teacher
+    public class Student : Teachers
     {
         private string tz;
-        private string phone;
-    }
+   }
 }

@@ -83,6 +83,12 @@ namespace TASHTIT_ANDROID_PROJECT
                         break;
                     }
 
+                case Resource.Id.mnuTeacher:
+                    {
+                        StartActivity(new Intent(this, typeof(TeacherActivity)));
+                        break;
+                    }
+
                 case Resource.Id.mnuExit:
                     {
                         Android.OS.Process.KillProcess(Android.OS.Process.MyPid());

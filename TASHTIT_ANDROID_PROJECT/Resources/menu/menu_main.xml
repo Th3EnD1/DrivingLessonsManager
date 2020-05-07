@@ -12,6 +12,9 @@
   <item android:id="@+id/mnuWhatsLeft"
         android:title="What's left?"
         />
+
+  <item android:id="@+id/mnuTeacher"
+      android:title="Teacher" />
   
   <item android:id="@+id/mnuExit"
       android:title="Exit" />
