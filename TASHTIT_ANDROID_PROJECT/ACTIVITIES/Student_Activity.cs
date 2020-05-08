@@ -31,6 +31,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             // Create your application here
             SetContentView(Resource.Layout.student_layout);
+            SetViews();
+
+            students = new Students();
+            students.SelectAll();
         }
 
         public void SetViews()
