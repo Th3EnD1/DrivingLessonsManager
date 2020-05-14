@@ -18,6 +18,9 @@
 
   <item android:id="@+id/mnuStudent"
       android:title="Student" />
+
+  <item android:id="@+id/mnuPickTeacher"
+      android:title="Pick a teacher"/>
   
   <item android:id="@+id/mnuExit"
       android:title="Exit" />

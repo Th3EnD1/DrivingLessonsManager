@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MODEL;
+using static Android.Provider.Settings;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
@@ -17,50 +18,53 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
     public class PickTeacher : Activity
     {
         private TextView txtHeader;
-        private ListView lvTeachersOrStudents;
+        private ListView lvTeachers;
         private ArrayAdapter<string> adapter;
         private Teachers teachers;
+        int position;
 
         private void SetViews()
         {
             txtHeader = FindViewById<TextView>(Resource.Id.txtHeader);
-            lvTeachersOrStudents = FindViewById<ListView>(Resource.Id.lvTeachersOrStudents);
+            lvTeachers = FindViewById<ListView>(Resource.Id.lvTeachersOrStudents);
 
-            lvTeachersOrStudents.ItemClick += LvTeachersOrStudents_ItemClick;
+            lvTeachers.ItemClick += LvTeachersOrStudents_ItemClick;
         }
 
         private void LvTeachersOrStudents_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            //Android.Support.V7.App.AlertDialog.Builder alertDiag = new Android.Support.V7.App.AlertDialog.Builder(this);
+            Android.Support.V7.App.AlertDialog.Builder alertDiag = new Android.Support.V7.App.AlertDialog.Builder(this);
 
-            //alertDiag.SetTitle("Confirm Choose");
-            //alertDiag.SetMessage("Are you sure you want to pick '" + teachers[e.Position].Name + "' ?");
+            alertDiag.SetTitle("Confirm Choose");
+            alertDiag.SetMessage("Are you sure you want to pick '" + teachers[e.Position].Name + "' ?");
 
-            //alertDiag.SetCancelable(true);
+            alertDiag.SetCancelable(true);
 
-            //alertDiag.SetPositiveButton("Choose", (EventHandler<DialogClickEventArgs>)((senderAlert, args)
-            //=> {
-            //    Teacher teacher = teachers[e.Position];
+            alertDiag.SetPositiveButton("Choose", (EventHandler<DialogClickEventArgs>)((senderAlert, args)
+            =>
+            {
+                //Teacher teacher = teachers[e.Position];
 
-            //    if (teacher.Id != 0)
-            //        teacher.EntityStatus = EntityStatus.DELETED;
-            //    else
-            //        teachers.Remove(teacher);
+                //if (teacher.Id != 0)
+                //    teacher.EntityStatus = EntityStatus.DELETED;
+                //else
+                //    teachers.Remove(teacher);
 
-            //    teachers.Save();
+                //teachers.Save();
 
-            //    RefreshListView();
+                //RefreshListView();
 
-            //    alertDiag.Dispose();
-            //}));
+                //alertDiag.Dispose();
+            }));
 
-            //alertDiag.SetNegativeButton("Cancel", (senderAlert, args)
-            //=> {
-            //    alertDiag.Dispose();
-            //});
+            alertDiag.SetNegativeButton("Cancel", (senderAlert, args)
+            =>
+            {
+                alertDiag.Dispose();
+            });
 
-            //Dialog diag = alertDiag.Create();
-            //diag.Show();
+            Dialog diag = alertDiag.Create();
+            diag.Show();
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -70,14 +74,18 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             // Create your application here
             SetContentView(Resource.Layout.ListViewOfTeacherOrStudents);
             SetViews();
+            teachers = new Teachers();
+            teachers = teachers.SelectAll();
+            lvTeachers.Adapter = adapter;
 
             RefreshListView();
+            position = -1;
         }
 
         private void RefreshListView()
         {
             adapter = new ArrayAdapter<string>(this, Resource.Layout.OneItemPick);
-            lvTeachersOrStudents.Adapter = adapter;
+            lvTeachers.Adapter = adapter;
         }
     }
 }
