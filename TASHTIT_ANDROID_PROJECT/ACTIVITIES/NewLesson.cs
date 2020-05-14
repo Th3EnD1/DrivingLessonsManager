@@ -32,6 +32,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private const int TIME_DIALOG = 1;
         private int day, month, year, hour, minuts;
         private DateTime date, time;
+        private Diaries diaries;
+        private Diary diary;
 
         public void SetViews()
         {
@@ -108,6 +110,19 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             lesson.LessonTypeNo = (int)spnType.SelectedItemId;
 
+            diaries = diaries.SelectAll(date, time);
+
+            if (diaries.Count == 0)
+            {
+                diary = new Diary();
+                diary.Date = new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, 0);
+                diary.LessonType = "A"; 
+                diary.StudentName = MainActivity.student.Name;
+
+                diaries.Add(diary);
+                diaries.Insert(diary);
+            }
+
             Intent intent = new Intent();
 
             intent.PutExtra("LESSON", Serializer.ObjectToByteArray(lesson));
@@ -142,6 +157,9 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             // Create your application here
             SetContentView(Resource.Layout.NewLesson);
             SetViews();
+
+            diaries = new Diaries();
+            diaries = diaries.SelectAll();
 
             lessonTypes = new LessonTypes();
 

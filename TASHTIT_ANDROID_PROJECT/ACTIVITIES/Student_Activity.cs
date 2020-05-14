@@ -34,7 +34,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             SetViews();
 
             students = new Students();
-            students.SelectAll();
+            students = students.SelectAll();
         }
 
         public void SetViews()
@@ -70,11 +70,14 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             {
                 students.Add(student);
                 students.Insert(student);
+                MainActivity.student = student;
             }
             else
             {
                 Toast.MakeText(this, "The ID number is already in use by another student!", ToastLength.Short).Show();
             }
+
+            Finish();
         }
     }
 }

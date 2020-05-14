@@ -10,6 +10,7 @@ using Android.Provider;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using TASHTIT_ANDROID_PROJECT.ACTIVITIES;
+using MODEL;
 
 namespace TASHTIT_ANDROID_PROJECT
 {
@@ -17,6 +18,8 @@ namespace TASHTIT_ANDROID_PROJECT
     public class MainActivity : AppCompatActivity
     {
         private Button btnList, btnSettings, btnCheckList;
+        public static Teacher teacher;
+        public static Student student;
 
         public void SetViews()
         {
@@ -53,6 +56,9 @@ namespace TASHTIT_ANDROID_PROJECT
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
             SetViews();
+
+            Students students = new Students();
+            MainActivity.student = students.SelectAll()[0];
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

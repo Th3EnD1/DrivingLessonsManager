@@ -19,7 +19,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
     {
         private TextView txtHeader;
         private ListView lvTeachers;
-        private ArrayAdapter<string> adapter;
+        private ArrayAdapter adapter;
         private Teachers teachers;
         int position;
 
@@ -43,18 +43,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             alertDiag.SetPositiveButton("Choose", (EventHandler<DialogClickEventArgs>)((senderAlert, args)
             =>
             {
-                //Teacher teacher = teachers[e.Position];
-
-                //if (teacher.Id != 0)
-                //    teacher.EntityStatus = EntityStatus.DELETED;
-                //else
-                //    teachers.Remove(teacher);
-
-                //teachers.Save();
-
-                //RefreshListView();
-
-                //alertDiag.Dispose();
+                MainActivity.student.TeacherId = teachers[e.Position].Id;
+                alertDiag.Dispose();
             }));
 
             alertDiag.SetNegativeButton("Cancel", (senderAlert, args)
@@ -76,7 +66,6 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             SetViews();
             teachers = new Teachers();
             teachers = teachers.SelectAll();
-            lvTeachers.Adapter = adapter;
 
             RefreshListView();
             position = -1;
@@ -84,7 +73,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
         private void RefreshListView()
         {
-            adapter = new ArrayAdapter<string>(this, Resource.Layout.OneItemPick);
+            adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, teachers);
             lvTeachers.Adapter = adapter;
         }
     }

@@ -66,5 +66,10 @@ namespace MODEL
         {
             return !(left == right);
         }
+
+        public override string ToString()
+        {
+            return name + " - " + phone;
+        }
     }
 }

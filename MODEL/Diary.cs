@@ -9,9 +9,12 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite;
 
 namespace MODEL
 {
+    [Serializable]
+    [Table("Diary")]
     public class Diary : BaseEntity
     {
         private string studentName;

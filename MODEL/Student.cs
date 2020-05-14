@@ -17,25 +17,29 @@ namespace MODEL
     public class Student : Teacher
     {
         private string tz;
+        private int teacherId;
 
         public Student()
         {
 
         }
 
-        public Student(string tz)
+        public Student(string tz, int teacherId)
         {
             this.tz = tz;
+            this.teacherId = teacherId;
         }
 
 
 
         public string Tz { get => tz; set => tz = value; }
+        public int TeacherId { get => teacherId; set => teacherId = value; }
 
         public override bool Equals(object obj)
         {
             return obj is Student student &&
-                   tz == student.tz;
+                   tz == student.tz &&
+                   teacherId == student.teacherId;
         }
 
         public static bool operator ==(Student left, Student right)
