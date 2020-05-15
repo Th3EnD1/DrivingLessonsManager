@@ -29,9 +29,9 @@ namespace MODEL
 
         public Diaries SelectAll(DateTime date, DateTime time)
         {
-            DateTime d = new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, 0);
+            DateTime d = DateTime.Now;
 
-            List<Diary> list = DbTable<Diary>.SelectQuery("SELECT * FROM Diary WEHRE Date <= #" + d + "# ORDER BY Date");
+            List<Diary> list = DbTable<Diary>.SelectQuery("SELECT * FROM Diary WHERE date <= d ORDER BY Date");
 
             Diaries diaries = new Diaries();
 

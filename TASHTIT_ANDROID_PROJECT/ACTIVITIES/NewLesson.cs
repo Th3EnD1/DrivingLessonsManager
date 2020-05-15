@@ -116,7 +116,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             {
                 diary = new Diary();
                 diary.Date = new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, 0);
-                diary.LessonType = "A"; 
+                diary.LessonType = spnType.SelectedItem.ToString(); 
                 diary.StudentName = MainActivity.student.Name;
 
                 diaries.Add(diary);
