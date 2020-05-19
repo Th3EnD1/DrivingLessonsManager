@@ -38,7 +38,61 @@ namespace TASHTIT_ANDROID_PROJECT
 
         private void BtnTeacherLogin_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            LayoutInflater layoutInflaterAndroid = LayoutInflater.From(this);
+            View mView = layoutInflaterAndroid.Inflate(Resource.Layout.LoginDialog, null);
+            Android.Support.V7.App.AlertDialog.Builder alertDialogBuilder = new Android.Support.V7.App.AlertDialog.Builder(this);
+            alertDialogBuilder.SetView(mView);
+
+            var etEmail = mView.FindViewById<EditText>(Resource.Id.etEmail);
+            var etPassword = mView.FindViewById<EditText>(Resource.Id.etPassword);
+
+            alertDialogBuilder.SetCancelable(false)
+            .SetPositiveButton("Login", delegate
+            {
+                Teachers teachers = new Teachers();
+                teachers = teachers.SelectAll();
+                Android.Support.V7.App.AlertDialog.Builder alertDialog = new Android.Support.V7.App.AlertDialog.Builder(this);
+                for (int i = 0; i < teachers.Count; i++)
+                {
+                    if (etEmail.Text == teachers[i].Email)
+                    {
+                        if (etPassword.Text == teachers[i].Psw)
+                        {
+                            Toast.MakeText(this, "Logged in as " + teachers[i].Name + ".", ToastLength.Short).Show();
+                            MainActivity.teacher = teachers[i];
+                            alertDialogBuilder.Dispose();
+                        }
+                        else
+                        {
+
+                            alertDialog.SetTitle("Login Error");
+                            alertDialog.SetMessage("The email or the password are incorrect. Please check if you have entered the correct email and password and try again.");
+                            alertDialog.SetNeutralButton("OK", delegate
+                            {
+                                alertDialog.Dispose();
+                            });
+                            alertDialog.Show();
+                        }
+                    }
+                    else
+                    {
+                        alertDialog.SetTitle("Login Error");
+                        alertDialog.SetMessage("The email or the password are incorrect. Please check if you have entered the correct email and password and try again.");
+                        alertDialog.SetNeutralButton("OK", delegate
+                        {
+                            alertDialog.Dispose();
+                        });
+                        alertDialog.Show();
+                    }
+                }
+            })
+            .SetNegativeButton("Cancel", delegate
+            {
+                alertDialogBuilder.Dispose();
+            });
+
+            Android.Support.V7.App.AlertDialog alertDialogAndroid = alertDialogBuilder.Create();
+            alertDialogAndroid.Show();
         }
 
         private void BtnStudentLogin_Click(object sender, System.EventArgs e)
@@ -48,18 +102,56 @@ namespace TASHTIT_ANDROID_PROJECT
             Android.Support.V7.App.AlertDialog.Builder alertDialogBuilder = new Android.Support.V7.App.AlertDialog.Builder(this);
             alertDialogBuilder.SetView(mView);
 
-            var edEmail = mView.FindViewById<EditText>(Resource.Id.etEmail);
-            var edPassword = mView.FindViewById<EditText>(Resource.Id.etPassword);
+            var etEmail = mView.FindViewById<EditText>(Resource.Id.etEmail);
+            var etPassword = mView.FindViewById<EditText>(Resource.Id.etPassword);
 
             alertDialogBuilder.SetCancelable(false)
-            .SetPositiveButton("Send", delegate
+            .SetPositiveButton("Login", delegate
             {
-
+                Students students = new Students();
+                students = students.SelectAll();
+                Android.Support.V7.App.AlertDialog.Builder alertDialog = new Android.Support.V7.App.AlertDialog.Builder(this);
+                for (int i = 0; i < students.Count; i++)
+                {
+                    if (etEmail.Text == students[i].Email)
+                    {
+                        if (etPassword.Text == students[i].Psw)
+                        {
+                            Toast.MakeText(this, "Logged in as " + students[i].Name + ".", ToastLength.Short).Show();
+                            MainActivity.student = students[i];
+                            alertDialogBuilder.Dispose();
+                        }
+                        else
+                        {
+                            
+                            alertDialog.SetTitle("Login Error");
+                            alertDialog.SetMessage("The email or the password are incorrect. Please check if you have entered the correct email and password and try again.");
+                            alertDialog.SetNeutralButton("OK", delegate
+                            {
+                                alertDialog.Dispose();
+                            });
+                            alertDialog.Show();
+                        }
+                    }
+                    else
+                    {
+                        alertDialog.SetTitle("Login Error");
+                        alertDialog.SetMessage("The email or the password are incorrect. Please check if you have entered the correct email and password and try again.");
+                        alertDialog.SetNeutralButton("OK", delegate
+                        {
+                            alertDialog.Dispose();
+                        });
+                        alertDialog.Show();
+                    }
+                }
             })
             .SetNegativeButton("Cancel", delegate
             {
                 alertDialogBuilder.Dispose();
             });
+
+            Android.Support.V7.App.AlertDialog alertDialogAndroid = alertDialogBuilder.Create();
+            alertDialogAndroid.Show();
         }
 
         private void BtnCheckList_Click(object sender, System.EventArgs e)
