@@ -17,7 +17,7 @@ namespace TASHTIT_ANDROID_PROJECT
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/car" )]
     public class MainActivity : AppCompatActivity
     {
-        private Button btnList, btnSettings, btnCheckList;
+        private Button btnList, btnSettings, btnCheckList, btnStudentLogin, btnTeacherLogin;
         public static Teacher teacher;
         public static Student student;
 
@@ -26,10 +26,40 @@ namespace TASHTIT_ANDROID_PROJECT
             btnList = FindViewById<Button>(Resource.Id.btnList);
             btnSettings = FindViewById<Button>(Resource.Id.btnSettings);
             btnCheckList = FindViewById<Button>(Resource.Id.btnCheckList);
+            btnStudentLogin = FindViewById<Button>(Resource.Id.btnStudentLogin);
+            btnTeacherLogin = FindViewById<Button>(Resource.Id.btnTeacherLogin);
 
             btnList.Click += BtnList_Click;
             btnSettings.Click += BtnSettings_Click;
             btnCheckList.Click += BtnCheckList_Click;
+            btnStudentLogin.Click += BtnStudentLogin_Click;
+            btnTeacherLogin.Click += BtnTeacherLogin_Click;
+        }
+
+        private void BtnTeacherLogin_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void BtnStudentLogin_Click(object sender, System.EventArgs e)
+        {
+            LayoutInflater layoutInflaterAndroid = LayoutInflater.From(this);
+            View mView = layoutInflaterAndroid.Inflate(Resource.Layout.LoginDialog, null);
+            Android.Support.V7.App.AlertDialog.Builder alertDialogBuilder = new Android.Support.V7.App.AlertDialog.Builder(this);
+            alertDialogBuilder.SetView(mView);
+
+            var edEmail = mView.FindViewById<EditText>(Resource.Id.etEmail);
+            var edPassword = mView.FindViewById<EditText>(Resource.Id.etPassword);
+
+            alertDialogBuilder.SetCancelable(false)
+            .SetPositiveButton("Send", delegate
+            {
+
+            })
+            .SetNegativeButton("Cancel", delegate
+            {
+                alertDialogBuilder.Dispose();
+            });
         }
 
         private void BtnCheckList_Click(object sender, System.EventArgs e)
@@ -58,7 +88,9 @@ namespace TASHTIT_ANDROID_PROJECT
             SetViews();
 
             Students students = new Students();
-            MainActivity.student = students.SelectAll()[0];
+            students = students.SelectAll();
+            //if (students.Count > 0)
+            //    MainActivity.student = students[0];
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

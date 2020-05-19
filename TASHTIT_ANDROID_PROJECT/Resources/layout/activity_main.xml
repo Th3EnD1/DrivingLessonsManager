@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,9 +15,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Driving Lessons Manager"
-        android:textSize="50dp"
+        android:textSize="30dp"
         android:gravity="center"
         android:textColor="@android:color/holo_blue_light"
+    />
+
+    <Button
+        android:id="@+id/btnStudentLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="Student Login"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="50dp"
+    />
+
+    <Button
+        android:id="@+id/btnTeacherLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="Student Login"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
     />
 
 	<Button
@@ -23,7 +49,6 @@
 		android:text="List of Lessons"
         android:textSize="25sp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="50dp"
 	/>
 
     <Button
@@ -56,3 +81,4 @@
 	/>
 
 </LinearLayout>
+</ScrollView>
