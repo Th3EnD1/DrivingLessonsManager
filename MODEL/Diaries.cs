@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using DAL;
+using HELPER;
 
 namespace MODEL
 {
@@ -29,9 +30,9 @@ namespace MODEL
 
         public Diaries SelectAll(DateTime date, DateTime time)
         {
-            DateTime d = DateTime.Now;
+            string d = Global.GetSqLiteDate( DateTime.Now);
 
-            List<Diary> list = DbTable<Diary>.SelectQuery("SELECT * FROM Diary WHERE date <= d ORDER BY Date");
+            List<Diary> list = DbTable<Diary>.SelectQuery("SELECT * FROM Diary WHERE date(date) <= date('" + d + ") ORDER BY Date");
 
             Diaries diaries = new Diaries();
 
@@ -65,7 +66,6 @@ namespace MODEL
         public override void Sort()
         {
             base.Sort((item1, item2) => item1.Date.CompareTo(item2.Date));
-
         }
     }
 }

@@ -51,5 +51,10 @@ namespace HELPER
                 activity.Window.SetSoftInputMode(SoftInput.StateHidden); // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
             }
         }
+
+        public static string GetSqLiteDate(DateTime date)
+        {
+            return date.Year + "-" + date.Month + "-" + date.Day;
+        }
     }
 }

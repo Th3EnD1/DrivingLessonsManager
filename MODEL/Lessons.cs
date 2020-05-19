@@ -58,5 +58,26 @@ namespace MODEL
         return lessons;
     }
 
+    public Lessons SelectLessonsForStudent(int id)
+    {
+            List<Lesson> list;
+
+            try
+            {
+                list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo = " + id);
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+
+        Lessons lessons = new Lessons();
+
+        if (list != null)
+            lessons.AddRange(list);
+
+        return lessons;
+    }
 }
 }
