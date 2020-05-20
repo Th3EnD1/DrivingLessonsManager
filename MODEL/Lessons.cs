@@ -58,19 +58,20 @@ namespace MODEL
         return lessons;
     }
 
-    public Lessons SelectLessonsForStudent(int id)
+    public Lessons SelectLessonsForStudent(Student student)
     {
-            List<Lesson> list;
+           //List<Lesson> list;
 
-            try
-            {
-                list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo = " + id);
-            }
-            catch (Exception e)
-            {
+           // try
+           // {
+           //     list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo='" + student.Id + "' ORDER BY Name");
+           // }
+           // catch (Exception e)
+           // {
 
-                throw;
-            }
+           //     throw;
+           // }
+        List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo='" + student.Id + "'");
 
         Lessons lessons = new Lessons();
 

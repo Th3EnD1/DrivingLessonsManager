@@ -110,7 +110,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             lesson.LessonTypeNo = (int)spnType.SelectedItemId;
 
-            diaries = diaries.SelectAll(date, time);
+            diaries = diaries.SelectAll(MainActivity.student);
 
             if (diaries.Count == 0)
             {

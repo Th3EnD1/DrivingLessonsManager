@@ -32,7 +32,19 @@ namespace MODEL
         {
             string d = Global.GetSqLiteDate( DateTime.Now);
 
-            List<Diary> list = DbTable<Diary>.SelectQuery("SELECT * FROM Diary WHERE date(date) <= date('" + d + ") ORDER BY Date");
+            List<Diary> list = DbTable<Diary>.SelectQuery("SELECT * FROM Diary WHERE date(date)<=date('" + d + ") ORDER BY Date");
+
+            Diaries diaries = new Diaries();
+
+            if (list != null)
+                diaries.AddRange(list);
+
+            return diaries;
+        }
+
+        public Diaries SelectAll(Student student)
+        {
+            List<Diary> list = DbTable<Diary>.SelectQuery("SELECT * FROM Diary WHERE StudentName='" + student.Name + "' ORDER BY Date");
 
             Diaries diaries = new Diaries();
 

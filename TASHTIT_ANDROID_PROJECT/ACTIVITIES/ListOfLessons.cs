@@ -31,7 +31,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             // Create your application here
             lessons = new Lessons();
             //lessons = lessons.SelectAll();
-            lessons = lessons.SelectLessonsForStudent(MainActivity.student.Id);
+            lessons = lessons.SelectLessonsForStudent(MainActivity.student);
             SetContentView(Resource.Layout.ListOfLessons);
 
             SetViews();

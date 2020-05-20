@@ -52,38 +52,39 @@ namespace TASHTIT_ANDROID_PROJECT
                 Teachers teachers = new Teachers();
                 teachers = teachers.SelectAll();
                 Android.Support.V7.App.AlertDialog.Builder alertDialog = new Android.Support.V7.App.AlertDialog.Builder(this);
+                bool exists = false;
+                Teacher teacherTest = new Teacher();
                 for (int i = 0; i < teachers.Count; i++)
                 {
                     if (etEmail.Text == teachers[i].Email)
                     {
                         if (etPassword.Text == teachers[i].Psw)
                         {
-                            Toast.MakeText(this, "Logged in as " + teachers[i].Name + ".", ToastLength.Short).Show();
-                            MainActivity.teacher = teachers[i];
-                            alertDialogBuilder.Dispose();
+                            teacherTest = teachers[i];
+                            exists = true;
                         }
                         else
-                        {
-
-                            alertDialog.SetTitle("Login Error");
-                            alertDialog.SetMessage("The email or the password are incorrect. Please check if you have entered the correct email and password and try again.");
-                            alertDialog.SetNeutralButton("OK", delegate
-                            {
-                                alertDialog.Dispose();
-                            });
-                            alertDialog.Show();
-                        }
+                            exists = false;
                     }
                     else
+                        exists = false;
+                }
+                if (exists == true)
+                {
+                    Toast.MakeText(this, "Logged in as " + teacherTest.Name + ".", ToastLength.Short).Show();
+                    MainActivity.teacher = teacherTest;
+                    alertDialogBuilder.Dispose();
+                }
+                else
+                {
+                    alertDialog.SetTitle("Login Error");
+                    alertDialog.SetMessage("The email or the password are incorrect. Please check if you have entered the correct email and password and try again.");
+                    alertDialog.SetNeutralButton("OK", delegate
                     {
-                        alertDialog.SetTitle("Login Error");
-                        alertDialog.SetMessage("The email or the password are incorrect. Please check if you have entered the correct email and password and try again.");
-                        alertDialog.SetNeutralButton("OK", delegate
-                        {
-                            alertDialog.Dispose();
-                        });
-                        alertDialog.Show();
-                    }
+                        alertDialog.Dispose();
+                    });
+                    alertDialog.Show();
+                    exists = false;
                 }
             })
             .SetNegativeButton("Cancel", delegate
@@ -111,38 +112,39 @@ namespace TASHTIT_ANDROID_PROJECT
                 Students students = new Students();
                 students = students.SelectAll();
                 Android.Support.V7.App.AlertDialog.Builder alertDialog = new Android.Support.V7.App.AlertDialog.Builder(this);
+                bool exists = false;
+                Student studentTest = new Student();
                 for (int i = 0; i < students.Count; i++)
                 {
                     if (etEmail.Text == students[i].Email)
                     {
                         if (etPassword.Text == students[i].Psw)
                         {
-                            Toast.MakeText(this, "Logged in as " + students[i].Name + ".", ToastLength.Short).Show();
-                            MainActivity.student = students[i];
-                            alertDialogBuilder.Dispose();
+                            studentTest = students[i];
+                            exists = true;
                         }
                         else
-                        {
-                            
-                            alertDialog.SetTitle("Login Error");
-                            alertDialog.SetMessage("The email or the password are incorrect. Please check if you have entered the correct email and password and try again.");
-                            alertDialog.SetNeutralButton("OK", delegate
-                            {
-                                alertDialog.Dispose();
-                            });
-                            alertDialog.Show();
-                        }
+                            exists = false;
                     }
                     else
+                        exists = false;
+                }
+                if (exists == true)
+                {
+                    Toast.MakeText(this, "Logged in as " + studentTest.Name + ".", ToastLength.Short).Show();
+                    MainActivity.student = studentTest;
+                    alertDialogBuilder.Dispose();
+                }
+                else
+                {
+                    alertDialog.SetTitle("Login Error");
+                    alertDialog.SetMessage("The email or the password are incorrect. Please check if you have entered the correct email and password and try again.");
+                    alertDialog.SetNeutralButton("OK", delegate
                     {
-                        alertDialog.SetTitle("Login Error");
-                        alertDialog.SetMessage("The email or the password are incorrect. Please check if you have entered the correct email and password and try again.");
-                        alertDialog.SetNeutralButton("OK", delegate
-                        {
-                            alertDialog.Dispose();
-                        });
-                        alertDialog.Show();
-                    }
+                        alertDialog.Dispose();
+                    });
+                    alertDialog.Show();
+                    exists = false;
                 }
             })
             .SetNegativeButton("Cancel", delegate
