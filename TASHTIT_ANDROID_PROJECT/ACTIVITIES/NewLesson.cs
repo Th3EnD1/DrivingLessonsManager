@@ -115,6 +115,17 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             lesson.LessonTypeNo = (int)spnType.SelectedItemId;
 
+            switch(lesson.LessonTypeNo)
+            {
+                case 0: { lesson.Cost = MainActivity.teacher.Cost; } break;
+                case 1: { lesson.Cost = MainActivity.teacher.Cost; } break;
+                case 2: { lesson.Cost = MainActivity.teacher.Cost; } break;
+                case 3: { lesson.Cost = MainActivity.teacher.Cost; } break;
+                case 4: { lesson.Cost = MainActivity.teacher.Cost; } break;
+                case 5: { lesson.Cost = MainActivity.teacher.Cost; } break;
+                default: { lesson.Cost = MainActivity.teacher.Cost; } break;
+            }
+
             diaries = diaries.SelectAll(MainActivity.student);
 
             if (diaries.Count == 0)

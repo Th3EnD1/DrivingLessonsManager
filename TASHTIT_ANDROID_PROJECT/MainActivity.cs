@@ -189,6 +189,7 @@ namespace TASHTIT_ANDROID_PROJECT
             students = students.SelectAll();
             //if (students.Count > 0)
             //    MainActivity.student = students[0];
+            teacher.Cost = 140;
 
         }
 

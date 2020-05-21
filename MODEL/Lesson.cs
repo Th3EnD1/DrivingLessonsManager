@@ -24,8 +24,9 @@ namespace MODEL
         private DateTime time;
         private bool paid;
         private string details;
+        private double cost;
 
-        public Lesson(int studentNo, int lessonTypeNo, int categoryNo, DateTime date, DateTime time, bool paid, string details)
+        public Lesson(int studentNo, int lessonTypeNo, int categoryNo, DateTime date, DateTime time, bool paid, string details, double cost)
         {
             this.studentNo = studentNo;
             this.lessonTypeNo = lessonTypeNo;
@@ -34,6 +35,7 @@ namespace MODEL
             this.time = time;
             this.paid = paid;
             this.details = details;
+            this.cost = cost;
         }
 
         public Lesson() { }
@@ -45,6 +47,7 @@ namespace MODEL
         public int StudentNo { get => studentNo; set => studentNo = value; }
         public int CategoryNo { get => categoryNo; set => categoryNo = value; }
         public DateTime Time { get => time; set => time = value; }
+        public double Cost { get => cost; set => cost = value; }
 
         public override bool Equals(object obj)
         {
@@ -56,7 +59,8 @@ namespace MODEL
                    date == lesson.date &&
                    time == lesson.time &&
                    paid == lesson.paid &&
-                   details == lesson.details;
+                   details == lesson.details &&
+                   cost == lesson.cost;
         }
     }
 

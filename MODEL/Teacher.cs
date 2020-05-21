@@ -20,6 +20,7 @@ namespace MODEL
         private string email;
         private string psw;
         private string phone;
+        private int cost;
 
         private DateTime startHour;
         private DateTime endHour;
@@ -30,12 +31,13 @@ namespace MODEL
         public DateTime StartHour { get => startHour; set => startHour = value; }
         public DateTime EndHour { get => endHour; set => endHour = value; }
         public string Phone { get => phone; set => phone = value; }
+        public int Cost { get => cost; set => cost = value; }
 
         public Teacher()
         {
         }
 
-        public Teacher(string name, string email, string psw, DateTime startHour, DateTime endHour, string phone)
+        public Teacher(string name, string email, string psw, DateTime startHour, DateTime endHour, string phone, int cost)
         {
             this.name = name;
             this.email = email;
@@ -43,6 +45,7 @@ namespace MODEL
             this.startHour = startHour;
             this.endHour = endHour;
             this.phone = phone;
+            this.cost = cost;
         }
 
         public override bool Equals(object obj)
@@ -54,7 +57,8 @@ namespace MODEL
                    psw == teacher.psw &&
                    startHour == teacher.startHour &&
                    endHour == teacher.endHour &&
-                   phone == teacher.phone;
+                   phone == teacher.phone &&
+                   cost == teacher.cost;
         }
 
         public static bool operator ==(Teacher left, Teacher right)
