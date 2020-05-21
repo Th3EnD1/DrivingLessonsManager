@@ -71,7 +71,7 @@ namespace MODEL
 
            //     throw;
            // }
-        List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo='" + student.Id + "'");
+        List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id);
 
         Lessons lessons = new Lessons();
 
@@ -80,5 +80,10 @@ namespace MODEL
 
         return lessons;
     }
+
+        public int InsertDb(Lesson lesson)
+        {
+            return DbTable<Lesson>.Insert(lesson);
+        }
 }
 }

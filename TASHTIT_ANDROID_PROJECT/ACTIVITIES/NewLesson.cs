@@ -102,11 +102,16 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         {
             Lesson lesson = new Lesson();
 
+            if (!isNew)
+                lesson.Id = this.lesson.Id;
+
             lesson.Paid = false;
 
             lesson.Date = date;
 
             lesson.Time = time;
+
+            lesson.StudentNo = MainActivity.student.Id;
 
             lesson.LessonTypeNo = (int)spnType.SelectedItemId;
 
@@ -129,8 +134,6 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             SetResult(Result.Ok, intent);
 
-            if (!isNew)
-                lesson.Id = this.lesson.Id;
 
             Finish();
         }

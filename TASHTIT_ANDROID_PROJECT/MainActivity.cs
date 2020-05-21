@@ -18,6 +18,7 @@ namespace TASHTIT_ANDROID_PROJECT
     public class MainActivity : AppCompatActivity
     {
         private Button btnList, btnSettings, btnCheckList, btnStudentLogin, btnTeacherLogin;
+        private TextView txtLoggedAs;
         public static Teacher teacher;
         public static Student student;
 
@@ -28,6 +29,7 @@ namespace TASHTIT_ANDROID_PROJECT
             btnCheckList = FindViewById<Button>(Resource.Id.btnCheckList);
             btnStudentLogin = FindViewById<Button>(Resource.Id.btnStudentLogin);
             btnTeacherLogin = FindViewById<Button>(Resource.Id.btnTeacherLogin);
+            txtLoggedAs = FindViewById<TextView>(Resource.Id.txtLoggedAs);
 
             btnList.Click += BtnList_Click;
             btnSettings.Click += BtnSettings_Click;
@@ -73,6 +75,7 @@ namespace TASHTIT_ANDROID_PROJECT
                 {
                     Toast.MakeText(this, "Logged in as " + teacherTest.Name + ".", ToastLength.Short).Show();
                     MainActivity.teacher = teacherTest;
+                    txtLoggedAs.Text = "Logged as " + MainActivity.teacher.Name;
                     alertDialogBuilder.Dispose();
                 }
                 else
@@ -133,6 +136,7 @@ namespace TASHTIT_ANDROID_PROJECT
                 {
                     Toast.MakeText(this, "Logged in as " + studentTest.Name + ".", ToastLength.Short).Show();
                     MainActivity.student = studentTest;
+                    txtLoggedAs.Text = "Logged as " + MainActivity.student.Name;
                     alertDialogBuilder.Dispose();
                 }
                 else
@@ -185,6 +189,7 @@ namespace TASHTIT_ANDROID_PROJECT
             students = students.SelectAll();
             //if (students.Count > 0)
             //    MainActivity.student = students[0];
+
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

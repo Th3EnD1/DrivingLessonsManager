@@ -69,6 +69,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         {
             Lesson lesson = Serializer.ByteArrayToObject(data.GetByteArrayExtra("LESSON")) as Lesson;
             lessons.Add(lesson);
+            lessons.InsertDb(lesson);
             RefreshListView();
         }
 

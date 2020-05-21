@@ -7500,46 +7500,49 @@ namespace TASHTIT_ANDROID_PROJECT
 			public const int txtLessonsLeft = 2131296494;
 			
 			// aapt resource value: 0x7F0900EF
-			public const int txtMoneyLeft = 2131296495;
+			public const int txtLoggedAs = 2131296495;
 			
 			// aapt resource value: 0x7F0900F0
-			public const int txtMoneyPaid = 2131296496;
+			public const int txtMoneyLeft = 2131296496;
 			
 			// aapt resource value: 0x7F0900F1
-			public const int txtPrice = 2131296497;
+			public const int txtMoneyPaid = 2131296497;
 			
 			// aapt resource value: 0x7F0900F2
-			public const int txtTime = 2131296498;
+			public const int txtPrice = 2131296498;
 			
 			// aapt resource value: 0x7F0900F3
-			public const int txtType = 2131296499;
+			public const int txtTime = 2131296499;
 			
 			// aapt resource value: 0x7F0900F4
-			public const int uniform = 2131296500;
+			public const int txtType = 2131296500;
 			
 			// aapt resource value: 0x7F0900F5
-			public const int unlabeled = 2131296501;
+			public const int uniform = 2131296501;
 			
 			// aapt resource value: 0x7F0900F6
-			public const int up = 2131296502;
+			public const int unlabeled = 2131296502;
 			
 			// aapt resource value: 0x7F0900F7
-			public const int useLogo = 2131296503;
+			public const int up = 2131296503;
 			
 			// aapt resource value: 0x7F0900F8
-			public const int view_offset_helper = 2131296504;
+			public const int useLogo = 2131296504;
 			
 			// aapt resource value: 0x7F0900F9
-			public const int visible = 2131296505;
+			public const int view_offset_helper = 2131296505;
 			
 			// aapt resource value: 0x7F0900FA
-			public const int wide = 2131296506;
+			public const int visible = 2131296506;
 			
 			// aapt resource value: 0x7F0900FB
-			public const int withText = 2131296507;
+			public const int wide = 2131296507;
 			
 			// aapt resource value: 0x7F0900FC
-			public const int wrap_content = 2131296508;
+			public const int withText = 2131296508;
+			
+			// aapt resource value: 0x7F0900FD
+			public const int wrap_content = 2131296509;
 			
 			static Id()
 			{

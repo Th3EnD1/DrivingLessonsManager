@@ -20,6 +20,16 @@
         android:textColor="@android:color/holo_blue_light"
     />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logged as Guest"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/txtLoggedAs"
+    />
+
     <Button
         android:id="@+id/btnStudentLogin"
         android:layout_width="match_parent"
@@ -28,7 +38,7 @@
 		android:text="Student Login"
         android:textSize="25sp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
     />
 
     <Button
