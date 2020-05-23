@@ -14,6 +14,7 @@ using SQLite;
 namespace MODEL
 {
     [Table("Teachers")]
+    [Serializable]
     public class Teacher : BaseEntity
     {
         private string name;

@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using HELPER;
 using MODEL;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
@@ -23,7 +24,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private EditText etPassword;
         private Button btnSave;
         private Button btnCancel;
-        private Student student;
+        private Button btnPick;
+        private Student student, studentForPickedTeacher;
         private Students students;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,6 +37,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             students = new Students();
             students = students.SelectAll();
+            studentForPickedTeacher = new Student();
         }
 
         public void SetViews()
@@ -46,9 +49,37 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             etPassword = FindViewById<EditText>(Resource.Id.etPassword);
             btnCancel = FindViewById<Button>(Resource.Id.btnCancel);
             btnSave = FindViewById<Button>(Resource.Id.btnSave);
+            btnPick = FindViewById<Button>(Resource.Id.btnPick);
 
             btnSave.Click += BtnSave_Click;
             btnCancel.Click += BtnCancel_Click;
+            btnPick.Click += BtnPick_Click;
+        }
+
+        private void BtnPick_Click(object sender, EventArgs e)
+        {
+            StartActivityForResult(new Intent(this, typeof(PickTeacher)), 3);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (requestCode == 3)
+            {
+                if (resultCode == Result.Ok)
+                {
+                    if (Intent.Extras != null)
+                    {
+                        // Studentבדיקה אם הגיע 
+                        if (Intent.Extras.ContainsKey("STUDENT"))
+                        {
+                            // Studentחילוץ ה-
+                            // "דה-סריאליזציה"
+                            studentForPickedTeacher = Serializer.ByteArrayToObject(data.GetByteArrayExtra("STUDENT")) as Student;
+                        }
+                    }
+                }
+            }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -64,6 +95,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             student.Phone = etPhone.Text;
             student.Email = etEmail.Text;
             student.Psw = etPassword.Text;
+            student.PickedTeacher = studentForPickedTeacher.PickedTeacher;
 
 
             if (!students.Exists(student))

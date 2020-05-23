@@ -80,6 +80,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             {
                 Toast.MakeText(this, "The email is already in use by another teacher!", ToastLength.Short).Show();
             }
+
+            Finish();
         }
     }
 }

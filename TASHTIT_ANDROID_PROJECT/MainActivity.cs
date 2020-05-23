@@ -42,8 +42,30 @@ namespace TASHTIT_ANDROID_PROJECT
 
         private void BtnInfo_Click(object sender, System.EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(Info));
-            StartActivity(intent);
+            if (MainActivity.student.PickedTeacher != null)
+            {
+                StartActivity(new Intent(this, typeof(Info)));
+            }
+            else
+            {
+                LayoutInflater layoutInflaterAndroid = LayoutInflater.From(this);
+                View mView = layoutInflaterAndroid.Inflate(Resource.Layout.LoginDialog, null);
+                Android.Support.V7.App.AlertDialog.Builder alertDialogBuilder = new Android.Support.V7.App.AlertDialog.Builder(this);
+                alertDialogBuilder.SetView(mView);
+                Android.Support.V7.App.AlertDialog.Builder alertDialog = new Android.Support.V7.App.AlertDialog.Builder(this);
+                alertDialog.SetTitle("Pick a teacher");
+                alertDialog.SetMessage("You must pick a teacher first before viewing the info about your lessons, " + MainActivity.student.Name + ".");
+                alertDialog.SetPositiveButton("Pick Teacher", delegate
+                {
+                    StartActivity(new Intent(this, typeof(PickTeacher)));
+                    alertDialog.Dispose();
+                })
+                .SetNegativeButton("Cancel", delegate
+                {
+                    alertDialogBuilder.Dispose();
+                });
+                alertDialog.Show();
+            }
         }
 
         private void BtnTeacherLogin_Click(object sender, System.EventArgs e)

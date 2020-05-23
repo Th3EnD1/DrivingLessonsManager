@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using HELPER;
 using MODEL;
 using static Android.Provider.Settings;
 
@@ -21,6 +22,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private ListView lvTeachers;
         private ArrayAdapter adapter;
         private Teachers teachers;
+        private Students students;
+        private Student student;
         int position;
 
         private void SetViews()
@@ -43,8 +46,14 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             alertDiag.SetPositiveButton("Choose", (EventHandler<DialogClickEventArgs>)((senderAlert, args)
             =>
             {
-                MainActivity.student.TeacherId = teachers[e.Position].Id;
+                student.TeacherId = teachers[e.Position].Id;
+                student.PickedTeacher = teachers[e.Position];
+                //MainActivity.student = student;
+                Intent intent = new Intent();
+                intent.PutExtra("STUDENT", Serializer.ObjectToByteArray(student));
+                SetResult(Result.Ok, intent);
                 alertDiag.Dispose();
+                Finish();
             }));
 
             alertDiag.SetNegativeButton("Cancel", (senderAlert, args)
@@ -66,6 +75,9 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             SetViews();
             teachers = new Teachers();
             teachers = teachers.SelectAll();
+            students = new Students();
+            students = students.SelectAll();
+            student = new Student();
 
             RefreshListView();
             position = -1;

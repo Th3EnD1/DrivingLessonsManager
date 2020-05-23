@@ -20,6 +20,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private Student student;
         //private Lessons paidLessons, notPaidLessons, lessonsLeft;
         private Lessons lessons;
+        private Teacher teacher;
+        private Teachers teachers;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,6 +31,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             student = MainActivity.student;
             lessons = new Lessons();
             lessons = lessons.SelectAll();
+            teacher = new Teacher();
+            teachers = new Teachers();
+            teachers = teachers.SelectAll();
+            teacher = student.PickedTeacher;
             //paidLessons = new Lessons();
             //paidLessons = paidLessons.SelectPaidLessons(student);
             //notPaidLessons = new Lessons();
@@ -59,7 +65,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private void PaidLessons()
         {
             lessons = lessons.SelectPaidLessons(student);
-            txtMoneyPaid.Text = (lessons.Count * MainActivity.teacher.Cost).ToString() + " Shekels.";
+            txtMoneyPaid.Text = (lessons.Count * teacher.Cost).ToString() + " Shekels.";
         }
 
         private void LessonsLeft()
@@ -71,7 +77,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private void MoneyLeft()
         {
             lessons = lessons.SelectNotPaidLessons(student);
-            txtMoneyLeft.Text = (lessons.Count * MainActivity.teacher.Cost).ToString() + " Shekels.";
+            txtMoneyLeft.Text = (lessons.Count * teacher.Cost).ToString() + " Shekels.";
         }
     }
 }
