@@ -18,50 +18,60 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
     {
         private TextView txtLessonsDone, txtMoneyPaid, txtLessonsLeft, txtMoneyLeft;
         private Student student;
-        private Lessons paidLessons, notPaidLessons, lessonsLeft;
+        //private Lessons paidLessons, notPaidLessons, lessonsLeft;
+        private Lessons lessons;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your application here
+            SetContentView(Resource.Layout.info);
             student = MainActivity.student;
-            paidLessons = paidLessons.SelectPaidLessons(student);
-            notPaidLessons = notPaidLessons.SelectNotPaidLessons(student);
-            lessonsLeft = lessonsLeft.SelectLessonsLeft(student);
+            lessons = new Lessons();
+            lessons = lessons.SelectAll();
+            //paidLessons = new Lessons();
+            //paidLessons = paidLessons.SelectPaidLessons(student);
+            //notPaidLessons = new Lessons();
+            //notPaidLessons = notPaidLessons.SelectNotPaidLessons(student);
+            //lessonsLeft = new Lessons();
+            //lessonsLeft = lessonsLeft.SelectLessonsLeft(student);
             SetViews();
-        }
-
-        private void SetViews()
-        {
-            txtLessonsDone = FindViewById<TextView>(Resource.Id.txtLessonsDone);
-            txtMoneyPaid = FindViewById<TextView>(Resource.Id.txtMoneyPaid);
-            txtLessonsLeft = FindViewById<TextView>(Resource.Id.txtLessonsLeft);
-            txtMoneyLeft = FindViewById<TextView>(Resource.Id.txtMoneyLeft);
-
             LessonsDone();
             PaidLessons();
             LessonsLeft();
             MoneyLeft();
         }
 
+        private void SetViews()
+        {
+            txtLessonsDone = FindViewById<TextView>(Resource.Id.txtLessonsPaid);
+            txtMoneyPaid = FindViewById<TextView>(Resource.Id.txtMoneyPaid);
+            txtLessonsLeft = FindViewById<TextView>(Resource.Id.txtLessonsLeft);
+            txtMoneyLeft = FindViewById<TextView>(Resource.Id.txtMoneyLeft);
+        }
+
         private void LessonsDone()
         {
-            txtLessonsDone.Text = paidLessons.Count + " lessons.";
+            lessons = lessons.SelectPaidLessons(student);
+            txtLessonsDone.Text ="" + lessons.Count.ToString() + " lessons.";
         }
 
         private void PaidLessons()
         {
-            txtMoneyPaid.Text = (paidLessons.Count * MainActivity.teacher.Cost) + " Shekels.";
+            lessons = lessons.SelectPaidLessons(student);
+            txtMoneyPaid.Text = (lessons.Count * MainActivity.teacher.Cost).ToString() + " Shekels.";
         }
 
         private void LessonsLeft()
         {
-            txtLessonsLeft.Text = lessonsLeft.Count + " more lessons left.";
+            lessons = lessons.SelectLessonsLeft(student);
+            txtLessonsLeft.Text = lessons.Count.ToString() + " more lessons left.";
         }
 
         private void MoneyLeft()
         {
-            txtMoneyLeft.Text = (notPaidLessons.Count * MainActivity.teacher.Cost) + " more lessons left.";
+            lessons = lessons.SelectNotPaidLessons(student);
+            txtMoneyLeft.Text = (lessons.Count * MainActivity.teacher.Cost).ToString() + " Shekels.";
         }
     }
 }

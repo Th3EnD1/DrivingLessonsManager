@@ -69,6 +69,8 @@ namespace TASHTIT_ANDROID_PROJECT.ADAPTERS
                 viewHolder.checkBoxPaid.Checked = lesson.Paid;
             }
 
+            viewHolder.checkBoxPaid.Enabled = false;
+
             return convertView;
         }
 

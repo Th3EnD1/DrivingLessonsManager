@@ -72,7 +72,7 @@ namespace MODEL
 
         public Lessons SelectPaidLessons(Student student)
         {
-            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id + "AND Paid=" + true);
+            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id + " AND Paid=" + true);
 
             Lessons lessons = new Lessons();
 
@@ -84,7 +84,7 @@ namespace MODEL
 
         public Lessons SelectNotPaidLessons(Student student)
         {
-            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id + "AND Paid=" + false);
+            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id + " AND Paid=" + false);
 
             Lessons lessons = new Lessons();
 
@@ -98,7 +98,7 @@ namespace MODEL
         {
             DateTime d = DateTime.Now;
 
-            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id + "AND Date>" + d + "AND Time>" + d);
+            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id + " AND Date>" + d + "AND Time>" + d);
 
             Lessons lessons = new Lessons();
 

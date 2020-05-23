@@ -34,6 +34,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private DateTime date, time;
         private Diaries diaries;
         private Diary diary;
+        private CheckBox cbPaid;
 
         public void SetViews()
         {
@@ -45,6 +46,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             txtTime = FindViewById<TextView>(Resource.Id.txtTime);
             txtHeader = FindViewById<TextView>(Resource.Id.txtHeader);
             spnType = FindViewById<Spinner>(Resource.Id.spnType);
+            cbPaid = FindViewById<CheckBox>(Resource.Id.cbPaid);
 
             btnTime.Click += BtnTime_Click;
             btnDate.Click += BtnDate_Click;
@@ -105,7 +107,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             if (!isNew)
                 lesson.Id = this.lesson.Id;
 
-            lesson.Paid = false;
+            lesson.Paid = cbPaid.Checked;
 
             lesson.Date = date;
 
