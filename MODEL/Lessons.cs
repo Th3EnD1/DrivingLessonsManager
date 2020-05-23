@@ -109,8 +109,13 @@ namespace MODEL
         }
 
         public int InsertDb(Lesson lesson)
-    {
-        return DbTable<Lesson>.Insert(lesson);
-    }
+        {
+            return DbTable<Lesson>.Insert(lesson);
+        }
+
+        public int DeleteDb(Lesson lesson)
+        {
+            return DbTable<Lesson>.Delete(lesson);
+        }
 }
 }

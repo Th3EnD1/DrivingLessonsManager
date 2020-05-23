@@ -95,9 +95,15 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                 Lesson lesson = lessons[e.Position];
 
                 if (lesson.Id != 0)
+                {
                     lesson.EntityStatus = EntityStatus.DELETED;
+                    lessons.DeleteDb(lesson);
+                }
                 else
+                {
                     lessons.Remove(lesson);
+                    lessons.DeleteDb(lesson);
+                }
 
                 lessons.Save();
 
