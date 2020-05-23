@@ -17,7 +17,7 @@ namespace TASHTIT_ANDROID_PROJECT
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/car" )]
     public class MainActivity : AppCompatActivity
     {
-        private Button btnList, btnSettings, btnCheckList, btnStudentLogin, btnTeacherLogin;
+        private Button btnList, btnSettings, btnCheckList, btnStudentLogin, btnTeacherLogin, btnInfo;
         private TextView txtLoggedAs;
         public static Teacher teacher;
         public static Student student;
@@ -29,6 +29,7 @@ namespace TASHTIT_ANDROID_PROJECT
             btnCheckList = FindViewById<Button>(Resource.Id.btnCheckList);
             btnStudentLogin = FindViewById<Button>(Resource.Id.btnStudentLogin);
             btnTeacherLogin = FindViewById<Button>(Resource.Id.btnTeacherLogin);
+            btnInfo = FindViewById<Button>(Resource.Id.btnInfo);
             txtLoggedAs = FindViewById<TextView>(Resource.Id.txtLoggedAs);
 
             btnList.Click += BtnList_Click;
@@ -36,6 +37,13 @@ namespace TASHTIT_ANDROID_PROJECT
             btnCheckList.Click += BtnCheckList_Click;
             btnStudentLogin.Click += BtnStudentLogin_Click;
             btnTeacherLogin.Click += BtnTeacherLogin_Click;
+            btnInfo.Click += BtnInfo_Click;
+        }
+
+        private void BtnInfo_Click(object sender, System.EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(Info));
+            StartActivity(intent);
         }
 
         private void BtnTeacherLogin_Click(object sender, System.EventArgs e)

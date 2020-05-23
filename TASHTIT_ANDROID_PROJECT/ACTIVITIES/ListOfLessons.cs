@@ -33,7 +33,6 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             //lessons = lessons.SelectAll();
             lessons = lessons.SelectLessonsForStudent(MainActivity.student);
             SetContentView(Resource.Layout.ListOfLessons);
-
             SetViews();
             lvLessons.Adapter = adapter;
 

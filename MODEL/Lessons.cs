@@ -60,17 +60,6 @@ namespace MODEL
 
     public Lessons SelectLessonsForStudent(Student student)
     {
-           //List<Lesson> list;
-
-           // try
-           // {
-           //     list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo='" + student.Id + "' ORDER BY Name");
-           // }
-           // catch (Exception e)
-           // {
-
-           //     throw;
-           // }
         List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id);
 
         Lessons lessons = new Lessons();
@@ -81,9 +70,47 @@ namespace MODEL
         return lessons;
     }
 
-        public int InsertDb(Lesson lesson)
+        public Lessons SelectPaidLessons(Student student)
         {
-            return DbTable<Lesson>.Insert(lesson);
+            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id + "AND Paid=" + true);
+
+            Lessons lessons = new Lessons();
+
+            if (list != null)
+                lessons.AddRange(list);
+
+            return lessons;
         }
+
+        public Lessons SelectNotPaidLessons(Student student)
+        {
+            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id + "AND Paid=" + false);
+
+            Lessons lessons = new Lessons();
+
+            if (list != null)
+                lessons.AddRange(list);
+
+            return lessons;
+        }
+
+        public Lessons SelectLessonsLeft(Student student)
+        {
+            DateTime d = DateTime.Now;
+
+            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id + "AND Date>" + d + "AND Time>" + d);
+
+            Lessons lessons = new Lessons();
+
+            if (list != null)
+                lessons.AddRange(list);
+
+            return lessons;
+        }
+
+        public int InsertDb(Lesson lesson)
+    {
+        return DbTable<Lesson>.Insert(lesson);
+    }
 }
 }

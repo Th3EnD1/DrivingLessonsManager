@@ -72,6 +72,16 @@
 	/>
 
     <Button
+        android:id="@+id/btnInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+		android:text="Info"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+    />
+
+    <Button
         android:id="@+id/btnCheckList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
