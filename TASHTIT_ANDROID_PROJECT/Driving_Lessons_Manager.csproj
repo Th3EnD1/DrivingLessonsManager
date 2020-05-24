@@ -73,8 +73,10 @@
     <Compile Include="ACTIVITIES\NewLesson.cs" />
     <Compile Include="ACTIVITIES\PickTeacher.cs" />
     <Compile Include="ACTIVITIES\Settings.cs" />
-    <Compile Include="ACTIVITIES\Student_Activity.cs" />
+    <Compile Include="ACTIVITIES\StudentActivity.cs" />
+    <Compile Include="ACTIVITIES\StudentActivityRegister.cs" />
     <Compile Include="ACTIVITIES\TeacherActivity.cs" />
+    <Compile Include="ACTIVITIES\TeacherActivityRegister.cs" />
     <Compile Include="ACTIVITIES\TypesActivity.cs" />
     <Compile Include="ACTIVITIES\WhatsNewActivity.cs" />
     <Compile Include="ADAPTERS\LessonsAdapter.cs" />
@@ -205,7 +207,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\student_layout.xml">
+    <AndroidResource Include="Resources\layout\student_register.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -226,6 +228,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\info.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\StudentLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TeacherLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

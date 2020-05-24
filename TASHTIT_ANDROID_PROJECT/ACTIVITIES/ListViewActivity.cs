@@ -12,11 +12,12 @@ using Android.Widget;
 
 using MODEL;
 using HELPER;
+using Android.Support.V7.App;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
     [Activity(Label = "ListViewActivity")]
-    public class ListViewActivity : Activity
+    public class ListViewActivity : AppCompatActivity
     {
         private ListView    lvCities;
         private EditText    etCity;

@@ -15,11 +15,12 @@ using Android.Icu.Text;
 using static Android.App.DatePickerDialog;
 using static Android.App.TimePickerDialog;
 using Java.Util;
+using Android.Support.V7.App;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
     [Activity(Label = "NewLesson")]
-    public class NewLesson : Activity,IOnDateSetListener,IOnTimeSetListener
+    public class NewLesson : AppCompatActivity, IOnDateSetListener,IOnTimeSetListener
     {
         private Button btnSave, btnCancel, btnDate, btnTime;
         private TextView txtDate, txtTime, txtHeader;

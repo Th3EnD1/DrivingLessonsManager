@@ -22,7 +22,7 @@ namespace MODEL
         private string psw;
         private string phone;
         private int cost;
-        private DateTime minutsOfLesson;
+        private int minutsOfLesson;
 
         private DateTime startHour;
         private DateTime endHour;
@@ -34,13 +34,13 @@ namespace MODEL
         public DateTime EndHour { get => endHour; set => endHour = value; }
         public string Phone { get => phone; set => phone = value; }
         public int Cost { get => cost; set => cost = value; }
-        public DateTime MinutsOfLesson { get => minutsOfLesson; set => minutsOfLesson = value; }
+        public int MinutsOfLesson { get => minutsOfLesson; set => minutsOfLesson = value; }
 
         public Teacher()
         {
         }
 
-        public Teacher(string name, string email, string psw, DateTime startHour, DateTime endHour, string phone, int cost, DateTime minutsOfLesson)
+        public Teacher(string name, string email, string psw, DateTime startHour, DateTime endHour, string phone, int cost, int minutsOfLesson)
         {
             this.name = name;
             this.email = email;

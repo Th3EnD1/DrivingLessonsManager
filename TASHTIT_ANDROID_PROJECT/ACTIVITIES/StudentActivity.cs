@@ -14,10 +14,10 @@ using MODEL;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
-    [Activity(Label = "TeacherActivity")]
-    public class TeacherActivity : AppCompatActivity
+    [Activity(Label = "StudentActivity")]
+    public class StudentActivity : AppCompatActivity
     {
-        private Button btnSettings, btnStudentLogin, btnTeacherLogin;
+        private Button btnList, btnCheckList, btnStudentLogin, btnTeacherLogin, btnInfo;
         private TextView txtLoggedAs;
         public static Teacher teacher;
         public static Student student;
@@ -26,7 +26,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.teacher_layout);
+            SetContentView(Resource.Layout.StudentLayout);
             SetViews();
 
             Students students = new Students();
@@ -35,13 +35,48 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
         public void SetViews()
         {
-            btnSettings = FindViewById<Button>(Resource.Id.btnSettings);
+            btnList = FindViewById<Button>(Resource.Id.btnList);
+            btnCheckList = FindViewById<Button>(Resource.Id.btnCheckList);
             btnStudentLogin = FindViewById<Button>(Resource.Id.btnStudentLogin);
             btnTeacherLogin = FindViewById<Button>(Resource.Id.btnTeacherLogin);
+            btnInfo = FindViewById<Button>(Resource.Id.btnInfo);
+            txtLoggedAs = FindViewById<TextView>(Resource.Id.txtLoggedAs);
 
-            btnSettings.Click += BtnSettings_Click;
+            btnList.Click += BtnList_Click;
+            btnCheckList.Click += BtnCheckList_Click;
             btnStudentLogin.Click += BtnStudentLogin_Click;
             btnTeacherLogin.Click += BtnTeacherLogin_Click;
+            btnInfo.Click += BtnInfo_Click;
+        }
+
+        private void BtnInfo_Click(object sender, EventArgs e)
+        {
+            Teachers teachers = new Teachers();
+            teachers = teachers.SelectAll();
+            if (MainActivity.student.TeacherId == teachers.SelectPicked(student.TeacherId).Id)
+            {
+                StartActivity(new Intent(this, typeof(Info)));
+            }
+            else
+            {
+                LayoutInflater layoutInflaterAndroid = LayoutInflater.From(this);
+                View mView = layoutInflaterAndroid.Inflate(Resource.Layout.LoginDialog, null);
+                Android.Support.V7.App.AlertDialog.Builder alertDialogBuilder = new Android.Support.V7.App.AlertDialog.Builder(this);
+                alertDialogBuilder.SetView(mView);
+                Android.Support.V7.App.AlertDialog.Builder alertDialog = new Android.Support.V7.App.AlertDialog.Builder(this);
+                alertDialog.SetTitle("Pick a teacher");
+                alertDialog.SetMessage("You must pick a teacher first before viewing the info about your lessons, " + MainActivity.student.Name + ".");
+                alertDialog.SetPositiveButton("Pick Teacher", delegate
+                {
+                    StartActivity(new Intent(this, typeof(PickTeacher)));
+                    alertDialog.Dispose();
+                })
+                .SetNegativeButton("Cancel", delegate
+                {
+                    alertDialogBuilder.Dispose();
+                });
+                alertDialog.Show();
+            }
         }
 
         private void BtnTeacherLogin_Click(object sender, EventArgs e)
@@ -166,9 +201,15 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             alertDialogAndroid.Show();
         }
 
-        private void BtnSettings_Click(object sender, EventArgs e)
+        private void BtnCheckList_Click(object sender, EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(ACTIVITIES.Settings));
+            Intent intent = new Intent(this, typeof(WhatsNewActivity));
+            StartActivity(intent);
+        }
+
+        private void BtnList_Click(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(ListOfLessons));
             StartActivity(intent);
         }
 

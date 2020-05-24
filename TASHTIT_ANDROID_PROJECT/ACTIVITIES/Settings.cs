@@ -7,16 +7,20 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using MODEL;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
     [Activity(Label = "Settings")]
-    public class Settings : Activity
+    public class Settings : AppCompatActivity
     {
         private EditText txtTime, txtPrice;
         private Button btnApply;
+        private Teachers teachers; 
+        private Teacher teacher;
 
         public void SetViews()
         {
@@ -34,9 +38,13 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         {
             Intent.PutExtra("Time", txtTime.Text);
             Intent.PutExtra("Price", txtPrice.Text);
+            teacher = teachers.SelectPicked(MainActivity.student.TeacherId);
+            teachers = teachers.SelectAll();
+            teachers.Update(teacher);
+            //.Cost = int.Parse(txtPrice.Text);
+            MainActivity.teacher.MinutsOfLesson = int.Parse(txtTime.Text);
             Toast.MakeText(this, "Saved successfully!", ToastLength.Short).Show();
-            Intent intent = new Intent(this, typeof(MainActivity));
-            StartActivity(intent);
+            Finish();
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -46,6 +54,9 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             // Create your application here
             SetContentView(Resource.Layout.LessonSettings);
             SetViews();
+            teachers = new Teachers();
+            teachers = teachers.SelectAll();
+            teacher = new Teacher();
         }
     }
 }

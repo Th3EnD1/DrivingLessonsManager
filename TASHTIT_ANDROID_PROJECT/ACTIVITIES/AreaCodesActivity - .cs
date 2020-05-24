@@ -12,11 +12,12 @@ using Android.Widget;
 
 using MODEL;
 using HELPER;
+using Android.Support.V7.App;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
     [Activity(Label = "AreaCodesActivity")]
-    public class AreaCodesActivity : Activity
+    public class AreaCodesActivity : AppCompatActivity
     {
         private ListView    lvCities;
         private EditText    etCity;

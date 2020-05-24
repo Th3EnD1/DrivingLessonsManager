@@ -12,11 +12,12 @@ using Android.Widget;
 using MODEL;
 using TASHTIT_ANDROID_PROJECT.ADAPTERS;
 using HELPER;
+using Android.Support.V7.App;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
     [Activity(Label = "ListOfLessons")]
-    public class ListOfLessons : Activity
+    public class ListOfLessons : AppCompatActivity
     {
         private ListView lvLessons;
         private Button btnAddNewLesson;

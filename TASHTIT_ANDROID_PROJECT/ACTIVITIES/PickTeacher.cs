@@ -7,6 +7,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using HELPER;
@@ -16,7 +17,7 @@ using static Android.Provider.Settings;
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
     [Activity(Label = "PickTeacher")]
-    public class PickTeacher : Activity
+    public class PickTeacher : AppCompatActivity
     {
         private TextView txtHeader;
         private ListView lvTeachers;

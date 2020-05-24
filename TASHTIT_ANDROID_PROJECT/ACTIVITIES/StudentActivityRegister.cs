@@ -7,6 +7,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using HELPER;
@@ -15,7 +16,7 @@ using MODEL;
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
     [Activity(Label = "Student_Activity")]
-    public class Student_Activity : Activity
+    public class StudentActivityRegister : AppCompatActivity
     {
         private EditText etName;
         private EditText etTz;
@@ -34,7 +35,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.student_layout);
+            SetContentView(Resource.Layout.student_register);
             SetViews();
 
             students = new Students();
@@ -117,7 +118,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                 Toast.MakeText(this, "The ID number is already in use by another student!", ToastLength.Short).Show();
             }
 
-            Finish();
+            StartActivity(new Intent(this, typeof(StudentActivity)));
         }
     }
 }

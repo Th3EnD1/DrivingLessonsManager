@@ -7,6 +7,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using MODEL;
@@ -14,7 +15,7 @@ using MODEL;
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
     [Activity(Label = "Info")]
-    public class Info : Activity
+    public class Info : AppCompatActivity
     {
         private TextView txtLessonsDone, txtMoneyPaid, txtLessonsLeft, txtMoneyLeft;
         private Student student;
@@ -60,24 +61,28 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         {
             lessons = lessons.SelectPaidLessons(student);
             txtLessonsDone.Text ="" + lessons.Count.ToString() + " lessons.";
+            lessons = lessons.SelectAll();
         }
 
         private void PaidLessons()
         {
             lessons = lessons.SelectPaidLessons(student);
             txtMoneyPaid.Text = (lessons.Count * teacher.Cost).ToString() + " Shekels.";
+            lessons = lessons.SelectAll();
         }
 
         private void LessonsLeft()
         {
             lessons = lessons.SelectLessonsLeft(student);
             txtLessonsLeft.Text = lessons.Count.ToString() + " more lessons left.";
+            lessons = lessons.SelectAll();
         }
 
         private void MoneyLeft()
         {
             lessons = lessons.SelectNotPaidLessons(student);
             txtMoneyLeft.Text = (lessons.Count * teacher.Cost).ToString() + " Shekels.";
+            lessons = lessons.SelectAll();
         }
     }
 }

@@ -98,7 +98,7 @@ namespace MODEL
         {
             DateTime d = DateTime.Now;
 
-            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id + " AND Date>" + d + "AND Time>" + d);
+            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id + " AND Date>" + d + " AND Time>" + d);
 
             Lessons lessons = new Lessons();
 

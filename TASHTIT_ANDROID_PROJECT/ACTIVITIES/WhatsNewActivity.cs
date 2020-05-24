@@ -7,13 +7,14 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
     [Activity(Label = "WhatsNewActivity")]
-    public class WhatsNewActivity : Activity
+    public class WhatsNewActivity : AppCompatActivity
     {
         private CheckBox checkBoxEye,
                          checkBoxDoc,

@@ -17,57 +17,33 @@ namespace TASHTIT_ANDROID_PROJECT
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@drawable/car" )]
     public class MainActivity : AppCompatActivity
     {
-        private Button btnList, btnSettings, btnCheckList, btnStudentLogin, btnTeacherLogin, btnInfo;
+        private Button btnStudentLogin, btnTeacherLogin, btnStudentRegister, btnTeacherRegister;
         private TextView txtLoggedAs;
         public static Teacher teacher;
         public static Student student;
 
         public void SetViews()
         {
-            btnList = FindViewById<Button>(Resource.Id.btnList);
-            btnSettings = FindViewById<Button>(Resource.Id.btnSettings);
-            btnCheckList = FindViewById<Button>(Resource.Id.btnCheckList);
             btnStudentLogin = FindViewById<Button>(Resource.Id.btnStudentLogin);
+            btnStudentRegister = FindViewById<Button>(Resource.Id.btnStudentRegister);
             btnTeacherLogin = FindViewById<Button>(Resource.Id.btnTeacherLogin);
-            btnInfo = FindViewById<Button>(Resource.Id.btnInfo);
+            btnTeacherRegister = FindViewById<Button>(Resource.Id.btnTeacherRegister);
             txtLoggedAs = FindViewById<TextView>(Resource.Id.txtLoggedAs);
 
-            btnList.Click += BtnList_Click;
-            btnSettings.Click += BtnSettings_Click;
-            btnCheckList.Click += BtnCheckList_Click;
             btnStudentLogin.Click += BtnStudentLogin_Click;
+            btnStudentRegister.Click += BtnStudentRegister_Click;
             btnTeacherLogin.Click += BtnTeacherLogin_Click;
-            btnInfo.Click += BtnInfo_Click;
+            btnTeacherRegister.Click += BtnTeacherRegister_Click;
         }
 
-        private void BtnInfo_Click(object sender, System.EventArgs e)
+        private void BtnTeacherRegister_Click(object sender, System.EventArgs e)
         {
-            Teachers teachers = new Teachers();
-            teachers = teachers.SelectAll();
-            if (MainActivity.student.TeacherId == teachers.SelectPicked(student.TeacherId).Id)
-            {
-                StartActivity(new Intent(this, typeof(Info)));
-            }
-            else
-            {
-                LayoutInflater layoutInflaterAndroid = LayoutInflater.From(this);
-                View mView = layoutInflaterAndroid.Inflate(Resource.Layout.LoginDialog, null);
-                Android.Support.V7.App.AlertDialog.Builder alertDialogBuilder = new Android.Support.V7.App.AlertDialog.Builder(this);
-                alertDialogBuilder.SetView(mView);
-                Android.Support.V7.App.AlertDialog.Builder alertDialog = new Android.Support.V7.App.AlertDialog.Builder(this);
-                alertDialog.SetTitle("Pick a teacher");
-                alertDialog.SetMessage("You must pick a teacher first before viewing the info about your lessons, " + MainActivity.student.Name + ".");
-                alertDialog.SetPositiveButton("Pick Teacher", delegate
-                {
-                    StartActivity(new Intent(this, typeof(PickTeacher)));
-                    alertDialog.Dispose();
-                })
-                .SetNegativeButton("Cancel", delegate
-                {
-                    alertDialogBuilder.Dispose();
-                });
-                alertDialog.Show();
-            }
+            StartActivity(new Intent(this, typeof(TeacherActivityRegister)));
+        }
+
+        private void BtnStudentRegister_Click(object sender, System.EventArgs e)
+        {
+            StartActivity(new Intent(this, typeof(StudentActivityRegister)));
         }
 
         private void BtnTeacherLogin_Click(object sender, System.EventArgs e)
@@ -192,24 +168,6 @@ namespace TASHTIT_ANDROID_PROJECT
             alertDialogAndroid.Show();
         }
 
-        private void BtnCheckList_Click(object sender, System.EventArgs e)
-        {
-            Intent intent = new Intent(this, typeof(WhatsNewActivity));
-            StartActivity(intent);
-        }
-
-        private void BtnSettings_Click(object sender, System.EventArgs e)
-        {
-            Intent intent = new Intent(this, typeof(ACTIVITIES.Settings));
-            StartActivity(intent);
-        }
-
-        private void BtnList_Click(object sender, System.EventArgs e)
-        {
-            Intent intent = new Intent(this, typeof(ListOfLessons));
-            StartActivity(intent);
-        }
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -255,13 +213,13 @@ namespace TASHTIT_ANDROID_PROJECT
 
                 case Resource.Id.mnuTeacher:
                     {
-                        StartActivity(new Intent(this, typeof(TeacherActivity)));
+                        StartActivity(new Intent(this, typeof(TeacherActivityRegister)));
                         break;
                     }
 
                 case Resource.Id.mnuStudent:
                     {
-                        StartActivity(new Intent(this, typeof(Student_Activity)));
+                        StartActivity(new Intent(this, typeof(StudentActivityRegister)));
                         break;
                     }
 
