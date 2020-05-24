@@ -42,7 +42,9 @@ namespace TASHTIT_ANDROID_PROJECT
 
         private void BtnInfo_Click(object sender, System.EventArgs e)
         {
-            if (MainActivity.student.PickedTeacher != null)
+            Teachers teachers = new Teachers();
+            teachers = teachers.SelectAll();
+            if (MainActivity.student.TeacherId == teachers.SelectPicked(student.TeacherId).Id)
             {
                 StartActivity(new Intent(this, typeof(Info)));
             }

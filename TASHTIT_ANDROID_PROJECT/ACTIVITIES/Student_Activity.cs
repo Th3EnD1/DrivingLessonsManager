@@ -25,8 +25,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private Button btnSave;
         private Button btnCancel;
         private Button btnPick;
-        private Student student, studentForPickedTeacher;
+        private Student student;
+        private Teacher TeacherForPick;
         private Students students;
+        private int teacherId;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -37,7 +39,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             students = new Students();
             students = students.SelectAll();
-            studentForPickedTeacher = new Student();
+            TeacherForPick = new Teacher();
         }
 
         public void SetViews()
@@ -71,11 +73,16 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                     if (data.Extras != null)
                     {
                         // Studentבדיקה אם הגיע 
-                        if (data.Extras.ContainsKey("STUDENT"))
-                        {
+                        //if (data.Extras.ContainsKey("TEACHER"))
+                        //{
                             // Studentחילוץ ה-
                             // "דה-סריאליזציה"
-                            studentForPickedTeacher = Serializer.ByteArrayToObject(data.GetByteArrayExtra("STUDENT")) as Student;
+                            //TeacherForPick = Serializer.ByteArrayToObject(data.GetByteArrayExtra("TEACHER")) as Teacher;
+                        //}
+
+                        if (data.Extras.ContainsKey("TEACHERID"))
+                        {
+                            teacherId = data.GetIntExtra("TEACHERID", 0);
                         }
                     }
                 }
@@ -95,8 +102,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             student.Phone = etPhone.Text;
             student.Email = etEmail.Text;
             student.Psw = etPassword.Text;
-            student.PickedTeacher = studentForPickedTeacher.PickedTeacher;
-            student.TeacherId = studentForPickedTeacher.TeacherId;
+            //student.PickedTeacher = TeacherForPick;
+            student.TeacherId = teacherId;
 
 
             if (!students.Exists(student))

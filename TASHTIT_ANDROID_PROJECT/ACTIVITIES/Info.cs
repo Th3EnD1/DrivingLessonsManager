@@ -34,7 +34,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             teacher = new Teacher();
             teachers = new Teachers();
             teachers = teachers.SelectAll();
-            teacher = student.PickedTeacher;
+            teacher = teachers.SelectPicked(student.TeacherId);
             //paidLessons = new Lessons();
             //paidLessons = paidLessons.SelectPaidLessons(student);
             //notPaidLessons = new Lessons();

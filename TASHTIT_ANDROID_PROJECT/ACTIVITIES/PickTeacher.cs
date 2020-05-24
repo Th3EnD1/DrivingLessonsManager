@@ -46,11 +46,13 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             alertDiag.SetPositiveButton("Choose", (EventHandler<DialogClickEventArgs>)((senderAlert, args)
             =>
             {
-                student.TeacherId = teachers[e.Position].Id;
-                student.PickedTeacher = teachers[e.Position];
+                //student.TeacherId = teachers[e.Position].Id;
+                //student.PickedTeacher = teachers[e.Position];
+
                 //MainActivity.student = student;
                 Intent intent = new Intent();
-                intent.PutExtra("STUDENT", Serializer.ObjectToByteArray(student));
+                //intent.PutExtra("TEACHER", Serializer.ObjectToByteArray(teachers[e.Position]));
+                intent.PutExtra("TEACHERID", teachers[e.Position].Id);
                 SetResult(Result.Ok, intent);
                 alertDiag.Dispose();
                 Finish();

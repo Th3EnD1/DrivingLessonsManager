@@ -48,6 +48,15 @@ namespace MODEL
             return teachers;
         }
 
+        public Teacher SelectPicked(int teacherId)
+        {
+            List<Teacher> list = DbTable<Teacher>.SelectQuery("SELECT * FROM Teachers WHERE Id=" + teacherId);
+            if (list != null)
+                return list[0];
+            else
+                return null;
+        }
+
         public int Insert(Teacher teacher)
         {
             return DbTable<Teacher>.Insert(teacher);
