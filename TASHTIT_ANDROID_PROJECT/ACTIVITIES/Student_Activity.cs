@@ -96,12 +96,13 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             student.Email = etEmail.Text;
             student.Psw = etPassword.Text;
             student.PickedTeacher = studentForPickedTeacher.PickedTeacher;
+            student.TeacherId = studentForPickedTeacher.TeacherId;
 
 
             if (!students.Exists(student))
             {
                 students.Add(student);
-                students.Insert(student);
+                 students.Insert(student);
                 MainActivity.student = student;
             }
             else

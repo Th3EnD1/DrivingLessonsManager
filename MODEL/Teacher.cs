@@ -80,5 +80,9 @@ namespace MODEL
         {
             return name + " - " + phone;
         }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
