@@ -68,10 +68,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             {
                 if (resultCode == Result.Ok)
                 {
-                    if (Intent.Extras != null)
+                    if (data.Extras != null)
                     {
                         // Studentבדיקה אם הגיע 
-                        if (Intent.Extras.ContainsKey("STUDENT"))
+                        if (data.Extras.ContainsKey("STUDENT"))
                         {
                             // Studentחילוץ ה-
                             // "דה-סריאליזציה"

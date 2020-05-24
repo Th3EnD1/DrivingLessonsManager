@@ -153,6 +153,10 @@
     <AndroidResource Include="Resources\menu\menu_main.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{379efcb8-9bcf-421f-8434-63098d282efb}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HELPER\HELPER.csproj">
       <Project>{439d9f0f-7663-4680-973d-5a919fe35982}</Project>
       <Name>HELPER</Name>
