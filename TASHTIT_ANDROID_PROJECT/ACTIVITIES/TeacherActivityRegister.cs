@@ -33,7 +33,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.teacher_layout);
+            SetContentView(Resource.Layout.teacher_register);
             SetViews();
 
             teachers = new Teachers();

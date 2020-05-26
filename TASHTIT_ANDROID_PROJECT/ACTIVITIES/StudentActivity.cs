@@ -21,6 +21,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private TextView txtLoggedAs;
         public static Teacher teacher;
         public static Student student;
+        private Intent intent;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -31,6 +32,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             Students students = new Students();
             students = students.SelectAll();
+            intent = new Intent();
         }
 
         public void SetViews()
@@ -53,7 +55,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         {
             Teachers teachers = new Teachers();
             teachers = teachers.SelectAll();
-            if (MainActivity.student.TeacherId == teachers.SelectPicked(student.TeacherId).Id)
+            if (MainActivity.student.TeacherId == teachers.SelectPicked(MainActivity.student.TeacherId).Id)
             {
                 StartActivity(new Intent(this, typeof(Info)));
             }
@@ -204,7 +206,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private void BtnCheckList_Click(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(WhatsNewActivity));
-            StartActivity(intent);
+            StartActivityForResult(intent, 4);
         }
 
         private void BtnList_Click(object sender, EventArgs e)
@@ -276,6 +278,13 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             Toast.MakeText(this, "OnRequestPermissionsResult", ToastLength.Long).Show();
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            if (requestCode == 4)
+                if (resultCode == Result.Ok)
+                    MainActivity.student.Cb = data.GetStringArrayListExtra("CHECK");
         }
     }
 }

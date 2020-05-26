@@ -23,6 +23,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private Button btnAddNewLesson;
         private Lessons lessons;
         private LessonsAdapter adapter;
+        private Teachers teachers;
+        private Teacher teacher;
         int position;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -31,8 +33,12 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             // Create your application here
             lessons = new Lessons();
-            //lessons = lessons.SelectAll();
             lessons = lessons.SelectLessonsForStudent(MainActivity.student);
+
+            teachers = new Teachers();
+            teacher = new Teacher();
+            teacher = teachers.SelectPicked(MainActivity.student.TeacherId);
+
             SetContentView(Resource.Layout.ListOfLessons);
             SetViews();
             lvLessons.Adapter = adapter;
@@ -65,8 +71,13 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             lvLessons.Adapter = adapter;
         }
 
-        protected override void OnActivityResult(int RequestCode, [GeneratedEnum] Result resultCode, Intent data) 
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data) 
         {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (resultCode == Result.Ok)
+            {
+                
+            }
             Lesson lesson = Serializer.ByteArrayToObject(data.GetByteArrayExtra("LESSON")) as Lesson;
             lessons.Add(lesson);
             lessons.InsertDb(lesson);

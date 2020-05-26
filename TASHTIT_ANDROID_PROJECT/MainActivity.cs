@@ -85,6 +85,7 @@ namespace TASHTIT_ANDROID_PROJECT
                     MainActivity.teacher = teacherTest;
                     txtLoggedAs.Text = "Logged as " + MainActivity.teacher.Name;
                     alertDialogBuilder.Dispose();
+                    StartActivity(new Intent(this, typeof(TeacherActivity)));
                 }
                 else
                 {
@@ -146,6 +147,7 @@ namespace TASHTIT_ANDROID_PROJECT
                     MainActivity.student = studentTest;
                     txtLoggedAs.Text = "Logged as " + MainActivity.student.Name;
                     alertDialogBuilder.Dispose();
+                    StartActivity(new Intent(this, typeof(StudentActivity)));
                 }
                 else
                 {

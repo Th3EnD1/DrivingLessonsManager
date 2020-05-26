@@ -30,8 +30,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             btnApply.Click += BtnApply_Click;
 
-            txtTime.Text = Intent.GetStringExtra("Time");
-            txtPrice.Text = Intent.GetStringExtra("Price");
+            txtTime.Text = MainActivity.teacher.MinutsOfLesson.ToString();
+            txtPrice.Text = MainActivity.teacher.Cost.ToString();
         }
 
         private void BtnApply_Click(object sender, EventArgs e)

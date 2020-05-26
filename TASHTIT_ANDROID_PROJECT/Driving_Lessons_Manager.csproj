@@ -202,7 +202,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\teacher_layout.xml">
+    <AndroidResource Include="Resources\layout\teacher_register.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

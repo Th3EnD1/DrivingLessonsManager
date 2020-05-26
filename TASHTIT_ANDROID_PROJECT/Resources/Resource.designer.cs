@@ -9597,7 +9597,7 @@ namespace TASHTIT_ANDROID_PROJECT
 			public const int TeacherLayout = 2131492942;
 			
 			// aapt resource value: 0x7F0C004D
-			public const int teacher_layout = 2131492941;
+			public const int teacher_register = 2131492941;
 			
 			// aapt resource value: 0x7F0C004F
 			public const int WhatsNewCheckList = 2131492943;

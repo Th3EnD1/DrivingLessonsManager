@@ -26,7 +26,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.teacher_layout);
+            SetContentView(Resource.Layout.TeacherLayout);
             SetViews();
 
             Students students = new Students();
@@ -38,6 +38,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             btnSettings = FindViewById<Button>(Resource.Id.btnSettings);
             btnStudentLogin = FindViewById<Button>(Resource.Id.btnStudentLogin);
             btnTeacherLogin = FindViewById<Button>(Resource.Id.btnTeacherLogin);
+            txtLoggedAs = FindViewById<TextView>(Resource.Id.txtLoggedAs);
 
             btnSettings.Click += BtnSettings_Click;
             btnStudentLogin.Click += BtnStudentLogin_Click;
