@@ -25,6 +25,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private LessonsAdapter adapter;
         private Teachers teachers;
         private Teacher teacher;
+        private Diary diary;
+        private Diaries diaries;
         int position;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -38,6 +40,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             teachers = new Teachers();
             teacher = new Teacher();
             teacher = teachers.SelectPicked(MainActivity.student.TeacherId);
+
+            diaries = new Diaries();
+            diaries = diaries.SelectAll(MainActivity.student);
+            diary = new Diary();
 
             SetContentView(Resource.Layout.ListOfLessons);
             SetViews();
@@ -61,7 +67,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private void BtnAddNewLesson_Click(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(NewLesson));
-            StartActivityForResult(intent, 0);
+            StartActivityForResult(intent, 5);
             RefreshListView();
         }
 
@@ -74,14 +80,43 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data) 
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            if (resultCode == Result.Ok)
+            if (requestCode == 5)
             {
-                
+                if (resultCode == Result.Ok)
+                {
+                    if (data.Extras != null)
+                    {
+                        if (data.Extras.ContainsKey("LESSON"))
+                        {
+                            Lesson lesson = Serializer.ByteArrayToObject(data.GetByteArrayExtra("LESSON")) as Lesson;
+                            if (lesson.Time >= teacher.StartHour && lesson.Time <= teacher.EndHour)
+                            {
+                                lessons.Add(lesson);
+                                lessons.InsertDb(lesson);
+                                RefreshListView();
+
+                                if (diaries.Count == 0)
+                                {
+                                    diary.Date = new DateTime(lesson.Date.Year, lesson.Date.Month, lesson.Date.Day, lesson.Time.Hour, lesson.Time.Minute, 0);
+                                    switch(lesson.LessonTypeNo)
+                                    {
+                                        case 0: { diary.LessonType = LessonTypeEnum.Regular.ToString(); }break;
+                                        case 1: { diary.LessonType = LessonTypeEnum.OneAndHalf.ToString(); } break;
+                                        case 2: { diary.LessonType = LessonTypeEnum.Double.ToString(); } break;
+                                        case 3: { diary.LessonType = LessonTypeEnum.Triple.ToString(); } break;
+                                        case 4: { diary.LessonType = LessonTypeEnum.InTest.ToString(); } break;
+                                        case 5: { diary.LessonType = LessonTypeEnum.OutTest.ToString(); } break;
+                                        default: { diary.LessonType = LessonTypeEnum.Regular.ToString(); } break;
+                                    }
+                                    diary.StudentName = MainActivity.student.Name;
+                                    diaries.Add(diary);
+                                    diaries.Insert(diary);
+                                }
+                            }
+                        }
+                    }
+                }
             }
-            Lesson lesson = Serializer.ByteArrayToObject(data.GetByteArrayExtra("LESSON")) as Lesson;
-            lessons.Add(lesson);
-            lessons.InsertDb(lesson);
-            RefreshListView();
         }
 
         private void LvLessons_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
