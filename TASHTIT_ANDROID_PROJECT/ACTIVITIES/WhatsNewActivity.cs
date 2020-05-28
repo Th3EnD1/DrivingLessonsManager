@@ -25,9 +25,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                          checkBoxMorning,
                          checkBoxEvening;
         private Button btnApply;
-        private IList<string> cbString;
-        private List<CheckBox> cbList;
-        //IList<String> cb;
+        private IList<string> cbList;
 
         public void SetViews()
         {
@@ -40,52 +38,9 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             checkBoxMorning = FindViewById<CheckBox>(Resource.Id.checkBoxMorning);
             checkBoxEvening = FindViewById<CheckBox>(Resource.Id.checkBoxEvening);
 
-            cbList.Add(checkBoxEye);
-            cbList.Add(checkBoxDoc);
-            cbList.Add(checkBoxGreen);
-            cbList.Add(checkBoxTheory);
-            cbList.Add(checkBoxInnerTest);
-            cbList.Add(checkBoxOutterTest);
-            cbList.Add(checkBoxMorning);
-            cbList.Add(checkBoxEvening);
-
-            if (MainActivity.student.Cb != null)
-            {
-                for (int i = 0; i < MainActivity.student.Cb.Count; i++)
-                {
-                    if (MainActivity.student.Cb[i] == "true")
-                        cbList[i].Checked = true;
-                    else
-                        cbList[i].Checked = false;
-                }
-            }
-            else
-            {
-                checkBoxEye.Checked = false;
-                checkBoxDoc.Checked = false;
-                checkBoxGreen.Checked = false;
-                checkBoxTheory.Checked = false;
-                checkBoxInnerTest.Checked = false;
-                checkBoxOutterTest.Checked = false;
-                checkBoxMorning.Checked = false;
-                checkBoxEvening.Checked = false;
-            }
-
             btnApply = FindViewById<Button>(Resource.Id.btnApply);
 
             btnApply.Click += BtnApply_Click;
-
-            //cb = Intent.GetStringArrayListExtra("CHECK");
-            //if (cb.Count != 0 || cb != null)
-            //{
-            //    for (int i = 0; i < cb.Count; i++)
-            //    {
-            //        if (cb[i] == "true")
-            //            cbList[i].Checked = true;
-            //        else
-            //            cbList[i].Checked = false;
-            //    }
-            //}
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -97,23 +52,9 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                 {
                     if (data.Extras != null)
                     {
-                        // Studentבדיקה אם הגיע 
-                        //if (data.Extras.ContainsKey("TEACHER"))
-                        //{
-                        // Studentחילוץ ה-
-                        // "דה-סריאליזציה"
-                        //TeacherForPick = Serializer.ByteArrayToObject(data.GetByteArrayExtra("TEACHER")) as Teacher;
-                        //}
-
                         if (data.Extras.ContainsKey("CHECK"))
                         {
-                            for (int i = 0; i < cbString.Count; i++)
-                            {
-                                if (cbString[i] == "true")
-                                    cbList[i].Checked = true;
-                                else
-                                    cbList[i].Checked = false;
-                            }
+                            cbList = data.GetStringArrayListExtra("CHECK");
                         }
                     }
                 }
@@ -122,15 +63,16 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
         private void BtnApply_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < cbList.Count; i++)
-            {
-                if (cbList[i].Checked == true)
-                    cbString[i] = "true";
-                else
-                    cbString[i] = "false";
-            }
+            cbList[0] = checkBoxEye.Checked.ToString();
+            cbList[1] = checkBoxDoc.Checked.ToString();
+            cbList[2] = checkBoxGreen.Checked.ToString();
+            cbList[3] = checkBoxTheory.Checked.ToString();
+            cbList[4] = checkBoxInnerTest.Checked.ToString();
+            cbList[5] = checkBoxOutterTest.Checked.ToString();
+            cbList[6] = checkBoxMorning.Checked.ToString();
+            cbList[7] = checkBoxEvening.Checked.ToString();
             Intent intent = new Intent(this, typeof(StudentActivity));
-            intent.PutStringArrayListExtra("CHECK", cbString);
+            intent.PutStringArrayListExtra("CHECK", cbList);
             SetResult(Result.Ok, intent);
             Finish();
         }
@@ -141,13 +83,64 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             // Create your application here
             SetContentView(Resource.Layout.WhatsNewCheckList);
-            cbList = new List<CheckBox>();
             SetViews();
-            cbString = new List<string>();
-            //cb = new List<string>();
-            for (int i = 0; i < cbList.Count; i++)
+            if (cbList == null)
             {
-                cbString.Add("false");
+                cbList = new List<string>();
+                for (int i = 0; i < 8; i++)
+                {
+                    cbList.Add("false");
+                }
+                checkBoxEye.Checked = false;
+                checkBoxDoc.Checked = false;
+                checkBoxGreen.Checked = false;
+                checkBoxTheory.Checked = false;
+                checkBoxInnerTest.Checked = false;
+                checkBoxOutterTest.Checked = false;
+                checkBoxMorning.Checked = false;
+                checkBoxEvening.Checked = false;
+            }
+            else
+            {
+                if (cbList[0] == "true")
+                    checkBoxEye.Checked = true;
+                else
+                    checkBoxEye.Checked = false;
+
+                if (cbList[1] == "true")
+                    checkBoxDoc.Checked = true;
+                else
+                    checkBoxDoc.Checked = false;
+
+                if (cbList[2] == "true")
+                    checkBoxGreen.Checked = true;
+                else
+                    checkBoxGreen.Checked = false;
+
+                if (cbList[3] == "true")
+                    checkBoxTheory.Checked = true;
+                else
+                    checkBoxTheory.Checked = false;
+
+                if (cbList[4] == "true")
+                    checkBoxInnerTest.Checked = true;
+                else
+                    checkBoxInnerTest.Checked = false;
+
+                if (cbList[5] == "true")
+                    checkBoxOutterTest.Checked = true;
+                else
+                    checkBoxOutterTest.Checked = false;
+
+                if (cbList[6] == "true")
+                    checkBoxMorning.Checked = true;
+                else
+                    checkBoxMorning.Checked = false;
+
+                if (cbList[7] == "true")
+                    checkBoxEvening.Checked = true;
+                else
+                    checkBoxEvening.Checked = false;
             }
         }
 

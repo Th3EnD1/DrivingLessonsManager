@@ -105,6 +105,14 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             student.Psw = etPassword.Text;
             //student.PickedTeacher = TeacherForPick;
             student.TeacherId = teacherId;
+            //student.Cb1 = "false";
+            //student.Cb2 = "false";
+            //student.Cb3 = "false";
+            //student.Cb4 = "false";
+            //student.Cb5 = "false";
+            //student.Cb6 = "false";
+            //student.Cb7 = "false";
+            //student.Cb8 = "false";
 
 
             if (!students.Exists(student))

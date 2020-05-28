@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections;
 
 using Android.App;
 using Android.Content;
@@ -21,7 +22,9 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private TextView txtLoggedAs;
         public static Teacher teacher;
         public static Student student;
+        public static Students students;
         private Intent intent;
+        IList<string> cbGetList;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -30,9 +33,24 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             SetContentView(Resource.Layout.StudentLayout);
             SetViews();
 
-            Students students = new Students();
+            students = new Students();
             students = students.SelectAll();
-            intent = new Intent();
+
+            txtLoggedAs.Text = "Logged as " + MainActivity.student.Name;
+
+            cbGetList = new List<string>();
+
+            if (MainActivity.student.Cb1 != null)
+            {
+                cbGetList.Add(MainActivity.student.Cb1);
+                cbGetList.Add(MainActivity.student.Cb2);
+                cbGetList.Add(MainActivity.student.Cb3);
+                cbGetList.Add(MainActivity.student.Cb4);
+                cbGetList.Add(MainActivity.student.Cb5);
+                cbGetList.Add(MainActivity.student.Cb6);
+                cbGetList.Add(MainActivity.student.Cb7);
+                cbGetList.Add(MainActivity.student.Cb8);
+            }
         }
 
         public void SetViews()
@@ -101,18 +119,21 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                 Teacher teacherTest = new Teacher();
                 for (int i = 0; i < teachers.Count; i++)
                 {
-                    if (etEmail.Text == teachers[i].Email)
+                    if (exists == false)
                     {
-                        if (etPassword.Text == teachers[i].Psw)
+                        if (etEmail.Text == teachers[i].Email)
                         {
-                            teacherTest = teachers[i];
-                            exists = true;
+                            if (etPassword.Text == teachers[i].Psw)
+                            {
+                                teacherTest = teachers[i];
+                                exists = true;
+                            }
+                            else
+                                exists = false;
                         }
                         else
                             exists = false;
                     }
-                    else
-                        exists = false;
                 }
                 if (exists == true)
                 {
@@ -205,7 +226,20 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
         private void BtnCheckList_Click(object sender, EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(WhatsNewActivity));
+            intent = new Intent(this, typeof(WhatsNewActivity));
+            if (MainActivity.student.Cb1 != null)
+            {
+                cbGetList[0] = MainActivity.student.Cb1;
+                cbGetList[1] = MainActivity.student.Cb2;
+                cbGetList[2] = MainActivity.student.Cb3;
+                cbGetList[3] = MainActivity.student.Cb4;
+                cbGetList[4] = MainActivity.student.Cb5;
+                cbGetList[5] = MainActivity.student.Cb6;
+                cbGetList[6] = MainActivity.student.Cb7;
+                cbGetList[7] = MainActivity.student.Cb8;
+
+                intent.PutStringArrayListExtra("CHECK", cbGetList);
+            }
             StartActivityForResult(intent, 4);
         }
 
@@ -254,7 +288,18 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         {
             if (requestCode == 4)
                 if (resultCode == Result.Ok)
-                    MainActivity.student.Cb = data.GetStringArrayListExtra("CHECK");
+                {
+                    cbGetList = data.GetStringArrayListExtra("CHECK");
+                    MainActivity.student.Cb1 = cbGetList[0];
+                    MainActivity.student.Cb2 = cbGetList[1];
+                    MainActivity.student.Cb3 = cbGetList[2];
+                    MainActivity.student.Cb4 = cbGetList[3];
+                    MainActivity.student.Cb5 = cbGetList[4];
+                    MainActivity.student.Cb6 = cbGetList[5];
+                    MainActivity.student.Cb7 = cbGetList[6];
+                    MainActivity.student.Cb8 = cbGetList[7];
+                    students.Update(MainActivity.student);
+                }
         }
     }
 }

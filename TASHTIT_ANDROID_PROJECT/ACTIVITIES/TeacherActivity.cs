@@ -31,6 +31,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             Students students = new Students();
             students = students.SelectAll();
+
+            txtLoggedAs.Text = "Logged as " + MainActivity.teacher.Name;
         }
 
         public void SetViews()
@@ -65,18 +67,21 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                 Teacher teacherTest = new Teacher();
                 for (int i = 0; i < teachers.Count; i++)
                 {
-                    if (etEmail.Text == teachers[i].Email)
+                    if (exists == false)
                     {
-                        if (etPassword.Text == teachers[i].Psw)
+                        if (etEmail.Text == teachers[i].Email)
                         {
-                            teacherTest = teachers[i];
-                            exists = true;
+                            if (etPassword.Text == teachers[i].Psw)
+                            {
+                                teacherTest = teachers[i];
+                                exists = true;
+                            }
+                            else
+                                exists = false;
                         }
                         else
                             exists = false;
                     }
-                    else
-                        exists = false;
                 }
                 if (exists == true)
                 {
@@ -126,18 +131,21 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                 Student studentTest = new Student();
                 for (int i = 0; i < students.Count; i++)
                 {
-                    if (etEmail.Text == students[i].Email)
+                    if (exists == false)
                     {
-                        if (etPassword.Text == students[i].Psw)
+                        if (etEmail.Text == students[i].Email)
                         {
-                            studentTest = students[i];
-                            exists = true;
+                            if (etPassword.Text == students[i].Psw)
+                            {
+                                studentTest = students[i];
+                                exists = true;
+                            }
+                            else
+                                exists = false;
                         }
                         else
                             exists = false;
                     }
-                    else
-                        exists = false;
                 }
                 if (exists == true)
                 {
