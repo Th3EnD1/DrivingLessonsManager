@@ -89,7 +89,51 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                         if (data.Extras.ContainsKey("LESSON"))
                         {
                             Lesson lesson = Serializer.ByteArrayToObject(data.GetByteArrayExtra("LESSON")) as Lesson;
+
+                            DateTime d;
+
+                            bool cantry = true;
+
                             if (lesson.Time >= teacher.StartHour && lesson.Time <= teacher.EndHour)
+                            {
+                                foreach (Lesson l in lessons)
+                                {
+                                    if (lesson.Date == l.Date)
+                                    {
+                                        if (lesson.Time == l.Time)
+                                            cantry = false;
+                                        else
+                                        {
+                                            if (lesson.Time.Hour == l.Time.Hour && ((lesson.Time.Minute - l.Time.Minute) <= teacher.MinutsOfLesson))
+                                                cantry = false;
+                                            else
+                                            {
+                                                if (lesson.Time.Hour == l.Time.Hour && ((l.Time.Minute - lesson.Time.Minute) <= teacher.MinutsOfLesson))
+                                                    cantry = false;
+                                                else
+                                                {
+                                                    d = new DateTime(lesson.Time.Year, lesson.Time.Month, lesson.Time.Day, lesson.Time.Hour, (l.Time.Hour + teacher.MinutsOfLesson), 0);
+                                                    if (Convert.ToInt32(lesson.Time - l.Time) <= teacher.MinutsOfLesson)
+                                                        cantry = false;
+                                                    else
+                                                    {
+                                                        if (Convert.ToInt32(l.Time - lesson.Time) <= teacher.MinutsOfLesson)
+                                                            cantry = false;
+                                                        else
+                                                            cantry = true;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                        cantry = true;
+                                }
+
+                            }
+                            else
+                                cantry = false;
+                            if (cantry == true)
                             {
                                 lessons.Add(lesson);
                                 lessons.InsertDb(lesson);
@@ -98,9 +142,9 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                                 if (diaries.Count == 0)
                                 {
                                     diary.Date = new DateTime(lesson.Date.Year, lesson.Date.Month, lesson.Date.Day, lesson.Time.Hour, lesson.Time.Minute, 0);
-                                    switch(lesson.LessonTypeNo)
+                                    switch (lesson.LessonTypeNo)
                                     {
-                                        case 0: { diary.LessonType = LessonTypeEnum.Regular.ToString(); }break;
+                                        case 0: { diary.LessonType = LessonTypeEnum.Regular.ToString(); } break;
                                         case 1: { diary.LessonType = LessonTypeEnum.OneAndHalf.ToString(); } break;
                                         case 2: { diary.LessonType = LessonTypeEnum.Double.ToString(); } break;
                                         case 3: { diary.LessonType = LessonTypeEnum.Triple.ToString(); } break;
@@ -113,6 +157,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                                     diaries.Insert(diary);
                                 }
                             }
+                            else
+                            {
+                                Toast.MakeText(this, "You stupid", ToastLength.Short).Show();
+                            }    
                         }
                     }
                 }
