@@ -50,7 +50,6 @@
     <Compile Include="BaseList.cs" />
     <Compile Include="Diaries.cs" />
     <Compile Include="Diary.cs" />
-    <Compile Include="FireStore\FireStoreLesson.cs" />
     <Compile Include="Lesson.cs" />
     <Compile Include="Lessons.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
