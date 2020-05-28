@@ -55,8 +55,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             btnCancel.Click += BtnCancel_Click;
 
             spnType.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-            var adapter = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.type_array, Android.Resource.Layout.SimpleSpinnerItem);
+            var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.type_array, Android.Resource.Layout.SimpleSpinnerItem);
 
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spnType.Adapter = adapter;
