@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MODEL.BaseEntity" Collapsed="true">
+    <Position X="13.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAAABAAAiA=</HashCode>
+      <FileName>BaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.BaseList&lt;T&gt;" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAEAAAAAAIAAAAYAEAAAQAAAAAAAgAAAAEAAAA=</HashCode>
+      <FileName>BaseList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Diaries">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAQAAAAAAEAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Diaries.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Diary">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAIgAAAAoAAAAAAAAAAAAAABAAAAAwAAAAQ=</HashCode>
+      <FileName>Diary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Lesson">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAABAQEAAAEhAAAAoQAAABAAAAAYAAABAAAAAQAAAQA=</HashCode>
+      <FileName>Lesson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Lessons">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAACAAAAQAAAAUAAAAAAABAAAAAAAAAIEQAAA=</HashCode>
+      <FileName>Lessons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Student" Collapsed="true">
+    <Position X="15.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAgAIACAAAAAgAAAAAABAAAAAQAiA=</HashCode>
+      <FileName>Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Students">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAQAAAAAAEAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Students.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Teacher">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAABCAAAAQkgAAAAhQAACgUAIAoAAAAIAAAAiA=</HashCode>
+      <FileName>Teacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Teachers">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAQAAAAAAEAIAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Teachers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MODEL.EntityStatus">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAEAAAAAAEAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MODEL.LessonTypeEnum">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAIAAAgAAAAAAAEAACAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Lesson.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

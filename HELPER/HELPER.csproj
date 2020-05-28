@@ -53,6 +53,7 @@
     <Compile Include="Serializer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="HELPERClassDiagram.cd" />
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>

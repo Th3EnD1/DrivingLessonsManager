@@ -60,6 +60,7 @@
     <Compile Include="Teacher.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="MODELClassDiagram.cd" />
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
