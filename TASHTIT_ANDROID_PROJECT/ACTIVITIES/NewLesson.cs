@@ -26,7 +26,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         private TextView txtDate, txtTime, txtHeader;
         private DatePickerDialog datePicker;
         private Lesson lesson;
-        private LessonTypes lessonTypes;
+        //private LessonTypes lessonTypes;
         private Spinner spnType;
         private bool isNew;
         private const int DATE_DIALOG = 0;
@@ -150,7 +150,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             SetContentView(Resource.Layout.NewLesson);
             SetViews();
 
-            lessonTypes = new LessonTypes();
+            //lessonTypes = new LessonTypes();
 
             if (Intent.Extras != null)
             {

@@ -65,11 +65,8 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ACTIVITIES\AreaCodesActivity - .cs" />
-    <Compile Include="ACTIVITIES\CategoriesActivity.cs" />
     <Compile Include="ACTIVITIES\Info.cs" />
     <Compile Include="ACTIVITIES\ListOfLessons.cs" />
-    <Compile Include="ACTIVITIES\ListViewActivity.cs" />
     <Compile Include="ACTIVITIES\NewLesson.cs" />
     <Compile Include="ACTIVITIES\PickTeacher.cs" />
     <Compile Include="ACTIVITIES\Settings.cs" />
@@ -77,7 +74,6 @@
     <Compile Include="ACTIVITIES\StudentActivityRegister.cs" />
     <Compile Include="ACTIVITIES\TeacherActivity.cs" />
     <Compile Include="ACTIVITIES\TeacherActivityRegister.cs" />
-    <Compile Include="ACTIVITIES\TypesActivity.cs" />
     <Compile Include="ACTIVITIES\WhatsNewActivity.cs" />
     <Compile Include="ADAPTERS\LessonsAdapter.cs" />
     <Compile Include="MainActivity.cs" />
@@ -85,7 +81,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="google-services.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
