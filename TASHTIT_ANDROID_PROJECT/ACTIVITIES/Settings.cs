@@ -58,5 +58,31 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             teachers = teachers.SelectAll();
             teacher = new Teacher();
         }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.mnuMainActivity:
+                    {
+                        StartActivity(new Intent(this, typeof(MainActivity)));
+                        break;
+                    }
+
+                case Resource.Id.mnuExit:
+                    {
+                        Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
+                        break;
+                    }
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
     }
 }

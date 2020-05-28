@@ -74,7 +74,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.ListViewOfTeacherOrStudents);
+            SetContentView(Resource.Layout.ListViewOfTeachers);
             SetViews();
             teachers = new Teachers();
             teachers = teachers.SelectAll();
@@ -90,6 +90,32 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         {
             adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, teachers);
             lvTeachers.Adapter = adapter;
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.mnuMainActivity:
+                    {
+                        StartActivity(new Intent(this, typeof(MainActivity)));
+                        break;
+                    }
+
+                case Resource.Id.mnuExit:
+                    {
+                        Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
+                        break;
+                    }
+            }
+
+            return base.OnOptionsItemSelected(item);
         }
     }
 }

@@ -183,39 +183,9 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         {
             switch (item.ItemId)
             {
-                case Resource.Id.mnuList:
+                case Resource.Id.mnuMainActivity:
                     {
-                        StartActivity(new Intent(this, typeof(ListOfLessons)));
-                        break;
-                    }
-
-                case Resource.Id.mnuSettings:
-                    {
-                        StartActivity(new Intent(this, typeof(ACTIVITIES.Settings)));
-                        break;
-                    }
-
-                case Resource.Id.mnuWhatsLeft:
-                    {
-                        StartActivity(new Intent(this, typeof(WhatsNewActivity)));
-                        break;
-                    }
-
-                case Resource.Id.mnuTeacher:
-                    {
-                        StartActivity(new Intent(this, typeof(TeacherActivityRegister)));
-                        break;
-                    }
-
-                case Resource.Id.mnuStudent:
-                    {
-                        StartActivity(new Intent(this, typeof(StudentActivityRegister)));
-                        break;
-                    }
-
-                case Resource.Id.mnuPickTeacher:
-                    {
-                        StartActivity(new Intent(this, typeof(PickTeacher)));
+                        StartActivity(new Intent(this, typeof(MainActivity)));
                         break;
                     }
 

@@ -193,11 +193,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\ListOfCategoriesOrLessonType.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\teacher_register.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -208,12 +203,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\OneItemPick.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\ListViewOfTeacherOrStudents.xml">
+    <AndroidResource Include="Resources\layout\ListViewOfTeachers.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
