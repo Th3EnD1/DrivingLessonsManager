@@ -19,18 +19,16 @@ namespace MODEL
     {
         private int studentNo;
         private int lessonTypeNo;
-        private int categoryNo;
         private DateTime date;
         private DateTime time;
         private bool paid;
         private string details;
         private double cost;
 
-        public Lesson(int studentNo, int lessonTypeNo, int categoryNo, DateTime date, DateTime time, bool paid, string details, double cost)
+        public Lesson(int studentNo, int lessonTypeNo, DateTime date, DateTime time, bool paid, string details, double cost)
         {
             this.studentNo = studentNo;
             this.lessonTypeNo = lessonTypeNo;
-            this.categoryNo = categoryNo;
             this.date = date;
             this.time = time;
             this.paid = paid;
@@ -45,7 +43,6 @@ namespace MODEL
         public bool Paid { get => paid; set => paid = value; }
         public string Details { get => details; set => details = value; }
         public int StudentNo { get => studentNo; set => studentNo = value; }
-        public int CategoryNo { get => categoryNo; set => categoryNo = value; }
         public DateTime Time { get => time; set => time = value; }
         public double Cost { get => cost; set => cost = value; }
 
@@ -55,7 +52,6 @@ namespace MODEL
                    base.Equals(obj) &&
                    studentNo == lesson.studentNo &&
                    lessonTypeNo == lesson.lessonTypeNo &&
-                   categoryNo == lesson.categoryNo &&
                    date == lesson.date &&
                    time == lesson.time &&
                    paid == lesson.paid &&
