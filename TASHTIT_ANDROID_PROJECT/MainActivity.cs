@@ -11,6 +11,7 @@ using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using TASHTIT_ANDROID_PROJECT.ACTIVITIES;
 using MODEL;
+using TASHTIT_ANDROID_PROJECT.BROADCAST;
 
 namespace TASHTIT_ANDROID_PROJECT
 {
@@ -21,6 +22,7 @@ namespace TASHTIT_ANDROID_PROJECT
         private TextView txtLoggedAs;
         public static Teacher teacher;
         public static Student student;
+        private AirplaneReceiver airplaneReceiver;
 
         public void SetViews()
         {
@@ -34,6 +36,24 @@ namespace TASHTIT_ANDROID_PROJECT
             btnStudentRegister.Click += BtnStudentRegister_Click;
             btnTeacherLogin.Click += BtnTeacherLogin_Click;
             btnTeacherRegister.Click += BtnTeacherRegister_Click;
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            RegisterReceiver(airplaneReceiver, new IntentFilter("com.xamarin.example.TEST"));
+
+            IntentFilter airplaneIntentFilter = new IntentFilter(Intent.ActionAirplaneModeChanged);
+            IntentFilter ifilter = new IntentFilter();
+            RegisterReceiver(airplaneReceiver, airplaneIntentFilter);
+            ifilter.AddAction(Intent.ActionAirplaneModeChanged);
+        }
+
+        protected override void OnPause()
+        {
+            if (airplaneReceiver != null)
+                UnregisterReceiver(airplaneReceiver);
+            base.OnPause();
         }
 
         private void BtnTeacherRegister_Click(object sender, System.EventArgs e)
@@ -185,9 +205,8 @@ namespace TASHTIT_ANDROID_PROJECT
 
             Students students = new Students();
             students = students.SelectAll();
-            //if (students.Count > 0)
-            //    MainActivity.student = students[0];
-            //teacher.Cost = 140;
+
+            airplaneReceiver = new AirplaneReceiver();
 
         }
 
