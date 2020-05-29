@@ -12,17 +12,23 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using MODEL;
+using Android;
+using Android.Support.V4.Content;
+using Android.Support.V4.App;
+using System.Security;
 
 namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 {
     [Activity(Label = "StudentActivity")]
     public class StudentActivity : AppCompatActivity
     {
-        private Button btnList, btnCheckList, btnStudentLogin, btnTeacherLogin, btnInfo;
+        private Button btnList, btnCheckList,btnCall, btnStudentLogin, btnTeacherLogin, btnInfo;
         private TextView txtLoggedAs;
         public static Teacher teacher;
+        private Teachers teachers;
         public static Student student;
         public static Students students;
+        private string teacherPhone;
         private Intent intent;
         IList<string> cbGetList;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -51,6 +57,11 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                 cbGetList.Add(MainActivity.student.Cb7);
                 cbGetList.Add(MainActivity.student.Cb8);
             }
+
+            teachers = new Teachers();
+            teachers = teachers.SelectAll();
+            teacher = teachers.SelectPicked(MainActivity.student.TeacherId);
+            teacherPhone = teacher.Phone;
         }
 
         public void SetViews()
@@ -60,6 +71,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             btnStudentLogin = FindViewById<Button>(Resource.Id.btnStudentLogin);
             btnTeacherLogin = FindViewById<Button>(Resource.Id.btnTeacherLogin);
             btnInfo = FindViewById<Button>(Resource.Id.btnInfo);
+            btnCall = FindViewById<Button>(Resource.Id.btnCall);
             txtLoggedAs = FindViewById<TextView>(Resource.Id.txtLoggedAs);
 
             btnList.Click += BtnList_Click;
@@ -67,6 +79,40 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             btnStudentLogin.Click += BtnStudentLogin_Click;
             btnTeacherLogin.Click += BtnTeacherLogin_Click;
             btnInfo.Click += BtnInfo_Click;
+            btnCall.Click += BtnCall_Click;
+        }
+
+        private void BtnCall_Click(object sender, EventArgs e)
+        {
+            Intent i = new Intent(Intent.ActionCall, Android.Net.Uri.Parse("tel:" + teacherPhone));
+            if (CheckPermission(Manifest.Permission.CallPhone))
+            {
+                try
+                {
+                    StartActivity(i);
+                }
+                catch (SecurityException se)
+                {
+                    Toast.MakeText(this, se.Message, ToastLength.Long).Show();
+                }
+            }
+            else
+            {
+                Toast.MakeText(this, "No permission to call", ToastLength.Long).Show();
+            }
+        }
+        /// <summary>
+        /// Checks if is there a permission
+        /// </summary>
+        /// <param name="permission"></param>
+        /// <returns></returns>
+        private bool CheckPermission(string permission)
+        {
+            const int PERMISSION_REQUEST_CODE = 1;
+
+            if (ContextCompat.CheckSelfPermission(this, permission) == Android.Content.PM.Permission.Denied)
+                ActivityCompat.RequestPermissions(this, new string[] { permission }, PERMISSION_REQUEST_CODE);
+            return ContextCompat.CheckSelfPermission(this, permission) == Android.Content.PM.Permission.Granted;
         }
 
         private void BtnInfo_Click(object sender, EventArgs e)

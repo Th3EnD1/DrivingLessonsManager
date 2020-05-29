@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Android;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
+using Android.Support.V4.Content;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
@@ -60,6 +62,20 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             Finish();
         }
 
+        /// <summary>
+        /// Checks if is there a permission
+        /// </summary>
+        /// <param name="permission"></param>
+        /// <returns></returns>
+        private bool CheckPermission(string permission)
+        {
+            const int PERMISSION_REQUEST_CODE = 1;
+
+            if (ContextCompat.CheckSelfPermission(this, permission) == Android.Content.PM.Permission.Denied)
+                ActivityCompat.RequestPermissions(this, new string[] { permission }, PERMISSION_REQUEST_CODE);
+            return ContextCompat.CheckSelfPermission(this, permission) == Android.Content.PM.Permission.Granted;
+        }
+
         private void BtnSave_Click(object sender, EventArgs e)
         {
             Teacher teacher = new Teacher();
@@ -75,13 +91,19 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             {
                 teachers.Add(teacher);
                 teachers.Insert(teacher);
+                MainActivity.teacher = teacher;
             }
             else
             {
                 Toast.MakeText(this, "The email is already in use by another teacher!", ToastLength.Short).Show();
             }
 
-            StartActivity(new Intent(this, typeof(StudentActivity)));
+            if (CheckPermission(Manifest.Permission.Vibrate))
+            {
+                Vibrator vibrator = (Vibrator)this.ApplicationContext.GetSystemService(Context.VibratorService);
+                vibrator.Vibrate(1000);
+            }
+            StartActivity(new Intent(this, typeof(TeacherActivity)));
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
