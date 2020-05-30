@@ -66,12 +66,22 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             // Create your application here
             SetContentView(Resource.Layout.WhatsNewCheckList);
             SetViews();
+            cbList = new List<string>();
+            cbList = StudentActivity.cbGetList;
+            cbList[0] = MainActivity.student.Cb1;
+            cbList[1] = MainActivity.student.Cb2;
+            cbList[2] = MainActivity.student.Cb3;
+            cbList[3] = MainActivity.student.Cb4;
+            cbList[4] = MainActivity.student.Cb5;
+            cbList[5] = MainActivity.student.Cb6;
+            cbList[6] = MainActivity.student.Cb7;
+            cbList[7] = MainActivity.student.Cb8;
             if (cbList == null)
             {
                 cbList = new List<string>();
                 for (int i = 0; i < 8; i++)
                 {
-                    cbList.Add("false");
+                    cbList.Add("False");
                 }
                 checkBoxEye.Checked = false;
                 checkBoxDoc.Checked = false;
@@ -84,42 +94,42 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             }
             else
             {
-                if (cbList[0] == "true")
+                if (cbList[0] == "True")
                     checkBoxEye.Checked = true;
                 else
                     checkBoxEye.Checked = false;
 
-                if (cbList[1] == "true")
+                if (cbList[1] == "True")
                     checkBoxDoc.Checked = true;
                 else
                     checkBoxDoc.Checked = false;
 
-                if (cbList[2] == "true")
+                if (cbList[2] == "True")
                     checkBoxGreen.Checked = true;
                 else
                     checkBoxGreen.Checked = false;
 
-                if (cbList[3] == "true")
+                if (cbList[3] == "True")
                     checkBoxTheory.Checked = true;
                 else
                     checkBoxTheory.Checked = false;
 
-                if (cbList[4] == "true")
+                if (cbList[4] == "True")
                     checkBoxInnerTest.Checked = true;
                 else
                     checkBoxInnerTest.Checked = false;
 
-                if (cbList[5] == "true")
+                if (cbList[5] == "True")
                     checkBoxOutterTest.Checked = true;
                 else
                     checkBoxOutterTest.Checked = false;
 
-                if (cbList[6] == "true")
+                if (cbList[6] == "True")
                     checkBoxMorning.Checked = true;
                 else
                     checkBoxMorning.Checked = false;
 
-                if (cbList[7] == "true")
+                if (cbList[7] == "True")
                     checkBoxEvening.Checked = true;
                 else
                     checkBoxEvening.Checked = false;

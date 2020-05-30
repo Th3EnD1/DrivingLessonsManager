@@ -30,7 +30,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         public static Students students;
         private string teacherPhone;
         private Intent intent;
-        IList<string> cbGetList;
+        public static IList<string> cbGetList;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -286,7 +286,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
                 intent.PutStringArrayListExtra("CHECK", cbGetList);
             }
-            SetResult(Result.Ok, intent);
+            //SetResult(Result.Ok, intent);
             StartActivityForResult(intent, 4);
         }
 
