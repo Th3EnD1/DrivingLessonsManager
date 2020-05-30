@@ -2,7 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#9DC3C2">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -17,7 +18,7 @@
         android:text="Driving Lessons Manager"
         android:textSize="30dp"
         android:gravity="center"
-        android:textColor="@android:color/holo_blue_light"
+        android:textColor="#293D51"
     />
 
     <TextView
@@ -27,6 +28,7 @@
         android:gravity="center"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
+            android:textColor="#293D51"
         android:id="@+id/txtLoggedAs"
     />
 
@@ -36,9 +38,12 @@
         android:layout_height="wrap_content"
 		android:layout_gravity="center"
 		android:text="Student Login"
-        android:textSize="25sp"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="40dp"
+        android:textSize="25sp"
+        android:textColor="#4D7298"
+        android:background="#D0EFB1"
+        android:layout_margin="10sp"
     />
 
     <Button
@@ -48,8 +53,16 @@
 		android:layout_gravity="center"
 		android:text="Student Register"
         android:textSize="25sp"
+        android:textColor="#4D7298"
         android:layout_marginBottom="5dp"
+        android:background="#B3D89C"
+        android:layout_margin="10sp"
     />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+        />
 
     <Button
         android:id="@+id/btnTeacherLogin"
@@ -58,8 +71,9 @@
 		android:layout_gravity="center"
 		android:text="Teacher Login"
         android:textSize="25sp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="40dp"
+        android:background="#B3D89C"
+            android:textColor="#4D7298"
+        android:layout_margin="10sp"
     />
 
     <Button
@@ -70,6 +84,9 @@
 		android:text="Teacher Register"
         android:textSize="25sp"
         android:layout_marginBottom="5dp"
+            android:background="#B3D89C"
+            android:layout_margin="10sp"
+            android:textColor="#4D7298"
     />
 
 </LinearLayout>

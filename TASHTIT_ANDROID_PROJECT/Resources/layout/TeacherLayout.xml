@@ -2,7 +2,8 @@
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#9DC3C2">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -15,7 +16,7 @@
         android:text="Driving Lessons Manager"
         android:textSize="30dp"
         android:gravity="center"
-        android:textColor="@android:color/holo_blue_light"
+        android:textColor="#293D51"
     />
 
     <TextView
@@ -25,6 +26,7 @@
         android:gravity="center"
         android:textSize="20sp"
         android:layout_marginTop="30dp"
+            android:textColor="#293D51"
         android:id="@+id/txtLoggedAs"
     />
 
@@ -37,6 +39,10 @@
         android:textSize="25sp"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="40dp"
+            android:textSize="25sp"
+        android:textColor="#4D7298"
+        android:background="#D0EFB1"
+        android:layout_margin="10sp"
     />
 
     <Button
@@ -47,6 +53,10 @@
 		android:text="Teacher Login"
         android:textSize="25sp"
         android:layout_marginBottom="5dp"
+            android:textSize="25sp"
+        android:textColor="#4D7298"
+        android:background="#D0EFB1"
+        android:layout_margin="10sp"
     />
 
     <Button
@@ -57,6 +67,10 @@
 		android:text="Settings"
         android:textSize="25sp"
         android:layout_marginBottom="5dp"
+            android:textSize="25sp"
+        android:textColor="#4D7298"
+        android:background="#D0EFB1"
+        android:layout_margin="10sp"
 	/>
 
 </LinearLayout>

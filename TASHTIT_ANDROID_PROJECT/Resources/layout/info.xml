@@ -1,7 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#9DC3C2">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25sp"
+                    android:textColor="#293D51"
             android:text="I have paid so far for "
         />
 
@@ -35,6 +37,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25sp"
+                    android:textColor="#293D51"
             android:text="0 lessons."
             android:id="@+id/txtLessonsPaid"
         />
@@ -52,6 +55,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25sp"
+                    android:textColor="#293D51"
             android:text="I have paid so far "
         />
 
@@ -61,6 +65,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25sp"
+                    android:textColor="#293D51"
             android:text="0 Shekels."
             android:id="@+id/txtMoneyPaid"
         />
@@ -78,6 +83,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25sp"
+                    android:textColor="#293D51"
             android:text="I owe "
         />
 
@@ -87,6 +93,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25sp"
+                    android:textColor="#293D51"
             android:text="0 Shekels."
             android:id="@+id/txtMoneyLeft"
         />

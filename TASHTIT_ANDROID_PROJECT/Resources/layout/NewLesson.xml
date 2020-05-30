@@ -1,7 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#9DC3C2">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Add A New Lesson"
-        android:textColor="#0000FF"
+        android:textColor="#293D51"
         android:textSize="30sp"
         android:id="@+id/txtHeader"
         android:textStyle="italic" />
@@ -78,6 +79,10 @@
         android:layout_marginTop="20dp"
         android:text="Choose date"
         android:id="@+id/btnDate"
+            android:textSize="25sp"
+        android:textColor="#4D7298"
+        android:background="#D0EFB1"
+        android:layout_margin="10sp"
     />
 
     <Button
@@ -87,6 +92,10 @@
         android:layout_marginTop="20dp"
         android:text="Choose time"
         android:id="@+id/btnTime"
+            android:textSize="25sp"
+        android:textColor="#4D7298"
+        android:background="#D0EFB1"
+        android:layout_margin="10sp"
     />
 
     <LinearLayout
@@ -125,6 +134,10 @@
         android:text="Add"
         android:id="@+id/btnSave"
         android:layout_weight="1"
+                android:textSize="25sp"
+        android:textColor="#4D7298"
+        android:background="#D0EFB1"
+        android:layout_margin="10sp"
     />
         
     <Button
@@ -134,6 +147,10 @@
         android:text="Cancel"
         android:id="@+id/btnCancel"
         android:layout_weight="1"
+                android:textSize="25sp"
+        android:textColor="#4D7298"
+        android:background="#D0EFB1"
+        android:layout_margin="10sp"
     />
 </LinearLayout>
 
