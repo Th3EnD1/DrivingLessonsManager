@@ -1,2 +1,114 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MODEL.BaseEntity">
+    <Position X="12.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQAAAAgAAAAAAAAAAAAAAAAAAAABAAAiA=</HashCode>
+      <FileName>BaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.BaseList&lt;T&gt;">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAEAAAAAAIAAAAYAEAAAQAAAAAAAgAAAAEAAAA=</HashCode>
+      <FileName>BaseList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Diaries">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAQAAAAAAEAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Diaries.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Diary">
+    <Position X="10.5" Y="5.25" Width="1.5" />
+    <InheritanceLine Type="MODEL.BaseEntity" ManuallyRouted="true">
+      <Path>
+        <Point X="13" Y="4.218" />
+        <Point X="13" Y="4.837" />
+        <Point X="11.25" Y="4.837" />
+        <Point X="11.25" Y="5.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAIgAAAAoAAAAAAAAAAAAAABAAAAAwAAAAQ=</HashCode>
+      <FileName>Diary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Lesson">
+    <Position X="12.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAABAQAAAAEgAAAAoAAACBAAAAgYAAABAAAAAQAAAQA=</HashCode>
+      <FileName>Lesson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Lessons">
+    <Position X="5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEAAAAAAACAAAAQAAAAUAAAAAAABAAAAAAAAAIEQAAA=</HashCode>
+      <FileName>Lessons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Student">
+    <Position X="16" Y="4.75" Width="1.5" />
+    <InheritanceLine Type="MODEL.Teacher" ManuallyRouted="true">
+      <Path>
+        <Point X="15.5" Y="7.895" />
+        <Point X="15.665" Y="7.895" />
+        <Point X="15.665" Y="5.655" />
+        <Point X="15.835" Y="5.655" />
+        <Point X="15.835" Y="7.895" />
+        <Point X="16" Y="7.895" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAgAIACAAAAAgAAAAAABAAAAAQAiA=</HashCode>
+      <FileName>Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Students">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAQAAAAAAEAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Students.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Teacher">
+    <Position X="14" Y="5" Width="1.5" />
+    <InheritanceLine Type="MODEL.BaseEntity" ManuallyRouted="true">
+      <Path>
+        <Point X="13" Y="4.218" />
+        <Point X="13" Y="4.852" />
+        <Point X="14.75" Y="4.852" />
+        <Point X="14.75" Y="5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAgAABCAAAAQkgAAAAhQAACgUAIAoAAAAIAAAAiA=</HashCode>
+      <FileName>Teacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MODEL.Teachers">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAQAAAAAAEAIAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Teachers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MODEL.EntityStatus" Collapsed="true">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAEAAAAAAEAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MODEL.LessonTypeEnum" Collapsed="true">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAIAAAgAAAAAAAEAACAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Lesson.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
