@@ -208,6 +208,12 @@ namespace TASHTIT_ANDROID_PROJECT
 
             airplaneReceiver = new AirplaneReceiver();
 
+            if (MainActivity.student != null)
+                txtLoggedAs.Text = "Logged as " + MainActivity.student.Name;
+            else
+                if (MainActivity.teacher != null)
+                    txtLoggedAs.Text = "Logged as " + MainActivity.teacher.Name;
+
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
