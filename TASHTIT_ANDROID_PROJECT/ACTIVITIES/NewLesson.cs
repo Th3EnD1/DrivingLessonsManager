@@ -116,6 +116,8 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
             lesson.LessonTypeNo = (int)spnType.SelectedItemId;
 
+            lesson.TeacherId = MainActivity.student.TeacherId;
+
             Intent intent = new Intent();
 
             intent.PutExtra("LESSON", Serializer.ObjectToByteArray(lesson));

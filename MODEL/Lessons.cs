@@ -36,8 +36,8 @@ namespace MODEL
              );
         }
  
-    public Lessons SelectAll()
-    {
+        public Lessons SelectAll()
+        {
             List<Lesson> list;
 
             try
@@ -50,25 +50,37 @@ namespace MODEL
                 throw;
             }
 
-        Lessons lessons = new Lessons();
+            Lessons lessons = new Lessons();
 
-        if (list != null)
-            lessons.AddRange(list);
+            if (list != null)
+                lessons.AddRange(list);
 
-        return lessons;
-    }
+            return lessons;
+        }
 
-    public Lessons SelectLessonsForStudent(Student student)
-    {
-        List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id);
+        public Lessons SelectLessonsForTeacher(Student student, int teacherId)
+        {
+            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE TeacherId=" + student.TeacherId);
 
-        Lessons lessons = new Lessons();
+            Lessons lessons = new Lessons();
 
-        if (list != null)
-            lessons.AddRange(list);
+            if (list != null)
+                lessons.AddRange(list);
 
-        return lessons;
-    }
+            return lessons;
+        }
+
+        public Lessons SelectLessonsForStudent(Student student)
+        {
+            List<Lesson> list = DbTable<Lesson>.SelectQuery("SELECT * FROM Lessons WHERE StudentNo=" + student.Id);
+
+            Lessons lessons = new Lessons();
+
+            if (list != null)
+                lessons.AddRange(list);
+
+            return lessons;
+        }
 
         public Lessons SelectPaidLessons(Student student)
         {
@@ -117,5 +129,5 @@ namespace MODEL
         {
             return DbTable<Lesson>.Delete(lesson);
         }
-}
+    }
 }

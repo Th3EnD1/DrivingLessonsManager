@@ -38,11 +38,11 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         {
             Intent.PutExtra("Time", txtTime.Text);
             Intent.PutExtra("Price", txtPrice.Text);
-            teacher = teachers.SelectPicked(MainActivity.student.TeacherId);
-            teachers = teachers.SelectAll();
+            teacher = MainActivity.teacher;
+            teacher.MinutsOfLesson = int.Parse(txtTime.Text);
+            teacher.Cost = int.Parse(txtPrice.Text);
+            MainActivity.teacher = teacher;
             teachers.Update(teacher);
-            //.Cost = int.Parse(txtPrice.Text);
-            MainActivity.teacher.MinutsOfLesson = int.Parse(txtTime.Text);
             Toast.MakeText(this, "Saved successfully!", ToastLength.Short).Show();
             Finish();
         }

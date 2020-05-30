@@ -286,6 +286,7 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
 
                 intent.PutStringArrayListExtra("CHECK", cbGetList);
             }
+            SetResult(Result.Ok, intent);
             StartActivityForResult(intent, 4);
         }
 

@@ -43,24 +43,6 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             btnApply.Click += BtnApply_Click;
         }
 
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-        {
-            base.OnActivityResult(requestCode, resultCode, data);
-            if (requestCode == 4)
-            {
-                if (resultCode == Result.Ok)
-                {
-                    if (data.Extras != null)
-                    {
-                        if (data.Extras.ContainsKey("CHECK"))
-                        {
-                            cbList = data.GetStringArrayListExtra("CHECK");
-                        }
-                    }
-                }
-            }
-        }
-
         private void BtnApply_Click(object sender, EventArgs e)
         {
             cbList[0] = checkBoxEye.Checked.ToString();
@@ -141,6 +123,24 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                     checkBoxEvening.Checked = true;
                 else
                     checkBoxEvening.Checked = false;
+            }
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (requestCode == 4)
+            {
+                if (resultCode == Result.Ok)
+                {
+                    if (data.Extras != null)
+                    {
+                        if (data.Extras.ContainsKey("CHECK"))
+                        {
+                            cbList = data.GetStringArrayListExtra("CHECK");
+                        }
+                    }
+                }
             }
         }
 

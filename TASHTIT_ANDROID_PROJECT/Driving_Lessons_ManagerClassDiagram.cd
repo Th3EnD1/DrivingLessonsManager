@@ -3,14 +3,14 @@
   <Class Name="TASHTIT_ANDROID_PROJECT.ACTIVITIES.Info">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAEIEAAAAAAAAAAgCAAgBIEAAAAAAQBAII=</HashCode>
+      <HashCode>AAAQAAAAAAAEIEAAAAAAAAAAgCAAgBIEAAAAAAABAII=</HashCode>
       <FileName>ACTIVITIES\Info.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TASHTIT_ANDROID_PROJECT.ACTIVITIES.ListOfLessons">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CIAAAgAAAACgAAAAAAACMAAGgCAAgBgAAAAAAAABAAI=</HashCode>
+      <HashCode>CIAAAgAAAACgAEAAAAACMAAGgCAAwBgAAAAAAAABAAI=</HashCode>
       <FileName>ACTIVITIES\ListOfLessons.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -30,42 +30,42 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TASHTIT_ANDROID_PROJECT.ACTIVITIES.Settings">
-    <Position X="12.75" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAgCAAgAAAAAAAAAARAFI=</HashCode>
       <FileName>ACTIVITIES\Settings.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TASHTIT_ANDROID_PROJECT.ACTIVITIES.StudentActivity">
-    <Position X="14.5" Y="0.5" Width="1.5" />
+    <Position X="18" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAABABAggAAAAEBAJAQIQBAEgCAAgAQAAAAAAAADAAI=</HashCode>
+      <HashCode>CCABABAggAAAAUBAJAQIQBAEgCAAgAQAAAAAAQADAAI=</HashCode>
       <FileName>ACTIVITIES\StudentActivity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TASHTIT_ANDROID_PROJECT.ACTIVITIES.StudentActivityRegister">
-    <Position X="16.25" Y="0.5" Width="1.5" />
+    <Position X="19.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAEkAQAAAAAAEgCgAgBAAAAAKIEICAgI=</HashCode>
+      <HashCode>AAAQAAAAAAAAAUkAQAAAAAAEgCgAgBAAAAAKIEICAgI=</HashCode>
       <FileName>ACTIVITIES\StudentActivityRegister.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TASHTIT_ANDROID_PROJECT.ACTIVITIES.TeacherActivity">
-    <Position X="18" Y="0.5" Width="1.5" />
+    <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABABAAGAAAAEAAIAAAQAAAgCAAgAQAAAAAAAABAAI=</HashCode>
       <FileName>ACTIVITIES\TeacherActivity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TASHTIT_ANDROID_PROJECT.ACTIVITIES.TeacherActivityRegister">
-    <Position X="19.75" Y="0.5" Width="1.5" />
+    <Position X="14.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAARAAAAAAAAAAkAAACAAAAAgCAAgAAAAAAIIEIBAgI=</HashCode>
+      <HashCode>AAARAAAAAAAAAQkAAACAAAAAgCAAgAAAAAAIIEIBAgI=</HashCode>
       <FileName>ACTIVITIES\TeacherActivityRegister.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TASHTIT_ANDROID_PROJECT.ACTIVITIES.WhatsNewActivity">
-    <Position X="21.5" Y="0.5" Width="1.5" />
+    <Position X="16.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAAAAIACAAAAAMwCAAgEAEAAAAAAAAAEY=</HashCode>
       <FileName>ACTIVITIES\WhatsNewActivity.cs</FileName>
@@ -81,7 +81,7 @@
       </Class>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAQAACAIAAAAAAAAAAAAABAAAAABAAgAAAA=</HashCode>
+      <HashCode>AAACAAAAAAYAACAIAAAAAAAAAAAAABAAAAABAAgAAAA=</HashCode>
       <FileName>ADAPTERS\LessonsAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>

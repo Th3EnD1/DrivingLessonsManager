@@ -19,6 +19,7 @@ namespace TASHTIT_ANDROID_PROJECT.ADAPTERS
         private Lessons lessons;
         private int resource;
         private LayoutInflater inflater;
+        private string lessonType;
 
         // ViewHolder הכרזה על אובייקט
         private ViewHolder viewHolder;
@@ -65,7 +66,17 @@ namespace TASHTIT_ANDROID_PROJECT.ADAPTERS
             {
                 viewHolder.txtDate.Text = lesson.Date.ToShortDateString();
                 viewHolder.txtTime.Text = lesson.Time.ToShortTimeString();
-                viewHolder.txtType.Text = lesson.LessonTypeNo.ToString();
+                switch (lesson.LessonTypeNo)
+                {
+                    case 0: { lessonType = "Regular"; } break;
+                    case 1: { lessonType = "OneAndHalf"; } break;
+                    case 2: { lessonType = "Double"; } break;
+                    case 3: { lessonType = "Triple"; } break;
+                    case 4: { lessonType = "InTest"; } break;
+                    case 5: { lessonType = "OutTest"; } break;
+                    default: { lessonType = "Regular"; } break;
+                }
+                viewHolder.txtType.Text = lessonType;
                 viewHolder.checkBoxPaid.Checked = lesson.Paid;
             }
 

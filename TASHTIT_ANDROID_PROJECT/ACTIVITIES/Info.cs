@@ -45,7 +45,6 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             SetViews();
             LessonsDone();
             PaidLessons();
-            LessonsLeft();
             MoneyLeft();
         }
 
@@ -53,7 +52,6 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         {
             txtLessonsDone = FindViewById<TextView>(Resource.Id.txtLessonsPaid);
             txtMoneyPaid = FindViewById<TextView>(Resource.Id.txtMoneyPaid);
-            txtLessonsLeft = FindViewById<TextView>(Resource.Id.txtLessonsLeft);
             txtMoneyLeft = FindViewById<TextView>(Resource.Id.txtMoneyLeft);
         }
 
@@ -68,13 +66,6 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
         {
             lessons = lessons.SelectPaidLessons(student);
             txtMoneyPaid.Text = (lessons.Count * teacher.Cost).ToString() + " Shekels.";
-            lessons = lessons.SelectAll();
-        }
-
-        private void LessonsLeft()
-        {
-            lessons = lessons.SelectLessonsLeft(student);
-            txtLessonsLeft.Text = lessons.Count.ToString() + " more lessons left.";
             lessons = lessons.SelectAll();
         }
 

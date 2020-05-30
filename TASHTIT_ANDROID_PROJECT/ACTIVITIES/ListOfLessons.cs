@@ -21,10 +21,11 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
     {
         private ListView lvLessons;
         private Button btnAddNewLesson;
-        private Lessons lessons;
+        private Lessons lessons, allLessonsOfTeacher;
         private LessonsAdapter adapter;
         private Teachers teachers;
         private Teacher teacher;
+        private Student student;
         private Diary diary;
         private Diaries diaries;
         int position;
@@ -40,6 +41,10 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
             teachers = new Teachers();
             teacher = new Teacher();
             teacher = teachers.SelectPicked(MainActivity.student.TeacherId);
+
+            allLessonsOfTeacher = new Lessons();
+            student = MainActivity.student;
+            allLessonsOfTeacher = allLessonsOfTeacher.SelectLessonsForTeacher(student, teacher.Id);
 
             diaries = new Diaries();
             diaries = diaries.SelectAll(MainActivity.student);
@@ -90,50 +95,148 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                         {
                             Lesson lesson = Serializer.ByteArrayToObject(data.GetByteArrayExtra("LESSON")) as Lesson;
 
-                            DateTime d;
+                            Lesson l = new Lesson();
 
-                            bool cantry = true;
+                            bool possible = true;
 
-                            if (lesson.Time >= teacher.StartHour && lesson.Time <= teacher.EndHour)
+                            if (lesson.Time.Hour == teacher.StartHour.Hour)//Same strating hour
                             {
-                                foreach (Lesson l in lessons)
+                                if (lesson.Time.Minute >= teacher.StartHour.Minute)//After starting
+                                    possible = true;
+                                else
+                                    possible = false;
+                            }
+                            else//Not same hour
+                            {
+                                if (lesson.Time.Hour < teacher.StartHour.Hour)//Before teacher starts working
+                                    possible = false;
+                                else//At least one hour after teacher starts working
+                                    possible = true;
+                            }
+                            if (possible == true)//After starting
+                            {
+                                if (lesson.Time.Hour == teacher.EndHour.Hour)//Same ending hour
                                 {
-                                    if (lesson.Date == l.Date)
+                                    if (lesson.Time.Minute < teacher.EndHour.Minute)//Same hour but before ending
                                     {
-                                        if (lesson.Time == l.Time)
-                                            cantry = false;
-                                        else
+                                        if ((60 - teacher.MinutsOfLesson) < lesson.Time.Minute)//Not enough time for lesson
+                                            possible = false;
+                                        else//Enough time for lesson
+                                            possible = true;
+                                    }
+                                    else//Same hour but after ending
+                                        possible = false;
+                                }
+                                else
+                                {
+                                    if (lesson.Time.Hour > teacher.EndHour.Hour)//After ending
+                                        possible = false;
+                                    else//At least one hour before ending
+                                    {
+                                        if (teacher.EndHour.Hour - 1 == lesson.Time.Hour)//One hour before ending
                                         {
-                                            if (lesson.Time.Hour == l.Time.Hour && ((lesson.Time.Minute - l.Time.Minute) <= teacher.MinutsOfLesson))
-                                                cantry = false;
+                                            if ((60 - teacher.MinutsOfLesson) < lesson.Time.Minute)//Not enough time for lesson
+                                                possible = false;
                                             else
+                                                possible = true;
+                                        }
+                                        else//More than one hour before ending
+                                            possible = true;
+                                    }
+                                }
+                            }
+                            if (possible == true)//If lesson is in working time and enough time before ending
+                            {
+                                if (allLessonsOfTeacher.Count > 0)//There are lessons for the teacher
+                                {
+                                    for (int i = 0; i < allLessonsOfTeacher.Count; i++)//Checks each lesson in the teacher's lessons list
+                                    {
+                                        l = allLessonsOfTeacher[i];//l is the lesson from the list that is in checking right now
+                                        if (possible == true)
+                                        {
+                                            if (lesson.Date <= l.Date)//The date of the lesson is before or at the same date as the checked lesson from the teacher's list
                                             {
-                                                if (lesson.Time.Hour == l.Time.Hour && ((l.Time.Minute - lesson.Time.Minute) <= teacher.MinutsOfLesson))
-                                                    cantry = false;
-                                                else
+                                                if (lesson.Date == l.Date)//The date is at the same date as the checked lesson from the teacher's list
                                                 {
-                                                    d = new DateTime(lesson.Time.Year, lesson.Time.Month, lesson.Time.Day, lesson.Time.Hour, (l.Time.Hour + teacher.MinutsOfLesson), 0);
-                                                    if (Convert.ToInt32(lesson.Time - l.Time) <= teacher.MinutsOfLesson)
-                                                        cantry = false;
-                                                    else
+                                                    if (l.Time.Hour == lesson.Time.Hour)//Same date and hour
                                                     {
-                                                        if (Convert.ToInt32(l.Time - lesson.Time) <= teacher.MinutsOfLesson)
-                                                            cantry = false;
-                                                        else
-                                                            cantry = true;
+                                                        if (l.Time.Minute == lesson.Time.Minute)//Both at the exact same time
+                                                            possible = false;
+                                                        else//Same date and hour but not minutes
+                                                        {
+                                                            if ((l.Time.Minute + teacher.MinutsOfLesson) <= lesson.Time.Minute)//The lesson is exactely after the previous one has done or after it has done at the same hour
+                                                                possible = true;
+                                                            else//The lesson is before the prevoius one has done
+                                                                possible = false;
+                                                        }
                                                     }
                                                 }
+                                                else//The checked lesson from the teacher's list is sometime after the lesson
+                                                {
+                                                    if ((l.Date.Day - 1) == lesson.Date.Day)//The checked lesson from the teacher's list is the day after the lesson
+                                                    {
+                                                        if (lesson.Time.Hour == 23)//If it's the last hour of the day (23:xx or 11PM)
+                                                        {
+                                                            if (lesson.Time.Minute + teacher.MinutsOfLesson <= 60)//The lesson will end before the end of the day
+                                                                possible = true;
+                                                            else//The lesson will continue to the next day (same day as the checked lesson from the teacher's list)
+                                                            {
+                                                                int difference = 60 - lesson.Time.Minute;//The difference is now the time that the lesson will be for the next day
+                                                                if (l.Time.Hour == 0)//The checked lesson from the teacher's list is at the first hour of the day (00:xx or 12 AM)
+                                                                {
+                                                                    if (l.Time.Minute - difference >= 0)//The checked lesson from the teacher's list will start the exact time the previous lesson has ended or after it has ended
+                                                                        possible = true;
+                                                                    else//The checked lesson from the teacher's list will start before the previous lesson has ended
+                                                                        possible = false;
+                                                                }
+                                                                else//The checked lesson from the teacher's list is sometime after 01:00 or 1AM
+                                                                    possible = true;
+                                                            }
+
+                                                        }
+                                                        else//If it's before 23:00 or 11PM
+                                                            possible = true;
+                                                    }
+                                                    else//The checked lesson from the teacher's list is more than a day after the lesson
+                                                        possible = true;
+                                                }
+                                            }
+                                            else//The date of the lesson is after the checked lesson from the teacher's list
+                                            {
+                                                if ((lesson.Date.Day - 1) == l.Date.Day)//The checked lesson from the teacher's list is the day before the lesson
+                                                {
+                                                    if (l.Time.Hour == 23)//If it's the last hour of the day (23:xx or 11PM)
+                                                    {
+                                                        if (l.Time.Minute + teacher.MinutsOfLesson <= 60)//The checked lesson from the teacher's list will end before the end of the day
+                                                            possible = true;
+                                                        else//The checked lesson from the teacher's list will continue to the next day (same day as the lesson)
+                                                        {
+                                                            int difference = 60 - l.Time.Minute;//The difference is now the time that the lesson from the teacher's list will be for the next day
+                                                            if (lesson.Time.Hour == 0)//The lesson is at the first hour of the day (00:xx or 12 AM)
+                                                            {
+                                                                if (lesson.Time.Minute - difference >= 0)//The lesson will start the exact time the previous lesson has ended or after it has ended
+                                                                    possible = true;
+                                                                else//The lesson will start before the previous lesson has ended
+                                                                    possible = false;
+                                                            }
+                                                            else//The lesson is sometime after 01:00 or 1AM
+                                                                possible = true;
+                                                        }
+                                                    }
+                                                    else//If it's before 23:00 or 11PM
+                                                        possible = true;
+                                                }
+                                                else//The lesson is more than a day after the checked lesson from the teacher's list
+                                                    possible = true;
                                             }
                                         }
                                     }
-                                    else
-                                        cantry = true;
                                 }
-
+                                else//There are no lessons for the teacher
+                                    possible = true;
                             }
-                            else
-                                cantry = false;
-                            if (cantry == true)
+
+                            if (possible == true)//If there is no problem at all about the date and the time of the lesson
                             {
                                 lessons.Add(lesson);
                                 lessons.InsertDb(lesson);
@@ -157,9 +260,16 @@ namespace TASHTIT_ANDROID_PROJECT.ACTIVITIES
                                     diaries.Insert(diary);
                                 }
                             }
-                            else
+                            else//If there is a problem with the date or the time of the lesson
                             {
-                                Toast.MakeText(this, "You stupid", ToastLength.Short).Show();
+                                Android.Support.V7.App.AlertDialog.Builder alertDialog = new Android.Support.V7.App.AlertDialog.Builder(this);
+                                alertDialog.SetTitle("Error while trying to add new lesson");
+                                alertDialog.SetMessage("There is a problem with the date or the time of the lesson. please choose a different date or time for the new lesson.");
+                                alertDialog.SetNeutralButton("OK", delegate
+                                {
+                                    alertDialog.Dispose();
+                                });
+                                alertDialog.Show();
                             }    
                         }
                     }
