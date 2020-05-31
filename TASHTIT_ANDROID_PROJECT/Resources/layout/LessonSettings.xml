@@ -54,7 +54,6 @@
         android:layout_height="wrap_content"
         android:text="Apply"
         android:layout_gravity="center"
-        android:textSize="20sp"
         android:id="@+id/btnApply"
         android:textSize="25sp"
         android:textColor="#4D7298"
